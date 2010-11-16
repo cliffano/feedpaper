@@ -17,7 +17,9 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 		    for (i = 0; i < ln; i++) {
 	 		    entry = feed.entries[i];
 			    $('li#' + i + ' a').text(entry.title);
-			    $('li#' + i + ' a').attr('href', '/article?url=' + encodeURIComponent(entry.link) + '&title=' + encodeURIComponent(entry.title));
+			    $('li#' + i + ' a').attr('data-transition', 'slide');
+			    //$('li#' + i + ' a').attr('href', 'http://viewtext.org/article?url=' + entry.link);
+			    $('li#' + i + ' a').attr('href', '/article?url=' + entry.link + '&title=' + entry.title);
 			    $('li#' + i).show();
 		    }
 		} else {
@@ -29,6 +31,6 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 FeedTouch.prototype.loadArticle = function (articleUrl) {
     var url = 'http://viewtext.org/api/text?url=' + articleUrl + '&callback=?';
     $.getJSON(url, function (data) {
-        $('div#content').html('<p>Source: <a href=' + articleUrl + '>' + articleUrl + '</a></p>' + data.content);
+        $('div#content').html('<p>Source: <a href="' + articleUrl + '">' + articleUrl + '</a></p>' + data.content);
     });
 };
