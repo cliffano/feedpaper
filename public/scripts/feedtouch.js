@@ -11,6 +11,7 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 	$.getJSON(url, function (data) {
 		if (data.responseStatus === 200) {
 			feed = data.responseData.feed;
+			document.title = feed.title;
 		    $('li#indicator').hide();
 		    $('h1#title').text(feed.title);
 		    ln = (feed.entries.length > maxDisplay) ? maxDisplay : feed.entries.length;
