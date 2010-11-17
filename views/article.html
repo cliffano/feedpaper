@@ -1,5 +1,6 @@
 <div data-role="page">
   <div data-role="header" data-theme="b">
+		<a id="back" href="#" data-role="button" data-icon="arrow-l">Back</a>
 		<h1 id="title"><%= articleTitle %></h1>
 	</div>
 	<div data-role="content" data-theme="b">
@@ -9,6 +10,12 @@
 	</div>
 </div>
 <script type="text/javascript">
+$('#back').live('tap', function () {
+    history.back();
+    return false;
+}).live('click', function () {
+    return false;
+});
 $(document).ready(function () {
     (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'));
 });
