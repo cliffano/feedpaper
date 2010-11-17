@@ -14,7 +14,7 @@ app.configure(function () {
     app.set('views', __dirname + '/views');
     app.use(express.bodyDecoder());
     app.use(express.methodOverride());
-    app.use('/styles/images', express.staticProvider(__dirname + '/public/images'));
+    app.use('/images', express.staticProvider(__dirname + '/public/images'));
     app.use('/scripts', express.staticProvider(__dirname + '/public/scripts'));
     app.use('/styles', express.staticProvider(__dirname + '/public/styles'));
     app.use(express.gzip());

@@ -1,8 +1,3 @@
-<script type="text/javascript">
-$(document).ready(function () {
-    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'));
-});
-</script>
 <div data-role="page">
   <div data-role="header">
 		<h1 id="title"><%= articleTitle %></h1>
@@ -14,3 +9,8 @@ $(document).ready(function () {
 		<a href="/article?title=<%= articleTitle %>&url=<%= articleUrl %>" data-role="button" data-icon="arrow-u">Top</a>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function () {
+    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'));
+});
+</script>
