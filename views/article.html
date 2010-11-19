@@ -17,6 +17,6 @@ $('#back').live('tap', function () {
     return false;
 });
 $(document).ready(function () {
-    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'));
+    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'), '<%= articleTitle %>');
 });
 </script>

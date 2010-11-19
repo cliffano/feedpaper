@@ -27,9 +27,9 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 		}
 	});
 };
-FeedTouch.prototype.loadArticle = function (articleUrl) {
+FeedTouch.prototype.loadArticle = function (articleUrl, articleTitle) {
     var url = 'http://viewtext.org/api/text?url=' + articleUrl + '&callback=?';
     $.getJSON(url, function (data) {
-        $('div#content').html('<p>Source: <a href="' + articleUrl + '">' + articleUrl + '</a></p>' + data.content);
+        $('div#content').html('<p><strong>' + articleTitle + '</strong><br/><a href="' + articleUrl + '">' + articleUrl + '</a></p>' + data.content);
     });
 };
