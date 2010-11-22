@@ -1,3 +1,6 @@
+li {
+    list-style-type: none;
+}
 div#control {
     text-align: center;
 }
