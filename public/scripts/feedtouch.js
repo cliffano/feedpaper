@@ -29,6 +29,7 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 };
 FeedTouch.prototype.loadArticle = function (articleUrl, articleTitle) {
     var url = 'http://viewtext.org/api/text?url=' + encodeURIComponent(articleUrl) + '&callback=?';
+    $('div#content').html('Loading...');
     $.getJSON(url, function (data) {
         $('div#content').html('<p><strong>' + articleTitle + '</strong><br/><a href="' + articleUrl + '">' + articleUrl + '</a></p>' + data.content);
     });
