@@ -58,10 +58,11 @@
 		</ul>	
 	</div>
 	<div id="control" data-role="footer" data-theme="b">
+		&nbsp;
 	</div>
 </div>
 <script type="text/javascript">
 $(document).ready(function () {
-    (new FeedTouch()).loadFeed(decodeURIComponent('<%= feedUrl.replace(/'/g, '\\\'') %>'), 30, 50);
+    (new FeedTouch()).loadFeed(decodeURIComponent('<%= feedUrl %>'), 30, 50);
 });
 </script>

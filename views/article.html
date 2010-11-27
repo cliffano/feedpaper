@@ -7,6 +7,7 @@
 		<div id="content"></div>	
 	</div>
 	<div id="control" data-role="footer" data-theme="b">
+		<a id="back" href="#" data-role="button" data-icon="arrow-l">Back</a>
 	</div>
 </div>
 <script type="text/javascript">
@@ -17,6 +18,6 @@ $('#back').live('tap', function () {
     return false;
 });
 $(document).ready(function () {
-    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl.replace(/'/g, '\\\'') %>'), decodeURIComponent('<%= articleTitle.replace(/'/g, '\\\'') %>'));
+    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'), decodeURIComponent('<%= articleTitle.replace(/'/g, '\\\'') %>'));
 });
 </script>
