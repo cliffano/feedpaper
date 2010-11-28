@@ -19,7 +19,7 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 	 		    entry = feed.entries[i];
 	 		    if (entry.link && entry.title) {
 			        $('li#' + i + ' a').text(entry.title);
-			        $('li#' + i + ' a').attr('href', '/article?url=' + entry.link.replace(/#.*$/, '%23') + '&title=' + encodeURIComponent(entry.title));
+			        $('li#' + i + ' a').attr('href', '/article?url=' + entry.link + '&title=' + encodeURIComponent(entry.title));
 		        } else {
 		            $('li#' + i + ' a').text('Invalid feed entry');
 		        }

@@ -2,6 +2,11 @@ li {
     list-style-type: none;
 }
 div#control {
-    padding: 5px;
+    padding: 8px;
+}
+div#feed div#control {
+    text-align: center;
+}
+div#article div#control {
     text-align: left;
 }
