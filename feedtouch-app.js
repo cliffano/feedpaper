@@ -39,7 +39,7 @@ app.get('/article', function (req, res) {
             env: process.env.ENV,
             uniqueId: uniqueId,
             articleUrl: req.query.url,
-            articleTitle: req.query.title
+            articleTitle: req.query.title || ''
         }
     });
 });
