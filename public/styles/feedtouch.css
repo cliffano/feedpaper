@@ -10,3 +10,8 @@ div#feed div#control {
 div#article div#control {
     text-align: left;
 }
+div#credit {
+    font-size: 80%;
+    padding-right: 20px;
+    text-align: right;
+}
