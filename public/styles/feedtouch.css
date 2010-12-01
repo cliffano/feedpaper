@@ -1,14 +1,8 @@
 li {
     list-style-type: none;
 }
-div#control {
-    padding: 8px;
-}
-div#feed div#control {
-    text-align: center;
-}
-div#article div#control {
-    text-align: left;
+div#footer {
+    padding: 5px;
 }
 div#credit {
     font-size: 80%;
