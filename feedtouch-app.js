@@ -22,7 +22,7 @@ app.configure(function () {
 });
 
 app.get('/', function (req, res) {
-    res.render('index.html', {
+    res.render('feed.html', {
         layout: true,
         locals: {
             env: process.env.ENV,
