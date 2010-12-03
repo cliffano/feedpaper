@@ -1,12 +1,12 @@
-var express = require('express'),
+var conf = require('./conf/conf').conf,
+    express = require('express'),
     log4js = require('log4js'),
     logger = log4js.getLogger('app'),
-    appPort = 9700,
     app = express.createServer(),
     uniqueId = (new Date()).getTime();
 
-log4js.addAppender(log4js.fileAppender('/var/www/logs/feedtouch.log'), 'app');
-logger.setLevel('INFO');
+log4js.addAppender(log4js.fileAppender(conf.log), 'app');
+logger.setLevel(conf.logLevel);
     
 logger.info('Configuring application');
 app.configure(function () {
@@ -52,5 +52,5 @@ app.get('/*', function (req, res) {
     feed(req, res, req.params[0]);
 });
 
-logger.info('Starting application on port ' + appPort);
-app.listen(appPort);
+logger.info('Starting ' + conf.appName + ' on port ' + conf.appPort);
+app.listen(conf.appPort);
