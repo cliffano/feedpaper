@@ -21,17 +21,6 @@ app.configure(function () {
     app.register('.html', require('ejs'));
 });
 
-app.get('/', function (req, res) {
-    res.render('feed.html', {
-        layout: true,
-        locals: {
-            env: process.env.ENV,
-            uniqueId: uniqueId,
-            feedUrl: req.query.url
-        }
-    });
-});
-
 app.get('/article', function (req, res) {
     res.render('article.html', {
         layout: true,
@@ -42,6 +31,25 @@ app.get('/article', function (req, res) {
             articleTitle: req.query.title || ''
         }
     });
+});
+
+var feed = function (req, res, url) {
+    res.render('feed.html', {
+        layout: true,
+        locals: {
+            env: process.env.ENV,
+            uniqueId: uniqueId,
+            feedUrl: url
+        }
+    });    
+};
+
+app.get('/', function (req, res) {
+    feed(req, res, req.query.url);
+});
+
+app.get('/*', function (req, res) {
+    feed(req, res, req.params[0]);
 });
 
 logger.info('Starting application on port ' + appPort);
