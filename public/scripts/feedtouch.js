@@ -37,6 +37,7 @@ FeedTouch.prototype.loadArticle = function (articleUrl, articleTitle) {
     $.getJSON(url, function (data) {
         var heading = '<p><strong>' + articleTitle + '</strong><br/><a href="' + articleUrl + '">' + articleUrl + '</a></p>';
         if (data.content) {
+            document.title = articleTitle + ' - FeedTouch';
             data.content = data.content.replace(/^\s*/, '').replace(/\s*$/, '');
             $('div#content').html(heading + data.content);
         } else {
