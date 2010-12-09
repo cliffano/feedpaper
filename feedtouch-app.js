@@ -40,7 +40,8 @@ var feed = function (req, res, url) {
         locals: {
             env: process.env.ENV,
             uniqueId: uniqueId,
-            feedUrl: url
+            feedUrl: url,
+            maxItems: 50
         }
     });    
 };
