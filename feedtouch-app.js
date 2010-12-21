@@ -54,5 +54,5 @@ app.get('/*', function (req, res) {
     feed(req, res, req.params[0]);
 });
 
-logger.info('Starting ' + conf.appName + ' on port ' + conf.appPort);
+logger.info('Starting ' + conf.appName + ' on port ' + conf.appPort + ' in env ' + process.env.ENV);
 app.listen(conf.appPort);
