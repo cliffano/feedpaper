@@ -2,7 +2,7 @@ li {
     list-style-type: none;
 }
 div#footer {
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
 }
 div#credit {
     font-size: 80%;

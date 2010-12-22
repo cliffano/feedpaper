@@ -1,7 +1,7 @@
 var express = require('express'),
     fs = require('fs'),
     log4js = require('log4js'),
-    conf = JSON.parse(fs.readFileSync('./conf/conf.json', 'utf-8'))
+    conf = JSON.parse(fs.readFileSync('./conf.json', 'utf-8'))
     logger = log4js.getLogger('app'),
     app = express.createServer(),
     uniqueId = (new Date()).getTime();

@@ -1,6 +1,0 @@
-{
-    "appName": "feedtouch",
-    "appPort": "28200",
-    "log": "/var/www/logs/feedtouch.log",
-    "logLevel": "INFO"
-}
