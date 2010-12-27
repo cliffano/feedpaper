@@ -6,7 +6,7 @@ var express = require('express'),
     app = express.createServer(),
     uniqueId = (new Date()).getTime();
 
-log4js.addAppender(log4js.fileAppender(conf.log), 'app');
+log4js.addAppender(log4js.fileAppender(conf.logFile), 'app');
 logger.setLevel(conf.logLevel);
     
 logger.info('Configuring application');
