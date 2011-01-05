@@ -6,7 +6,7 @@ require 'test/unit'
 class MainTest < Test::Unit::TestCase
     def setup
         confStr = ''
-        File.open('conf/conf.json', 'r').readlines.each do |line|
+        File.open('conf.json', 'r').readlines.each do |line|
             confStr += line + ' '
         end
         conf = JSON.parse(confStr)
