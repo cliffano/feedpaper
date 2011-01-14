@@ -1,6 +1,6 @@
 var express = require('express'),
     fs = require('fs'),
-    log4js = require('log4js'),
+    log4js = require('log4js')(),
     conf = JSON.parse(fs.readFileSync('./conf.json', 'utf-8'))
     logger = log4js.getLogger('app'),
     app = express.createServer(),
