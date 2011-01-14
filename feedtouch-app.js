@@ -1,27 +1,28 @@
 var express = require('express'),
     fs = require('fs'),
     log4js = require('log4js')(),
-    conf = JSON.parse(fs.readFileSync('./conf.json', 'utf-8'))
     logger = log4js.getLogger('app'),
+    conf = JSON.parse(fs.readFileSync('./app.conf', 'utf-8')),
     app = express.createServer(),
     uniqueId = (new Date()).getTime();
 
-log4js.addAppender(log4js.fileAppender(conf.logFile), 'app');
-logger.setLevel(conf.logLevel);
+log4js.addAppender(log4js.fileAppender(conf.log.file), 'app');
+logger.setLevel(conf.log.level);
     
 logger.info('Configuring application');
 app.configure(function () {
-    app.use(express.conditionalGet());
+    app.register('.html', require('ejs'));
     app.set('views', __dirname + '/views');
-    app.use(express.bodyDecoder());
-    app.use(express.methodOverride());
     app.use('/images', express.staticProvider(__dirname + '/public/images'));
     app.use('/scripts', express.staticProvider(__dirname + '/public/scripts'));
     app.use('/styles', express.staticProvider(__dirname + '/public/styles'));
+    app.use(express.bodyDecoder());
+    app.use(express.conditionalGet());
     app.use(express.gzip());
-    app.register('.html', require('ejs'));
+    app.use(express.methodOverride());
 });
 
+logger.info('Setting up routers');
 app.get('/article', function (req, res) {
     res.render('article.html', {
         layout: true,
@@ -33,7 +34,6 @@ app.get('/article', function (req, res) {
         }
     });
 });
-
 var feed = function (req, res, url) {
     res.render('feed.html', {
         layout: true,
@@ -45,14 +45,12 @@ var feed = function (req, res, url) {
         }
     });    
 };
-
 app.get('/', function (req, res) {
     feed(req, res, req.query.url);
 });
-
 app.get('/*', function (req, res) {
     feed(req, res, req.params[0]);
 });
 
-logger.info('Starting ' + conf.appName + ' on port ' + conf.appPort + ' in env ' + process.env.ENV);
-app.listen(conf.appPort);
+logger.info('Starting ' + conf.app.name + ' on port ' + conf.app.port + ' in env ' + process.env.ENV);
+app.listen(conf.app.port);
