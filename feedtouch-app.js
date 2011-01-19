@@ -49,7 +49,8 @@ app.get('/', function (req, res) {
     feed(req, res, req.query.url);
 });
 app.get('/*', function (req, res) {
-    feed(req, res, req.params[0]);
+    var url = (req.params[0].match(/^http:\/\//)) ? req.params[0] : 'http://' + req.params[0];
+    feed(req, res, url);
 });
 
 logger.info('Starting ' + conf.app.name + ' on port ' + conf.app.port + ' in env ' + process.env.ENV);
