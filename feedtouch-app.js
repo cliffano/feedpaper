@@ -1,6 +1,8 @@
 var express = require('express'),
     fs = require('fs'),
+    http = require('http'),
     log4js = require('log4js')(),
+    sys = require('sys'),
     logger = log4js.getLogger('app'),
     conf = JSON.parse(fs.readFileSync('./app.conf', 'utf-8')),
     app = express.createServer(),
@@ -34,6 +36,31 @@ app.get('/article', function (req, res) {
         }
     });
 });
+var site = function (url, cb) {
+    var client = http.createClient(80, url),
+        req = client.request('GET', '/', {'host': url});
+    req.end();
+    req.on('response', function (res) {
+        res.setEncoding('utf8');
+        var data = '';
+        res.on('data', function (chunk) {
+            data += chunk;
+        });
+        res.on('end', function () {
+            cb(data);
+        });
+    });
+};
+app.get('/s/*', function (req, res) {
+    var url = req.params[0].replace(/^https?:\/\//, '');
+    site(url, function (data) {
+        var urls = data.match(/<\s*link.*(atom|rss)\+xml.*\/\s*>/g);
+        for (item in urls) {
+            urls[item] = urls[item].replace(/.*href="/, '').replace(/".*/, '');
+        }
+        res.send(JSON.stringify(urls), 200);
+    });
+});
 var feed = function (req, res, url) {
     res.render('feed.html', {
         layout: true,
@@ -51,6 +78,10 @@ app.get('/', function (req, res) {
 app.get('/*', function (req, res) {
     var url = (req.params[0].match(/^http:\/\//)) ? req.params[0] : 'http://' + req.params[0];
     feed(req, res, url);
+});
+
+process.on('uncaughtException', function (error) {
+    logger.error('An unexpected error has occured. ' + sys.inspect(error));
 });
 
 logger.info('Starting ' + conf.app.name + ' on port ' + conf.app.port + ' in env ' + process.env.ENV);

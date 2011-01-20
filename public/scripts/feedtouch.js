@@ -6,7 +6,7 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 	for (i = 0; i < numElems; i++) {
 	    $('li#' + i).hide();
 	}
-    $('li#indicator').text('Loading...');
+    $('li#indicator').text('Loading feed...');
 	$('li#indicator').show();
 	$.getJSON(url, function (data) {
 		if (data.responseStatus === 200) {
@@ -26,14 +26,31 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 			    $('li#' + i).show();
 		    }
 		} else {
-		    $('li#indicator').text('Error - ' + data.responseDetails);
-		    $('li#indicator').show();
+			$('li#indicator').text('Discovering feed...');
+			$('li#indicator').show();
+			$.getJSON('/s/' + feedUrl, function (data) {
+				if (data && data.length > 0) {
+					var title = 'Feeds from ' + feedUrl.replace(/https?:\/\//, '');
+					document.title = title + ' - FeedTouch';
+					$('li#indicator').hide();
+					$('h1#title').text(title);
+					ln = (data.length > maxDisplay) ? maxDisplay : data.length;
+				    for (i = 0; i < ln; i++) {
+						$('li#' + i + ' a').text(data[i]);
+						$('li#' + i + ' a').attr('href', '/' + data[i]);
+						$('li#' + i).show();
+					}
+				} else {
+					$('li#indicator').text('Error - Unable to load feed');
+					$('li#indicator').show();					
+				}
+			});
 		}
 	});
 };
 FeedTouch.prototype.loadArticle = function (articleUrl, articleTitle) {
     var url = 'http://viewtext.org/api/text?url=' + encodeURIComponent(articleUrl) + '&callback=?';
-    $('div#content').html('Loading...');
+    $('div#content').html('Loading article...');
     $.getJSON(url, function (data) {
         var heading = '<p><strong>' + articleTitle + '</strong><br/><a href="' + articleUrl + '">' + articleUrl + '</a></p>';
         if (data.content) {
