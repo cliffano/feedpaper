@@ -42,9 +42,12 @@ var site = function (url, cb) {
     req.end();
     req.on('response', function (res) {
         res.setEncoding('utf8');
-        var data = '';
+        var data = '', done = false;
         res.on('data', function (chunk) {
             data += chunk;
+            if (chunk.match()) {
+                done = true;
+            }
         });
         res.on('end', function () {
             cb(data);
@@ -54,11 +57,15 @@ var site = function (url, cb) {
 app.get('/s/*', function (req, res) {
     var url = req.params[0].replace(/^https?:\/\//, '');
     site(url, function (data) {
-        var urls = data.match(/<\s*link.*(atom|rss)\+xml.*\/\s*>/g);
-        for (item in urls) {
-            urls[item] = urls[item].replace(/.*href="/, '').replace(/".*/, '');
+        var feeds = data.match(/<\s*link.*(atom|rss)\+xml.*\/\s*>/g),
+            item;
+        for (item in feeds) {
+            feeds[item] = {
+                'title': feeds[item].replace(/.*title="/, '').replace(/".*/, ''),
+                'url': feeds[item].replace(/.*href="/, '').replace(/".*/, '')
+            }
         }
-        res.send(JSON.stringify(urls), 200);
+        res.send(JSON.stringify(feeds), 200);
     });
 });
 var feed = function (req, res, url) {

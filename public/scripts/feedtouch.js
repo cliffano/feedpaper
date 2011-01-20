@@ -36,8 +36,8 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 					$('h1#title').text(title);
 					ln = (data.length > maxDisplay) ? maxDisplay : data.length;
 				    for (i = 0; i < ln; i++) {
-						$('li#' + i + ' a').text(data[i]);
-						$('li#' + i + ' a').attr('href', '/' + data[i]);
+						$('li#' + i + ' a').html(data[i].title || 'Untitled Feed').text();
+						$('li#' + i + ' a').attr('href', '/' + data[i].url);
 						$('li#' + i).show();
 					}
 				} else {
