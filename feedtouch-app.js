@@ -44,9 +44,11 @@ var site = function (url, cb) {
         res.setEncoding('utf8');
         var data = '', done = false;
         res.on('data', function (chunk) {
-            data += chunk;
-            if (chunk.match()) {
-                done = true;
+            if (done === false) {
+                data += chunk;
+                if (chunk.match(/<\s*body.*>/)) {
+                    done = true;
+                }
             }
         });
         res.on('end', function () {
@@ -57,7 +59,7 @@ var site = function (url, cb) {
 app.get('/s/*', function (req, res) {
     var url = req.params[0].replace(/^https?:\/\//, '');
     site(url, function (data) {
-        var feeds = data.match(/<\s*link.*(atom|rss)\+xml.*\/\s*>/g),
+        var feeds = data.match(/<\s*link.*(atom|rss)\+xml.*>/g) || [],
             item;
         for (item in feeds) {
             feeds[item] = {
