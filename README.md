@@ -6,6 +6,12 @@ Simple feed reader for touch devices
 Usage
 -----
 
-Add `http://feedtouch.cliffano.com` to any Atom/RSS feed URL
+Add `http://ft.prn.la` in front of a web site URL
 
-    http://feedtouch.cliffano.com/http://news.ycombinator.com/rss
+Example
+
+    http://ft.prn.la/wired.com
+    
+Or in front of an Atom/RSS feed URL
+
+    http://ft.prn.la/news.ycombinator.com/rss
