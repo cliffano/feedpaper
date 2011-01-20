@@ -2,6 +2,7 @@ var express = require('express'),
     fs = require('fs'),
     http = require('http'),
     log4js = require('log4js')(),
+    request = require('request'),
     sys = require('sys'),
     logger = log4js.getLogger('app'),
     conf = JSON.parse(fs.readFileSync('./app.conf', 'utf-8')),
@@ -37,27 +38,20 @@ app.get('/article', function (req, res) {
     });
 });
 var site = function (url, cb) {
-    var client = http.createClient(80, url),
-        req = client.request('GET', '/', {'host': url});
-    req.end();
-    req.on('response', function (res) {
-        res.setEncoding('utf8');
-        var data = '', done = false;
-        res.on('data', function (chunk) {
-            if (done === false) {
-                data += chunk;
-                if (chunk.match(/<\s*body.*>/)) {
-                    done = true;
-                }
-            }
-        });
-        res.on('end', function () {
+    request({uri: url}, function (err, res, data) {
+        console.log(sys.inspect(err) + sys.inspect(res));
+        if (!err && res.statusCode === 200) {
             cb(data);
-        });
-    });
+        } else {
+            logger.error('Unable to retrieve ' + url +
+                ' with response code ' + res.statusCode +
+                ' error ' + err);
+            cb('');
+        }
+    })
 };
 app.get('/s/*', function (req, res) {
-    var url = req.params[0].replace(/^https?:\/\//, '');
+    var url = (req.params[0].match(/^https?:\/\//, '')) ? req.params[0] : 'http://' + req.params[0];
     site(url, function (data) {
         var feeds = data.match(/<\s*link.*(atom|rss)\+xml.*>/g) || [],
             item;
