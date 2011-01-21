@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>FeedTouch - A simple way to read. On your phone.</title>
+  <meta name="description" content="FeedTouch - Read web site feed"/>
+  <meta name="keywords" content=""/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link rel="shortcut icon" href="/images/favicon.png"/>
+  <style type="text/css">
+    body {
+        background-color: #ffffff;
+        text-align: center;
+    }
+    div#doc {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 11px;
+        margin: 30px 0 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="doc">
+    <div id="hd">
+      <img src="/images/brochure.jpg" height="770" width="785" alt="FeedTouch - A simple way to read. On your phone."/>
+    </div>
+    <div id="bd">
+    </div>
+    <div id="ft">
+        Copyright &copy; 2010-2011 <a href="http://cliffano.com">Studio Cliffano</a>.
+    </div>
+  </div>
+  <% if (env === 'prd') { %>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-247374-12']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <% } %>
+</body>
+</html>

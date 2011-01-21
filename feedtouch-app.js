@@ -76,7 +76,17 @@ var feed = function (req, res, url) {
     });    
 };
 app.get('/', function (req, res) {
-    feed(req, res, req.query.url);
+    if (req.query.url) {
+        feed(req, res, req.query.url);
+    } else {
+        res.render('brochure.html', {
+            layout: false,
+            locals: {
+                env: process.env.ENV,
+                uniqueId: uniqueId
+            }
+        });  
+    }
 });
 app.get('/*', function (req, res) {
     var url = (req.params[0].match(/^http:\/\//)) ? req.params[0] : 'http://' + req.params[0];
