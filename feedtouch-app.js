@@ -26,7 +26,7 @@ app.configure(function () {
 });
 
 logger.info('Setting up routers');
-app.get('/article', function (req, res) {
+app.get('/a', function (req, res) {
     res.render('article.html', {
         layout: true,
         locals: {
