@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FeedTouch</title>
-  <link rel="apple-touch-icon" href="/images/icon.png"/>
-  <link rel="apple-touch-icon-precomposed" href="/images/icon.png"/>
-  <link rel="shortcut icon" href="/images/favicon.png"/>
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css"/>
-  <link rel="stylesheet" href="/styles/global.css?<%= uniqueId %>"/>
-  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
-  <script type="text/javascript" src="/scripts/global.js?<%= uniqueId %>"></script>
+    <title>FeedTouch</title>
+    <link rel="apple-touch-icon" href="/images/icon.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/images/icon.png"/>
+    <link rel="shortcut icon" href="/images/favicon.png"/>
+    <link rel="stylesheet" href="/styles/global.css?<%= uniqueId %>"/>
+    <script type="text/javascript" src="/scripts/global.js?<%= uniqueId %>"></script>
+    <% if (env === 'prd') { %>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css"/>
+        <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+    <% } else { %>
+        <link rel="stylesheet" href="http://localhost:28000/styles/jquery.mobile-1.0a1.min.css"/>
+        <script src="http://localhost:28000/scripts/jquery-1.4.3.min.js"></script>
+        <script src="http://localhost:28000/scripts/jquery.mobile-1.0a1.min.js"></script>
+    <% } %>
 </head> 
 <body>
-  <%- body %>
-  <% if (env === 'prd') { %>
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-247374-12']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  <% } %>
+    <%- body %>
+    <% if (env === 'prd') { %>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-247374-12']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <% } %>
 </body>
 </html>
