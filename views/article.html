@@ -1,7 +1,7 @@
 <div id="article" data-role="page">
   <div data-role="header" data-theme="b">
 		<a class="back" href="#" data-role="button" data-icon="arrow-l">Back</a>
-		<h1 id="title"><%= articleTitle %></h1>
+		<h1 id="title"><%= title %></h1>
 	</div>
 	<div data-role="content" data-theme="c">
 		<div id="content"></div>	
@@ -18,6 +18,6 @@ $('.back').live('tap', function () {
     return false;
 });
 $(document).ready(function () {
-    (new FeedTouch()).loadArticle(decodeURIComponent('<%= articleUrl %>'), '<%= articleTitle.replace(/'/g, '\\\'') %>');
+    (new FeedTouch()).loadArticle(decodeURIComponent('<%= url %>'), '<%= title.replace(/'/g, '\\\'') %>');
 });
 </script>

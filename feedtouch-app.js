@@ -32,8 +32,8 @@ app.get('/a', function (req, res) {
         locals: {
             env: process.env.ENV,
             uniqueId: uniqueId,
-            articleUrl: req.query.url,
-            articleTitle: req.query.title || ''
+            url: req.query.url,
+            title: req.query.title || ''
         }
     });
 });
@@ -65,20 +65,20 @@ app.get('/s/*', function (req, res) {
         res.send(JSON.stringify(feeds), 200);
     });
 });
-var feed = function (req, res, url) {
-    res.render('feed.html', {
+var home = function (req, res, url) {
+    res.render('home.html', {
         layout: true,
         locals: {
             env: process.env.ENV,
             uniqueId: uniqueId,
-            feedUrl: url,
+            url: url,
             maxItems: 50
         }
     });    
 };
 app.get('/', function (req, res) {
     if (req.query.url) {
-        feed(req, res, req.query.url);
+        home(req, res, req.query.url);
     } else {
         res.render('brochure.html', {
             layout: false,
@@ -91,7 +91,7 @@ app.get('/', function (req, res) {
 });
 app.get('/*', function (req, res) {
     var url = (req.params[0].match(/^http:\/\//)) ? req.params[0] : 'http://' + req.params[0];
-    feed(req, res, url);
+    home(req, res, url);
 });
 
 process.on('uncaughtException', function (error) {

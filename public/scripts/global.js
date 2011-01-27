@@ -1,14 +1,14 @@
 var FeedTouch = function () {
 };
-FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
-	var url = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&num=' + maxDisplay + '&q=' + encodeURIComponent(feedUrl),
+FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
+	var serviceUrl = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&num=' + maxDisplay + '&q=' + encodeURIComponent(url),
 	    feed, entry, i, ln;
 	for (i = 0; i < numElems; i++) {
 	    $('li#' + i).hide();
 	}
     $('li#indicator').text('Loading feed...');
 	$('li#indicator').show();
-	$.getJSON(url, function (data) {
+	$.getJSON(serviceUrl, function (data) {
 		if (data.responseStatus === 200) {
 			feed = data.responseData.feed;
 			document.title = feed.title + ' - FeedTouch';
@@ -28,9 +28,9 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 		} else {
 			$('li#indicator').text('Discovering feed...');
 			$('li#indicator').show();
-			$.getJSON('/s/' + feedUrl, function (data) {
+			$.getJSON('/s/' + url, function (data) {
 				if (data && data.length > 0) {
-					var title = 'Feeds from ' + feedUrl.replace(/https?:\/\//, '');
+					var title = url.replace(/https?:\/\//, '') + ' feeds';
 					document.title = title + ' - FeedTouch';
 					$('li#indicator').hide();
 					$('h1#title').text(title);
@@ -48,13 +48,13 @@ FeedTouch.prototype.loadFeed = function (feedUrl, maxDisplay, numElems) {
 		}
 	});
 };
-FeedTouch.prototype.loadArticle = function (articleUrl, articleTitle) {
-    var url = 'http://viewtext.org/api/text?url=' + encodeURIComponent(articleUrl) + '&callback=?';
+FeedTouch.prototype.loadArticle = function (url, title) {
+    var serviceUrl = 'http://viewtext.org/api/text?url=' + encodeURIComponent(url) + '&callback=?';
     $('div#content').html('Loading article...');
-    $.getJSON(url, function (data) {
-        var heading = '<p><strong>' + articleTitle + '</strong><br/><a href="' + articleUrl + '">' + articleUrl + '</a></p>';
+    $.getJSON(serviceUrl, function (data) {
+        var heading = '<p><strong>' + title + '</strong><br/><a href="' + url + '">' + url + '</a></p>';
         if (data.content) {
-            document.title = articleTitle + ' - FeedTouch';
+            document.title = title + ' - FeedTouch';
             data.content = data.content.replace(/^\s*/, '').replace(/\s*$/, '');
             $('div#content').html(heading + data.content);
         } else {
