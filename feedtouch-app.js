@@ -39,7 +39,6 @@ app.get('/a', function (req, res) {
 });
 var site = function (url, cb) {
     request({uri: url}, function (err, res, data) {
-        console.log(sys.inspect(err) + sys.inspect(res));
         if (!err && res.statusCode === 200) {
             cb(data);
         } else {
@@ -48,7 +47,7 @@ var site = function (url, cb) {
                 ' error ' + err);
             cb('');
         }
-    })
+    });
 };
 app.get('/s/*', function (req, res) {
     var url = (req.params[0].match(/^https?:\/\//, '')) ? req.params[0] : 'http://' + req.params[0];
@@ -56,9 +55,11 @@ app.get('/s/*', function (req, res) {
         var feeds = data.match(/<\s*link.*(atom|rss)\+xml.*>/g) || [],
             item;
         for (item in feeds) {
-            feeds[item] = {
-                'title': feeds[item].replace(/.*title="/, '').replace(/".*/, ''),
-                'url': feeds[item].replace(/.*href="/, '').replace(/".*/, '')
+            if (feeds.hasOwnProperty(item)) {
+                feeds[item] = {
+                    'title': feeds[item].replace(/.*title="/, '').replace(/".*/, ''),
+                    'url': feeds[item].replace(/.*href="/, '').replace(/".*/, '')
+                };
             }
         }
         res.send(JSON.stringify(feeds), 200);
