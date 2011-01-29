@@ -30,15 +30,20 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 			$('li#indicator').show();
 			$.getJSON('/s/' + url, function (data) {
 				if (data && data.length > 0) {
-					var title = url.replace(/https?:\/\//, '') + ' feeds';
-					document.title = title + ' - FeedTouch';
-					$('li#indicator').hide();
-					$('h1#title').text(title);
 					ln = (data.length > maxDisplay) ? maxDisplay : data.length;
-				    for (i = 0; i < ln; i++) {
-						$('li#' + i + ' a').html(data[i].title || 'Untitled Feed').text();
-						$('li#' + i + ' a').attr('href', '/' + data[i].url);
-						$('li#' + i).show();
+			        $('li#indicator').text('Discovered ' + ln + ' feed' + ((ln > 1) ? 's' : ''));
+					if (ln === 1) {
+						window.location = '/' + data[0].url;
+					} else {
+						var title = url.replace(/https?:\/\//, '') + ' feeds';
+						document.title = title + ' - FeedTouch';
+						$('li#indicator').hide();
+						$('h1#title').text(title);
+						for (i = 0; i < ln; i++) {
+							$('li#' + i + ' a').html(data[i].title || 'Untitled Feed').text();
+							$('li#' + i + ' a').attr('href', '/' + data[i].url);
+							$('li#' + i).show();
+						}
 					}
 				} else {
 					$('li#indicator').text('Error - Unable to load feed');
