@@ -46,7 +46,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 						}
 					}
 				} else {
-					$('li#indicator').text('Error - Unable to load feed');
+					$('li#indicator').text(url.replace(/https?:\/\//, '') + ' does not have any feed');
 					$('li#indicator').show();					
 				}
 			});
