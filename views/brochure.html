@@ -13,12 +13,38 @@
     }
     div#doc {
         font-family: helvetica, arial, sans-serif;
-        font-size: 12px;
+        font-size: 14px;
+        line-height: 170%;
         margin: 30px 0 30px 0;
+        width: 960px;
     }
     div#hd {
-        margin-bottom: 60px;
+        margin-bottom: 80px;
         text-align: center;
+    }
+    div#bd {
+        text-align: center;
+    }
+    div#bd img#splash {
+        margin-bottom: 10px;
+    }
+    div#bd div#desc {
+        margin: auto;
+    }
+    div#bd div.content {
+        float: left;
+        padding: 20px;
+        text-align: left;
+    }
+    div#bd div.left {
+        border-right: 1px dotted #aaaaaa;
+        width: 500px;
+    }
+    div#bd div.right {
+    }
+    div#ft {
+        font-size: 12px;
+        margin-top: 80px;
     }
     a {
         color: #ee4000;
@@ -31,7 +57,34 @@
       <img src="/images/logo.jpg" height="60" width="290" alt="FeedTouch Logo"/>
     </div>
     <div id="bd">
-      <img src="/images/splash.jpg" height="620" width="785" alt="A simple way to read. On your phone. FeedTouch demo shots."/>
+      <img id="splash" src="/images/splash.jpg" height="620" width="785" alt="A simple way to read. On your phone. FeedTouch demo shots."/>
+      <div id="desc">
+        <div class="content left">
+          <h2>Why FeedTouch?</h2>
+          <p>
+            There are so many web sites not optimized for mobile devices.
+            You often waste your time trying to read a web page, zooming in and
+            out, scrolling past the ads, and flipping through fragments of an
+            article.
+          </p>
+          <p>
+            FeedTouch makes it easy to discover the content of a web site via its
+            Atom/RSS feeds, and to read the web pages conveniently<sup>[1]</sup>
+            on your mobile device.
+          </p>
+          <p>
+            [1] Thanks to <a href="http://viewtext.org">ViewText</a>.
+          </p>
+        </div>
+        <div class="content right">
+          <h2>Usage</h2>
+          <p>
+            Simply add <strong>ft.prn.la</strong> in front of a web site URL.<br/>
+            For example: <a href="http://ft.prn.la/cnn.com"><strong>ft.prn.la</strong>/cnn.com</a>
+          </p>
+        </div>
+        <br style="clear: both;"/>
+      </div>
     </div>
     <div id="ft">
         Copyright &copy; 2010-2011 <a href="http://cliffano.com">Studio Cliffano</a>.
