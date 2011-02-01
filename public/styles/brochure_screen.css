@@ -1,0 +1,7 @@
+div#bd div.left {
+    border-right: 1px dotted #aaaaaa;
+    width: 570px;
+}
+div#bd div.right {
+    width: 300px;
+}

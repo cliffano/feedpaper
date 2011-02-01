@@ -1,0 +1,38 @@
+body {
+    background-color: #ffffff;
+    text-align: center;
+}
+div#doc {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 14px;
+    line-height: 170%;
+    margin: auto;
+    width: 960px;
+}
+div#hd {
+    margin-bottom: 80px;
+    margin-top: 30px;
+    text-align: center;
+}
+div#bd {
+    text-align: center;
+}
+div#bd img#splash {
+    margin-bottom: 10px;
+}
+div#bd div#pitch {
+    text-align: center;
+}
+div#bd div.content {
+    float: left;
+    padding: 20px;
+    text-align: left;
+}
+div#ft {
+    font-size: 90%;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+a {
+    color: #ee4000;
+}
