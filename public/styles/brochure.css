@@ -4,10 +4,9 @@ body {
 }
 div#doc {
     font-family: helvetica, arial, sans-serif;
-    font-size: 14px;
     line-height: 170%;
     margin: auto;
-    width: 960px;
+    width: 860px;
 }
 div#hd {
     margin-bottom: 80px;
@@ -15,13 +14,19 @@ div#hd {
     text-align: center;
 }
 div#bd {
-    text-align: center;
 }
 div#bd img#splash {
     margin-bottom: 10px;
 }
 div#bd div#pitch {
     text-align: center;
+}
+div#bd div#pitch div.main {
+    border-right: 1px dotted #aaaaaa;
+    width: 480px;
+}
+div#bd div#pitch div.side {
+    width: 280px;
 }
 div#bd div.content {
     float: left;
@@ -30,8 +35,8 @@ div#bd div.content {
 }
 div#ft {
     font-size: 90%;
-    margin-bottom: 30px;
-    margin-top: 80px;
+    margin-bottom: 10px;
+    margin-top: 60px;
 }
 a {
     color: #ee4000;

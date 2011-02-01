@@ -1,0 +1,14 @@
+body {
+    -webkit-text-size-adjust: 250%;
+}
+div#bd div#pitch div.main {
+    border-right: none;
+    width: 100%;
+}
+div#bd div#pitch div.side {
+    width: 100%;
+}
+div#bd div.content {
+    float: none;
+    padding: 0;
+}

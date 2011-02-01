@@ -6,8 +6,8 @@
   <meta name="keywords" content="feedtouch, rss, atom, feed, read, reading, iphone, android, mobile, phone"/>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <link rel="shortcut icon" href="/images/favicon.png"/>
-  <link rel="stylesheet" href="/styles/brochure.css"/>
-  <link rel="stylesheet" href="/styles/brochure_screen.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="/styles/brochure.css"/>
+  <link rel="stylesheet" type="text/css" href="/styles/brochure_mobile.css" media="only screen and (max-device-width: 480px)"/>
 </head>
 <body>
   <div id="doc">
@@ -17,7 +17,7 @@
     <div id="bd">
       <img id="splash" src="/images/splash.jpg" height="620" width="785" alt="A simple way to read. On your phone. FeedTouch demo shots."/>
       <div id="pitch">
-        <div class="content left">
+        <div class="content main">
           <h2>Why FeedTouch?</h2>
           <p>
             There are still so many web sites which are not optimized for mobile
@@ -32,7 +32,7 @@
             comfort of your phone.
           </p>
         </div>
-        <div class="content right">
+        <div class="content side">
           <h2>Usage</h2>
           <p>
             Simply add <strong>ft.prn.la</strong> in front of a web site URL.<br/>
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div id="ft">
-        Copyright &copy; 2010-2011 <a href="http://cliffano.com">Studio Cliffano</a>.
+        Copyright &copy; 2010&#8208;2011 <a href="http://cliffano.com">Studio Cliffano</a>.
     </div>
   </div>
   <% if (env === 'prd') { %>
