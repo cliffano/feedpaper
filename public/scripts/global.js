@@ -29,11 +29,22 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 			$('li#indicator').text('Discovering feed...');
 			$('li#indicator').show();
 			$.getJSON('/s/' + url, function (data) {
+				var sanitiseUrl = function (_url) {
+					var sanitisedUrl = _url;
+					if (!_url.match(/^https?:\/\//)) {
+						if (_url.match(/^\//)) {
+							sanitisedUrl = url.match(/https?:\/\/[^\/]+/) + _url;
+						} else {
+							sanitisedUrl = url + '/' + _url;
+						}
+					}
+					return sanitisedUrl;
+				};
 				if (data && data.length > 0) {
 					ln = (data.length > maxDisplay) ? maxDisplay : data.length;
 			        $('li#indicator').text('Discovered ' + ln + ' feed' + ((ln > 1) ? 's' : ''));
 					if (ln === 1) {
-						window.location = '/' + data[0].url;
+						window.location = '/' + sanitiseUrl(data[0].url);
 					} else {
 						var title = url.replace(/https?:\/\//, '') + ' feeds';
 						document.title = title + ' - FeedTouch';
@@ -41,7 +52,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 						$('h1#title').text(title);
 						for (i = 0; i < ln; i++) {
 							$('li#' + i + ' a').html(data[i].title || 'Untitled Feed').text();
-							$('li#' + i + ' a').attr('href', '/' + data[i].url);
+							$('li#' + i + ' a').attr('href', '/' + sanitiseUrl(data[i].url));
 							$('li#' + i).show();
 						}
 					}
