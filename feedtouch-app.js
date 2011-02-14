@@ -52,7 +52,6 @@ var site = function (url, cb) {
 app.get('/s/*', function (req, res) {
     var url = (req.params[0].match(/^https?:\/\//, '')) ? req.params[0] : 'http://' + req.params[0];
     site(url, function (data) {
-        console.log('DATA' + data);
         var feeds = data.match(/<\s*link[^<]*(atom|rss)\+xml[^<]*>/g) || [],
             item;
         for (item in feeds) {

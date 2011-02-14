@@ -58,7 +58,8 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 					}
 				} else {
 					$('li#indicator').text(url.replace(/https?:\/\//, '') + ' does not have any feed');
-					$('li#indicator').show();					
+					$('li#indicator').show();
+					window.location = '/a?url=' + url.replace(/#/, '%23').replace(/\?/, '%3F') + '&title=' + encodeURIComponent(url.replace(/https?:\/\//, ''));
 				}
 			});
 		}
