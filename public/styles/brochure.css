@@ -8,6 +8,9 @@ div#doc {
     margin: auto;
     width: 860px;
 }
+div#social {
+    text-align: right;
+}
 div#hd {
     margin-bottom: 80px;
     margin-top: 30px;
