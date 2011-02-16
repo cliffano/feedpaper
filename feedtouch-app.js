@@ -57,8 +57,8 @@ app.get('/s/*', function (req, res) {
         for (item in feeds) {
             if (feeds.hasOwnProperty(item)) {
                 feeds[item] = {
-                    'title': feeds[item].replace(/.*title="/, '').replace(/".*/, ''),
-                    'url': feeds[item].replace(/.*href="/, '').replace(/".*/, '')
+                    'title': feeds[item].replace(/[\s\S]*title=['"]/, '').replace(/['"][\s\S]*/, ''),
+                    'url': feeds[item].replace(/[\s\S]*href=['"]/, '').replace(/['"][\s\S]*/, '')
                 };
             }
         }
