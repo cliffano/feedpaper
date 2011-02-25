@@ -1,4 +1,6 @@
-var express = require('express'),
+var assetManager = require('connect-assetmanager'),
+    assetHandler = require('connect-assetmanager-handlers'),
+    express = require('express'),
     fs = require('fs'),
     http = require('http'),
     log4js = require('log4js')(),
@@ -13,7 +15,30 @@ log4js.addAppender(log4js.fileAppender(conf.log.file), 'app');
 logger.setLevel(conf.log.level);
     
 logger.info('Configuring application');
+var assetManagerGroups = {
+    'js': {
+        'route': /\/scripts\/feedtouch\.js/,
+        'path': './public/scripts/',
+        'dataType': 'javascript',
+        'files': ['global.js']
+    },
+    'css': {
+        'route': /\/styles\/feedtouch\.css/,
+        'path': './public/styles/',
+        'dataType': 'css',
+        'files': ['global.css'],
+        'preManipulate': {
+            'MSIE': [
+                assetHandler.yuiCssOptimize
+            ],
+            '^': [
+                assetHandler.yuiCssOptimize
+            ]
+        }
+    }
+};
 app.configure(function () {
+    app.use(assetManager(assetManagerGroups));
     app.register('.html', require('ejs'));
     app.set('views', __dirname + '/views');
     app.use('/images', express.staticProvider(__dirname + '/public/images'));
