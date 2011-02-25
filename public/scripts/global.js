@@ -38,7 +38,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 							sanitisedUrl = url + '/' + _url;
 						}
 					}
-					return sanitisedUrl;
+					return sanitisedUrl.replace(/#/, '%23').replace(/\?/, '%3F');
 				};
 				if (data && data.length > 0) {
 					ln = (data.length > maxDisplay) ? maxDisplay : data.length;
