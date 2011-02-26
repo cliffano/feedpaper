@@ -1,7 +1,7 @@
 FeedTouch
 ---------
 
-Web app that removes the mess away from reading websites on a mobile phone
+Web app that makes reading websites easy on the phone.
     
 Usage
 -----
