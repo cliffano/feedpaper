@@ -17,18 +17,9 @@ class MainTest < Test::Unit::TestCase
         @b.close
     end
     def test_live
-        # check feed
-        @b.goto(@url + '/http://news.ycombinator.com/rss')
-        assert(@b.contains_text('App by Studio Cliffano'))
-        assert_equal('Hacker News - FeedTouch', @b.title)
-        # check article
-        articleLink = @b.li(:id, '0').link(:class, 'ui-link-inherit')
-        articleTitle = articleLink.title
-        articleLink.click
-        assert(@b.contains_text(articleTitle))
+        # check brochure
+        @b.goto(@url + '/')
+        assert(@b.contains_text('Why FeedTouch?'))
         
-        # check feed via url param
-        @b.goto(@url + '/?url=http://news.ycombinator.com/rss')
-        assert_equal('Hacker News - FeedTouch', @b.title)
     end
 end
