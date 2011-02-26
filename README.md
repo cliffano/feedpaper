@@ -1,12 +1,12 @@
 FeedTouch
 ---------
 
-Simple feed reader for mobile devices
+Web app that removes the mess away from reading websites on a mobile phone
     
 Usage
 -----
 
-Simply add `ft.prn.la` in front of a web site URL
+Simply add `ft.prn.la` in front of a website URL
 
 For example
 
