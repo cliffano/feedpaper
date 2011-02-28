@@ -1,7 +1,7 @@
 FeedTouch
 ---------
 
-Web app that makes reading websites easy on the phone.
+A simple feed reader + readability web app for mobile devices.
     
 Usage
 -----
