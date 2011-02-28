@@ -1,7 +1,7 @@
 FeedTouch
 ---------
 
-A simple feed reader + readability web app for mobile devices.
+Simple feed reader + readability web app for mobile devices.
     
 Usage
 -----
