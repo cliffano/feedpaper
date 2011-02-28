@@ -54,6 +54,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 						for (i = 0; i < ln; i++) {
 							$('li#' + i + ' a').html(data[i].title || 'Untitled Feed').text();
 							$('li#' + i + ' a').attr('href', '/' + sanitiseUrl(data[i].url));
+							$('li#' + i + ' a').attr('data-ajax', 'false');
 							$('li#' + i).show();
 						}
 					}
@@ -62,6 +63,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 					$('li#indicator').show();
 					$('li#0 a').html('Visit the web page as is?').text();
 					$('li#0 a').attr('href', '/a?url=' + url.replace(/#/, '%23').replace(/\?/, '%3F') + '&title=' + encodeURIComponent(url.replace(/https?:\/\//, '')));
+					$('li#0 a').attr('data-ajax', 'false');
 					$('li#0').show();
 				}
 			});
