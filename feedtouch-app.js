@@ -1,6 +1,7 @@
 var assetManager = require('connect-assetmanager'),
     assetHandler = require('connect-assetmanager-handlers'),
     express = require('express'),
+    FeedTouch = require('./lib/feedtouch').FeedTouch,
     fs = require('fs'),
     http = require('http'),
     log4js = require('log4js')(),
@@ -9,6 +10,7 @@ var assetManager = require('connect-assetmanager'),
     logger = log4js.getLogger('app'),
     conf = JSON.parse(fs.readFileSync('./app.conf', 'utf-8')),
     app = express.createServer(),
+    feedTouch = new FeedTouch(),
     uniqueId = (new Date()).getTime();
 
 log4js.addAppender(log4js.fileAppender(conf.log.file), 'app');
@@ -50,7 +52,7 @@ app.configure(function () {
     app.use(express.methodOverride());
 });
 
-logger.info('Setting up routers');
+logger.info('Setting up routes');
 app.get('/a', function (req, res) {
     res.render('article.html', {
         layout: true,
@@ -75,19 +77,8 @@ var site = function (url, cb) {
     });
 };
 app.get('/s/*', function (req, res) {
-    var url = (req.params[0].match(/^https?:\/\//, '')) ? req.params[0] : 'http://' + req.params[0];
-    site(url, function (data) {
-        var feeds = data.match(/<\s*link[^<]*(atom|rss)\+xml[^<]*>/g) || [],
-            item;
-        for (item in feeds) {
-            if (feeds.hasOwnProperty(item)) {
-                feeds[item] = {
-                    'title': feeds[item].replace(/[\s\S]*title=['"]/, '').replace(/['"][\s\S]*/, ''),
-                    'url': feeds[item].replace(/[\s\S]*href=['"]/, '').replace(/['"][\s\S]*/, '')
-                };
-            }
-        }
-        res.send(JSON.stringify(feeds), 200);
+    site(feedTouch.sanitise(req.params[0]), function (data) {
+        res.send(JSON.stringify(feedTouch.getFeeds(data)), 200);
     });
 });
 var home = function (req, res, url) {
@@ -115,8 +106,7 @@ app.get('/', function (req, res) {
     }
 });
 app.get('/*', function (req, res) {
-    var url = (req.params[0].match(/^http:\/\//)) ? req.params[0] : 'http://' + req.params[0];
-    home(req, res, url);
+    home(req, res, feedTouch.sanitise(req.params[0]));
 });
 
 process.on('uncaughtException', function (error) {
