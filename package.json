@@ -9,5 +9,10 @@
         "express": ">= 1.0.3",
         "log4js": ">= 0.2.3",
         "request": ">= 0.10.0"
+    },
+    "port": "28200",
+    "log": {
+        "file": "/var/www/logs/feedtouch.log",
+        "level": "INFO"
     }
 }

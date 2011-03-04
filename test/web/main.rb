@@ -6,11 +6,11 @@ require 'test/unit'
 class MainTest < Test::Unit::TestCase
     def setup
         confStr = ''
-        File.open('app.conf', 'r').readlines.each do |line|
+        File.open('package.json', 'r').readlines.each do |line|
             confStr += line + ' '
         end
         conf = JSON.parse(confStr)
-        @url = 'http://localhost:' + conf['app']['port']
+        @url = 'http://localhost:' + conf['port']
         @b = Watir::Safari.new
     end
     def teardown

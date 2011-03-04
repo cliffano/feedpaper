@@ -8,7 +8,7 @@ var assetManager = require('connect-assetmanager'),
     request = require('request'),
     sys = require('sys'),
     logger = log4js.getLogger('app'),
-    conf = JSON.parse(fs.readFileSync('./app.conf', 'utf-8')),
+    conf = JSON.parse(fs.readFileSync('./package.json', 'utf-8')),
     app = express.createServer(),
     feedTouch = new FeedTouch(),
     uniqueId = (new Date()).getTime();
@@ -113,5 +113,5 @@ process.on('uncaughtException', function (error) {
     logger.error('An unexpected error has occured. ' + sys.inspect(error));
 });
 
-logger.info('Starting ' + conf.app.name + ' on port ' + conf.app.port + ' in env ' + process.env.ENV);
-app.listen(conf.app.port);
+logger.info('Starting ' + conf.app.name + ' on port ' + conf.port + ' in env ' + process.env.ENV);
+app.listen(conf.port);
