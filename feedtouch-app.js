@@ -113,5 +113,5 @@ process.on('uncaughtException', function (error) {
     logger.error('An unexpected error has occured. ' + sys.inspect(error));
 });
 
-logger.info('Starting ' + conf.app.name + ' on port ' + conf.port + ' in env ' + process.env.ENV);
+logger.info('Starting ' + conf.name + ' on port ' + conf.port + ' in env ' + process.env.ENV);
 app.listen(conf.port);
