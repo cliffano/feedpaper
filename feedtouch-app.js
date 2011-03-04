@@ -97,7 +97,7 @@ app.get('/', function (req, res) {
         home(req, res, req.query.url);
     } else {
         res.render('brochure.html', {
-            layout: false,
+            layout: 'layout_brochure',
             locals: {
                 env: process.env.ENV,
                 uniqueId: uniqueId

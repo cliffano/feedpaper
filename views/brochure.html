@@ -1,77 +1,38 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>FeedTouch - Read the web without the mess. On your phone.</title>
-  <meta name="description" content="FeedTouch is a web app that makes it easy to discover the content of websites via their Atom/RSS feed, and to read the pages using fonts and styles that are easy on the eyes, all from the comfort of your phone."/>
-  <meta name="keywords" content="feedtouch, rss, atom, feed, read, reading, iphone, android, mobile, phone"/>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <link rel="shortcut icon" href="/images/favicon.png"/>
-  <link rel="stylesheet" type="text/css" href="/styles/brochure.css"/>
-  <link rel="stylesheet" type="text/css" href="/styles/brochure_mobile.css" media="only screen and (max-device-width: 480px)"/>
-</head>
-<body>
-  <div id="doc">
-    <div id="social">
-      <a href="http://github.com/cliffano/feedtouch"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets2.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_orange_ff7600.png&path=" alt="Fork me on GitHub"></a>
-      <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fft.prn.la&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
+<div id="bd">
+  <img id="splash" src="/images/splash.jpg" height="620" width="785" alt="Read the web without the mess. On your phone. FeedTouch demo shots."/>
+  <div id="pitch">
+    <div class="content main">
+      <h2>Why FeedTouch?</h2>
+      <p>
+        There are still so many websites which are not optimized for mobile
+        devices. They are painful to read, you keep having to zoom in and
+        out, scroll past the ads, and flip through fragments of an article.
+      </p>
+      <p>
+        FeedTouch provides you with an easy way to discover the content of
+        those websites via their Atom/RSS feed, and to read the pages using
+        fonts and styles that are easy on the eyes, all from the comfort of
+        your phone.
+      </p>
     </div>
-    <div id="hd">
-      <img src="/images/logo.jpg" height="60" width="290" alt="FeedTouch Logo"/>
+    <div class="content side">
+      <h2>Usage</h2>
+      <p>
+        Simply add <strong>ft.prn.la</strong> in front of a website URL.<br/>
+        For example <a href="http://ft.prn.la/wired.com"><strong>ft.prn.la</strong>/wired.com</a>
+      </p>
+      <h2>Kudos</h2>
+      <p>
+        FeedTouch is mashed up with
+        <a href="http://code.google.com/apis/feed/">Google Feed</a>
+        and
+        <a href="http://viewtext.org">ViewText</a>.
+      </p>
+      <h2>Share</h2>
+      <p>
+        <span class="st_twitter_large" displayText="Tweet"></span><span class="st_facebook_large" displayText="Facebook"></span><span class="st_ybuzz_large" displayText="Yahoo! Buzz"></span><span class="st_gbuzz_large" displayText="Google Buzz"></span><span class="st_email_large" displayText="Email"></span><span class="st_sharethis_large" displayText="ShareThis"></span>
+      </p>
     </div>
-    <div id="bd">
-      <img id="splash" src="/images/splash.jpg" height="620" width="785" alt="Read the web without the mess. On your phone. FeedTouch demo shots."/>
-      <div id="pitch">
-        <div class="content main">
-          <h2>Why FeedTouch?</h2>
-          <p>
-            There are still so many websites which are not optimized for mobile
-            devices. They are painful to read, you keep having to zoom in and
-            out, scroll past the ads, and flip through fragments of an article.
-          </p>
-          <p>
-            FeedTouch provides you with an easy way to discover the content of
-            those websites via their Atom/RSS feed, and to read the pages using
-            fonts and styles that are easy on the eyes, all from the comfort of
-            your phone.
-          </p>
-        </div>
-        <div class="content side">
-          <h2>Usage</h2>
-          <p>
-            Simply add <strong>ft.prn.la</strong> in front of a website URL.<br/>
-            For example <a href="http://ft.prn.la/wired.com"><strong>ft.prn.la</strong>/wired.com</a>
-          </p>
-          <h2>Kudos</h2>
-          <p>
-            FeedTouch is mashed up with
-            <a href="http://code.google.com/apis/feed/">Google Feed</a>
-            and
-            <a href="http://viewtext.org">ViewText</a>.
-          </p>
-          <h2>Share</h2>
-          <p>
-            <span class="st_twitter_large" displayText="Tweet"></span><span class="st_facebook_large" displayText="Facebook"></span><span class="st_ybuzz_large" displayText="Yahoo! Buzz"></span><span class="st_gbuzz_large" displayText="Google Buzz"></span><span class="st_email_large" displayText="Email"></span><span class="st_sharethis_large" displayText="ShareThis"></span>
-          </p>
-        </div>
-        <br style="clear: both;"/>
-      </div>
-    </div>
-    <div id="ft">
-        Copyright &copy; 2011 <a href="http://cliffano.com">Studio Cliffano</a>.
-    </div>
+    <br style="clear: both;"/>
   </div>
-  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'bcad3b1b-24dc-484e-90b4-cc5dd82ed53d'});</script>
-  <% if (env === 'prd') { %>
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-247374-12']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-  <% } %>
-</body>
-</html>
+</div>
