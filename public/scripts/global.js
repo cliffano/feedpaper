@@ -61,7 +61,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
 				} else {
 					$('li#indicator').text(url.replace(/https?:\/\//, '') + ' does not have any feed');
 					$('li#indicator').show();
-					$('li#0 a').html('Visit the web page as is?').text();
+					$('li#0 a').html('View the web page anyway?').text();
 					$('li#0 a').attr('href', '/a?url=' + url.replace(/#/, '%23').replace(/\?/, '%3F') + '&title=' + encodeURIComponent(url.replace(/https?:\/\//, '')));
 					$('li#0 a').attr('data-ajax', 'false');
 					$('li#0').show();
