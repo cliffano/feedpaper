@@ -1,0 +1,13 @@
+{
+    "name": "feedtouch",
+    "version": "0.0.0",
+    "dependencies": {
+        "connect": ">= 0.5.5",
+        "connect-assetmanager": ">= 0.0.17",
+        "connect-assetmanager-handlers": ">= 0.0.17",
+        "ejs": ">= 0.2.1",
+        "express": ">= 1.0.3",
+        "log4js": ">= 0.2.3",
+        "request": ">= 0.10.0"
+    }
+}
