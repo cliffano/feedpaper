@@ -7,10 +7,10 @@ var assetManager = require('connect-assetmanager'),
     log4js = require('log4js')(),
     request = require('request'),
     sys = require('sys'),
-    logger = log4js.getLogger('app'),
     conf = JSON.parse(fs.readFileSync('./package.json', 'utf-8')),
     app = express.createServer(),
     feedTouch = new FeedTouch(),
+    logger = log4js.getLogger('app'),
     uniqueId = (new Date()).getTime();
 
 log4js.addAppender(log4js.fileAppender(conf.log.file), 'app');
