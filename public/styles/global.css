@@ -6,6 +6,6 @@ div#footer {
 }
 div#credit {
     font-size: 80%;
-    padding-right: 20px;
+    padding: 7px 20px 7px 20px;
     text-align: right;
 }
