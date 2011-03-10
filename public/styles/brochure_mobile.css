@@ -1,11 +1,17 @@
 body {
     -webkit-text-size-adjust: 250%;
 }
+div#bd div#pitch {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    background-color: #ffffff;
+    border: none;
+}
 div#bd div#pitch div.main {
-    border-right: none;
     width: 100%;
 }
 div#bd div#pitch div.side {
+    border-left: none;
     width: 100%;
 }
 div#bd div#pitch p {
