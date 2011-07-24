@@ -6,12 +6,12 @@ Simple feed reader + readability web app for mobile devices.
 Usage
 -----
 
-Simply add `ft.prn.la` in front of a website URL
+Simply add `ft.t00.me` in front of a website URL
 
 For example
 
-    ft.prn.la/wired.com
+    ft.t00.me/wired.com
     
 Or in front of an Atom/RSS feed URL
 
-    ft.prn.la/feeds.wired.com/wired/index
+    ft.t00.me/feeds.wired.com/wired/index

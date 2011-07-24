@@ -7,15 +7,9 @@
     <link rel="shortcut icon" href="/images/favicon.png"/>
     <link rel="stylesheet" href="/styles/feedtouch.css?<%= uniqueId %>"/>
     <script type="text/javascript" src="/scripts/feedtouch.js?<%= uniqueId %>"></script>
-    <% if (env === 'prd') { %>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css"/>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
-    <% } else { %>
-        <link rel="stylesheet" href="http://localhost:28000/styles/jquery.mobile-1.0a3.min.css"/>
-        <script src="http://localhost:28000/scripts/jquery-1.5.min.js"></script>
-        <script src="http://localhost:28000/scripts/jquery.mobile-1.0a3.min.js"></script>
-    <% } %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js"></script>
 </head> 
 <body>
     <%- body %>
