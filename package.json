@@ -25,7 +25,7 @@
         },
         "deploy": {
             "host": "teuchi",
-            "port": 2818,
+            "port": 2218,
             "dir": "/var/www/t00.me/ft"
         }
     }
