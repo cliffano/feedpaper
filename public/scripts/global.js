@@ -20,7 +20,7 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
                 entry = feed.entries[i];
                 if (entry.link && entry.title) {
                     $('li#' + i + ' a').text(entry.title);
-                    $('li#' + i + ' a').attr('href', '/a/' + entry.link.replace(/#/, '%23').replace(/\?/, '%3F') + '&title=' + encodeURIComponent(entry.title));
+                    $('li#' + i + ' a').attr('href', '/a/' + entry.link.replace(/#/, '%23').replace(/\?/, '%3F') + '?title=' + encodeURIComponent(entry.title));
                     $('li#' + i + ' a').attr('data-ajax', 'false');
                 } else {
                     $('li#' + i + ' a').text('Invalid feed entry');
