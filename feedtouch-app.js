@@ -1,8 +1,7 @@
-var FeedTouch = require('./lib/feedtouch').FeedTouch,
+var route = require('./lib/feedtouch/route'),
     Ute = require('ute').Ute,
-    feedTouch = new FeedTouch(),
     ute = new Ute({
         err404: false
     });
 
-ute.start(feedTouch.getRoutes());
+ute.start(route.routes);
