@@ -9,6 +9,7 @@
     "bugs": { "web": "http://github.com/cliffano/feedtouch/issues" },
     "directories": { "lib": "./lib" },
     "dependencies": { "log4js": "0.2.6", "request": "2.0.1" },
+    "devDependencies": { "vows": "0.5.9" },
     "engines": { "node": ">= 0.4.0" },
     "licenses" : [{ "type" : "MIT", "url" : "http://github.com/cliffano/feedtouch/raw/master/LICENSE" } ],
     "app": {
