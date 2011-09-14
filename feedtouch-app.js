@@ -4,4 +4,4 @@ var route = require('./lib/feedtouch/route'),
         err404: false
     });
 
-ute.start(route.routes);
+module.exports = ute.app(route.routes);
