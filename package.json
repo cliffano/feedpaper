@@ -12,7 +12,7 @@
     "devDependencies": { "vows": "0.5.9" },
     "engines": { "node": ">= 0.4.0" },
     "licenses" : [{ "type" : "MIT", "url" : "http://github.com/cliffano/feedtouch/raw/master/LICENSE" } ],
-    "app": {
+    "ute": {
         "port": 28200,
         "log": {
             "file": "/var/www/logs/feedtouch.log",
@@ -20,9 +20,11 @@
         },
         "static": {
             "styles": [ "global.css" ]
-        },
-        "build": {
-            "lint": "feedtouch-app.js public/scripts/global.js"
+        }
+    },
+    "bob": {
+        "lint": {
+            "files": "feedtouch-app.js public/scripts/global.js"
         },
         "deploy": {
             "host": "teuchi",
