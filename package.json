@@ -6,7 +6,7 @@
     "homepage" : "http://github.com/cliffano/feedtouch",
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
     "repository": { "type": "git", "url": "http://github.com/cliffano/feedtouch.git" },
-    "bugs": { "web": "http://github.com/cliffano/feedtouch/issues" },
+    "bugs": { "url": "http://github.com/cliffano/feedtouch/issues" },
     "directories": { "lib": "./lib" },
     "dependencies": { "log4js": "0.2.6", "request": "2.0.1" },
     "devDependencies": { "vows": "0.5.9" },
