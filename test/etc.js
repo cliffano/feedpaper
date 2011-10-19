@@ -1,6 +1,6 @@
 var assert = require('assert'),
     vows = require('vows'),
-    etc = require('../../lib/feedtouch/etc');
+    etc = require('../lib/feedtouch/etc');
 
 vows.describe('etc').addBatch({
     'etc': {
@@ -48,12 +48,12 @@ vows.describe('etc').addBatch({
                 tags = etc.getTags(null, 'link', '(atom|rss)\\+xml');
                 assert.equal(tags.length, 0);
             },
-	    'return anchor tag with particular text': function () {
-		var tags = etc.getTags('<a href="/myfeed"/>RSS</a><a href="/myfeed"/>Atom</a>', 'a', '>RSS<');
-		assert.equal(tags.length, 1);
-		assert.equal('<a href="/myfeed"/>RSS</a>', tags[0]);
-		assert.equal('<a href="/myfeed"/>Atom</a>', tags[1]);
-	    }
+            'return anchor tag with particular text': function () {
+                var tags = etc.getTags('<a href="/myfeed"/>RSS</a><a href="/myfeed"/>Atom</a>', 'a', '>RSS<');
+                assert.equal(tags.length, 1);
+                assert.equal('<a href="/myfeed"/>RSS</a>', tags[0]);
+                assert.equal('<a href="/myfeed"/>Atom</a>', tags[1]);
+            }
         },
         'getAttribute': {
             'return expected attribute value': function () {

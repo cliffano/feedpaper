@@ -24,7 +24,8 @@
     },
     "bob": {
         "lint": {
-            "files": "feedtouch-app.js public/scripts/global.js"
+            "files": "lib/ test/ feedtouch.js feedtouch-app.js",
+            "opts": "--config .nodelint"
         },
         "deploy": {
             "host": "teuchi",
