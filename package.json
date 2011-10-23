@@ -28,6 +28,8 @@
             "opts": "--config .nodelint"
         },
         "deploy": {
+            "user": "cliffano",
+            "key": "~/.ssh/identity",
             "host": "teuchi",
             "port": 2218,
             "dir": "/var/www/t00.me/ft"

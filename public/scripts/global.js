@@ -21,7 +21,6 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
                 if (entry.link && entry.title) {
                     $('li#' + i + ' a').text(entry.title);
                     $('li#' + i + ' a').attr('href', '/a/' + entry.link.replace(/#/, '%23').replace(/\?/, '%3F') + '?title=' + encodeURIComponent(entry.title));
-                    $('li#' + i + ' a').attr('data-ajax', 'false');
                 } else {
                     $('li#' + i + ' a').text('Invalid feed entry');
                 }
@@ -55,7 +54,6 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
                         for (i = 0; i < ln; i += 1) {
                             $('li#' + i + ' a').html(data[i].title || 'Untitled Feed').text();
                             $('li#' + i + ' a').attr('href', '/' + sanitiseUrl(data[i].url));
-                            $('li#' + i + ' a').attr('data-ajax', 'false');
                             $('li#' + i).show();
                         }
                     }
@@ -64,7 +62,6 @@ FeedTouch.prototype.loadHome = function (url, maxDisplay, numElems) {
                     $('li#indicator').show();
                     $('li#0 a').html('View the page anyway?').text();
                     $('li#0 a').attr('href', '/a/' + url.replace(/#/, '%23').replace(/\?/, '%3F') + '&title=' + encodeURIComponent(url.replace(/https?:\/\//, '')));
-                    $('li#0 a').attr('data-ajax', 'false');
                     $('li#0').show();
                 }
             });
@@ -85,3 +82,9 @@ FeedTouch.prototype.loadArticle = function (url, title) {
         }
     });
 };
+
+// must be loaded after jquery and before jquerymobile
+$(document).bind('mobileinit', function () {
+    $.mobile.ajaxEnabled = false;
+});
+
