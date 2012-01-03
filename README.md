@@ -1,7 +1,7 @@
 FeedTouch
 ---------
 
-Simple feed reader + readability web app for mobile devices.
+Feed reader + readability mashup for mobile devices.
     
 Usage
 -----
@@ -15,3 +15,8 @@ For example
 Or in front of an Atom/RSS feed URL
 
     ft.t00.me/feeds.wired.com/wired/index
+
+Colophon
+--------
+
+Follow [@cliffano](http://twitter.com/cliffano) on Twitter.

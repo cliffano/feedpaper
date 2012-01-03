@@ -1,4 +1,9 @@
-var Ute = require('ute').Ute,
-    ute = new Ute();
+var routes = require('./lib/routes').routes,
+  Ute = require('ute').Ute,
+  ute = new Ute({
+    name: 'feedtouch',
+    port: 28200,
+    routes: routes
+  });
 
-ute.server(process.cwd());
+ute.run();
