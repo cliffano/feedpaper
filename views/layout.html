@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FeedTouch</title>
-    <meta name="viewport" content="width=default-width, initial-scale=1"/>
-    <link rel="apple-touch-icon" href="/images/icon.png"/>
-    <link rel="apple-touch-icon-precomposed" href="/images/icon.png"/>
-    <link rel="shortcut icon" href="/images/favicon.png"/>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css"/>
-    <link rel="stylesheet" href="/styles/feedtouch.css?<%= uniqueId %>"/>
-    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-    <script type="text/javascript" src="/scripts/feedtouch.js?<%= uniqueId %>"></script>
-    <script src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
+  <title>FeedTouch</title>
+  <!--<meta name="viewport" content="width=default-width, initial-scale=1"/>-->
+  <link rel="apple-touch-icon" href="/images/icon.png"/>
+  <link rel="apple-touch-icon-precomposed" href="/images/icon.png"/>
+  <link rel="shortcut icon" href="/images/favicon.png"/>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css"/>
+  <link rel="stylesheet" href="/styles/feedtouch.css?<%= runId %>"/>
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script type="text/javascript" src="/scripts/feedtouch.js?<%= runId %>"></script>
+  <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 </head> 
 <body>
-    <%- body %>
-    <% if (env === 'prd') { %>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-247374-12']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <% } %>
+  <%- body %>
+  <% if (env.NODE_ENV === 'production') { %>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-247374-12']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <% } %>
 </body>
 </html>

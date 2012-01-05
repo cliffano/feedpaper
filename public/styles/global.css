@@ -1,11 +1,15 @@
-li {
-    list-style-type: none;
-}
-div#footer {
-    padding: 5px 10px 5px 10px;
+body {
+	text-align: left;
 }
 div#credit {
     font-size: 80%;
     padding: 7px 20px 7px 20px;
     text-align: right;
+}
+div#footer {
+    padding: 5px 10px 5px 10px;
+}
+div#footer a {
+	color: #ffffff;
+	text-decoration: none;
 }
