@@ -7,7 +7,7 @@
     "readability",
     "mobile"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "homepage": "http://github.com/cliffano/feedtouch",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "request": "2.0.1",
-    "ute": "0.0.1"
+    "ute": "0.0.2"
   },
   "devDependencies": {
     "sandboxed-module": "0.1.2",
