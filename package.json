@@ -11,6 +11,9 @@
   "private": true,
   "homepage": "http://github.com/cliffano/feedtouch",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
+  "scripts": {
+    "test": "vows --spec `find test -name \"*.js\"`"
+  },
   "repository": {
     "type": "git",
     "url": "http://github.com/cliffano/feedtouch.git"
