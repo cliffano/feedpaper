@@ -65,7 +65,6 @@ function FeedTouch() {
               $('li#indicator').hide();
               $('h1#title').text(title);
               
-              // TODO: fix doubling up feed list
               data.forEach(function (feed) {
                 if (feed.title) {
                   $('li#indicator').before('<li><a href="/' + _sanitise(url, feed.url) + '">' + feed.title + '</a></li>');
