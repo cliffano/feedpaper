@@ -1,5 +1,25 @@
 function FeedTouch() {
 
+  // sanitise feed URL, ensure it has protocol and host, and escape special characters
+  function _sanitise(page, feed) {
+
+    var sanitised = feed;
+    if (!sanitised.match(/^https?:\/\//)) {
+
+      if (!feed.match(/^\//)) {
+        sanitised = '/' + sanitised;
+      }
+
+      if (!page.match(/^https?:\/\//)) {
+        page = 'http://' + page;
+      }
+
+      sanitised = page + sanitised;
+    }
+
+    return sanitised.replace(/#/, '%23').replace(/\?/, '%3F');
+  }
+
   function home(url, max) {
     
     $('li#indicator').text('Loading feed...');
@@ -36,7 +56,7 @@ function FeedTouch() {
             $('li#indicator').text('Discovered ' + data.length + ' feed' + ((data.length > 1) ? 's' : ''));
 
             if (data.length === 1) {
-              window.location = '/' + data[0].url;
+              window.location = '/' + _sanitise(url, data[0].url);
             } else {
 
               var title = url.replace(/https?:\/\//, '') + ' feeds';
@@ -48,7 +68,7 @@ function FeedTouch() {
               // TODO: fix doubling up feed list
               data.forEach(function (feed) {
                 if (feed.title) {
-                  $('li#indicator').before('<li><a href="/' + feed.url + '">' + feed.title + '</a></li>');
+                  $('li#indicator').before('<li><a href="/' + _sanitise(url, feed.url) + '">' + feed.title + '</a></li>');
                 }
               });
               $('ul#items').listview('refresh');
