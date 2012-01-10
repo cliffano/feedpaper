@@ -1,6 +1,14 @@
 function FeedTouch() {
 
-  // sanitise feed URL, ensure it has protocol and host, and escape special characters
+  // encode URI component with special characters handling
+  function _encode(component) {
+    return encodeURIComponent(component)
+      .replace(/#/, '%23')
+      .replace(/\?/, '%3F')
+      .replace(/'/, '%E2%80%99');  
+  }
+
+  // sanitise feed URL, ensure it has protocol and host
   function _sanitise(page, feed) {
 
     var sanitised = feed;
@@ -17,7 +25,7 @@ function FeedTouch() {
       sanitised = page + sanitised;
     }
 
-    return sanitised.replace(/#/, '%23').replace(/\?/, '%3F');
+    return _encode(sanitised);
   }
 
   function home(url, max) {
@@ -38,7 +46,7 @@ function FeedTouch() {
         $('h1#title').text(feed.title);
         
         feed.entries.forEach(function (entry) {
-          $('li#indicator').before('<li><a href="' + '/a/' + entry.link.replace(/#/, '%23').replace(/\?/, '%3F') + '?title=' + encodeURIComponent(entry.title) + '">' + entry.title + '</a></li>');
+          $('li#indicator').before('<li><a href="' + '/a/' + _encode(entry.link) + '?title=' + _encode(entry.title) + '">' + entry.title + '</a></li>');
         });
         $('ul#items').listview('refresh');
 
