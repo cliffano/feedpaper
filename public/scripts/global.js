@@ -24,7 +24,10 @@ function FeedTouch() {
 
       sanitised = page + sanitised;
     }
-
+console.log(
+'page: ' + page +
+'\nfeed: ' + feed +
+'\nsanitised: ' + sanitised)
     return _encode(sanitised);
   }
 
@@ -67,7 +70,7 @@ function FeedTouch() {
               window.location = '/' + _sanitise(url, data[0].url);
             } else {
 
-              var title = url.replace(/https?:\/\//, '') + ' feeds';
+              var title = url.replace(/https?:\/\//, '') + ' Feeds';
               document.title = title + ' - FeedTouch';
               
               $('li#indicator').hide();
@@ -75,7 +78,7 @@ function FeedTouch() {
               
               data.forEach(function (feed) {
                 if (feed.title) {
-                  $('li#indicator').before('<li><a href="/' + _sanitise(url, feed.url) + '">' + feed.title + '</a></li>');
+                  $('li#indicator').before('<li><a href="/' + _sanitise(url, feed.url) + '" data-ajax="false">' + feed.title + '</a></li>');
                 }
               });
               $('ul#items').listview('refresh');
@@ -84,9 +87,9 @@ function FeedTouch() {
           // no feed
           } else {
 
-            $('li#indicator').text(url.replace(/https?:\/\//, '') + ' does not have any feed');
+            $('li#indicator').text(url + ' does not have any feed');
             $('li#indicator').show();
-            $('li#indicator').after('<li><a href="">View the page anyway?</a>');
+            $('li#indicator').after('<li><a href="' + url + '" data-ajax="false">' + 'View the page anyway?</a>');
             $('ul#items').listview('refresh');
           }
         });
