@@ -22,7 +22,7 @@ function FeedTouch() {
         page = 'http://' + page;
       }
 
-      sanitised = page + sanitised;
+      sanitised = page.match(/https?:\/\/.+\//)[0] + sanitised;
     }
 console.log(
 'page: ' + page +
