@@ -24,10 +24,7 @@ function FeedTouch() {
 
       sanitised = page.match(/https?:\/\/.+\//)[0] + sanitised;
     }
-console.log(
-'page: ' + page +
-'\nfeed: ' + feed +
-'\nsanitised: ' + sanitised)
+
     return _encode(sanitised);
   }
 
