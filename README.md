@@ -1,4 +1,4 @@
-FeedTouch ![http://travis-ci.org/cliffano/feedtouch](https://secure.travis-ci.org/cliffano/feedtouch.png?branch=master)
+FeedTouch [![http://travis-ci.org/cliffano/feedtouch](https://secure.travis-ci.org/cliffano/feedtouch.png?branch=master)](http://travis-ci.org/cliffano/feedtouch)
 ---------
 
 Feed reader + readability mashup for mobile devices.
