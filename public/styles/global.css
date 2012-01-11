@@ -13,3 +13,6 @@ div#footer a {
 	color: #ffffff;
 	text-decoration: none;
 }
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
