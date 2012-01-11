@@ -3,9 +3,9 @@ function FeedTouch() {
   // encode URI component with special characters handling
   function _encode(component) {
     return encodeURIComponent(component)
-      .replace(/#/, '%23')
-      .replace(/\?/, '%3F')
-      .replace(/'/, '%E2%80%99');  
+      .replace(/#/g, '%23')
+      .replace(/\?/g, '%3F')
+      .replace(/'/g, '%E2%80%99');  
   }
 
   // sanitise feed URL, ensure it has protocol and host
