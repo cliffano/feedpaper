@@ -10,19 +10,15 @@ function FeedTouch() {
 
   // sanitise feed URL, ensure it has protocol and host
   function _sanitise(page, feed) {
-
     var sanitised = feed;
     if (!sanitised.match(/^https?:\/\//)) {
-
       if (!feed.match(/^\//)) {
         sanitised = '/' + sanitised;
       }
-
       if (!page.match(/^https?:\/\//)) {
         page = 'http://' + page;
-      }
-
-      sanitised = page.match(/https?:\/\/.+\//)[0] + sanitised;
+      }            
+      sanitised = page.match(/https?:\/\/[^\/]+/)[0] + sanitised;
     }
 
     return _encode(sanitised);
