@@ -28,6 +28,7 @@ function FeedTouch() {
     return _encode(sanitised);
   }
 
+  // display feed entries, if non-feed then attempt feed discovery
   function home(url, max) {
     
     $('li#indicator').text('Loading feed...');
