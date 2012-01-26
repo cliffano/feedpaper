@@ -47,11 +47,11 @@
       "files": "lib/ test/ feedtouch.js"
     },
     "deploy": {
-      "user": "cliffano",
+      "user": "ec2-user",
       "key": "~/.ssh/identity",
       "host": "teuchi",
-      "port": 2218,
-      "dir": "/var/www/t00.me/ft"
+      "port": 22,
+      "dir": "/app/feedtouch"
     }
   }
 }
