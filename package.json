@@ -51,7 +51,7 @@
       "key": "~/.ssh/identity",
       "host": "teuchi",
       "port": 22,
-      "dir": "/app/feedtouch"
+      "dir": "/app/${name}"
     }
   }
 }
