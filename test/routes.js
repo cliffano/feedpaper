@@ -7,9 +7,9 @@ vows.describe('routes').addBatch({
     topic: function () {
       return function (path, mocks) {
         var routes = sandbox.require('../lib/routes', {
-        	  requires: {
-        	  	'./handlers': mocks
-        	  }
+            requires: {
+              './handlers': mocks
+            }
           }).routes,
           _route;
         routes.forEach(function (route) {
@@ -18,7 +18,7 @@ vows.describe('routes').addBatch({
           }  
         });
         return _route;
-      }
+      };
     },
     'should have brochure route': function (topic) {
       var route = topic('/', { brochure: function () { return 'dummy brochure'; }});

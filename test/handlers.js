@@ -9,7 +9,7 @@ vows.describe('handlers').addBatch({
         return sandbox.require('../lib/handlers', {
             requires: mocks
           });
-      }
+      };
     },
     'should enable layout and pass url to locals when home request has param': function (topic) {
       var checks = {},
