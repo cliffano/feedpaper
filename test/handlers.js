@@ -46,8 +46,15 @@ vows.describe('handlers').addBatch({
         next,
         locals;
       topic({
-        'request': function (opts, cb) {
-          cb(new Error('dummy error'));
+        './feedtouch': {
+          FeedTouch: function () {
+            return {
+              discover: function (url, cb) {
+                assert.equal(url, 'http://wired.com');
+                cb(new Error('Feed discovery error: dummy error'));
+              }
+            };
+          }
         }
       }).discover(req, res, next, locals);
       assert.equal(checks.data, '{"err":"Feed discovery error: dummy error"}');
@@ -67,8 +74,15 @@ vows.describe('handlers').addBatch({
         next,
         locals;
       topic({
-        'request': function (opts, cb) {
-          cb(null, { statusCode: 500 });
+        './feedtouch': {
+          FeedTouch: function () {
+            return {
+              discover: function (url, cb) {
+                assert.equal(url, 'http://wired.com');
+                cb(new Error('Feed discovery error: Unexpected status code: 500'));
+              }
+            };
+          }
         }
       }).discover(req, res, next, locals);
       assert.equal(checks.data, '{"err":"Feed discovery error: Unexpected status code: 500"}');
@@ -88,8 +102,15 @@ vows.describe('handlers').addBatch({
         next,
         locals;
       topic({
-        'request': function (opts, cb) {
-          cb(null, { statusCode: 200 }, '<a href="http://host/feed">rss</a>');
+        './feedtouch': {
+          FeedTouch: function () {
+            return {
+              discover: function (url, cb) {
+                assert.equal(url, 'http://wired.com');
+                cb(null, [{"title":null,"url":"http://host/feed"}]);
+              }
+            };
+          }
         }
       }).discover(req, res, next, locals);
       assert.equal(checks.data, '[{"title":null,"url":"http://host/feed"}]');
