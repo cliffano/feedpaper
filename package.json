@@ -30,7 +30,7 @@
     "ute": "0.0.2"
   },
   "devDependencies": {
-    "sandboxed-module": "http://nodeload.github.com/cliffano/node-sandboxed-module/tarball/master",
+    "sandboxed-module": "0.1.3",
     "vows": "0.6.1"
   },
   "engines": {
