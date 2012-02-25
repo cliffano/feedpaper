@@ -11,9 +11,6 @@
   "private": true,
   "homepage": "http://github.com/cliffano/feedtouch",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
-  "scripts": {
-    "test": "npm install -g bob; bob clean lint test package coverage;"
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/cliffano/feedtouch.git"
