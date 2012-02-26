@@ -38,17 +38,5 @@
       "type": "MIT",
       "url": "http://github.com/cliffano/feedtouch/raw/master/LICENSE"
     }
-  ],
-  "bob": {
-    "lint": {
-      "files": "lib/ test/ feedtouch.js"
-    },
-    "deploy": {
-      "user": "ec2-user",
-      "key": "~/.ssh/identity",
-      "host": "teuchi",
-      "port": 22,
-      "dir": "/app/${name}"
-    }
-  }
+  ]
 }
