@@ -43,7 +43,7 @@ function FeedTouch() {
         $('h1#title').text(feed.title);
         
         feed.entries.forEach(function (entry) {
-          $('li#indicator').before('<li><a href="' + '/a/' + _encode(entry.link) + '?title=' + _encode(entry.title) + '">' + entry.title + '</a></li>');
+          $('li#indicator').before('<li><a href="' + '/a/' + _encode(entry.link) + '">' + entry.title + '</a></li>');
         });
         $('ul#items').listview('refresh');
 

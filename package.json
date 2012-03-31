@@ -23,6 +23,7 @@
     "test": "./test"
   },
   "dependencies": {
+    "readabilitySAX": "1.4.3",
     "request": "2.0.1",
     "ute": "0.0.2"
   },
