@@ -79,7 +79,7 @@ vows.describe('feedtouch').addBatch({
           checks.err = err;
           checks.result = result;
         };
-      (new (topic(mocks))()).readable('http://wired.com/article1', cb);
+      (new (topic(mocks))()).article('http://wired.com/article1', cb);
       assert.isNull(checks.err);
       assert.equal(checks.result.title, 'Some Title');
       assert.equal(checks.result.url, 'http://wired.com/article1');

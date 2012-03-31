@@ -136,7 +136,7 @@ vows.describe('handlers').addBatch({
         './feedtouch': {
           FeedTouch: function () {
             return {
-              readable: function (url, cb) {
+              article: function (url, cb) {
                 assert.equal(url, 'wired.com');
                 cb(null, {
                   url: url,
@@ -175,7 +175,7 @@ vows.describe('handlers').addBatch({
         './feedtouch': {
           FeedTouch: function () {
             return {
-              readable: function (url, cb) {
+              article: function (url, cb) {
                 assert.equal(url, 'wired.com');
                 cb(null, {
                   url: url,
@@ -213,7 +213,7 @@ vows.describe('handlers').addBatch({
         './feedtouch': {
           FeedTouch: function () {
             return {
-              readable: function (url, cb) {
+              article: function (url, cb) {
                 assert.equal(url, 'wired.com');
                 cb(new Error('Article cannot be retrieved'));
               }
