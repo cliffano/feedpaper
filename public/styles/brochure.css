@@ -1,21 +1,39 @@
 body {
     background-color: #ffffff;
-    text-align: center;
 }
-div#doc {
+div#container {
     font-family: helvetica, arial, sans-serif;
     line-height: 170%;
     margin: auto;
-    width: 860px;
+    max-width: 860px;
 }
 div#social {
     text-align: right;
 }
-div#hd {
+div#header {
     margin-bottom: 80px;
     margin-top: 30px;
     text-align: center;
 }
+div#body {
+}
+div#body div#pitch {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    background-color: #efefef;
+    border: 1px solid #cccccc;
+    padding: 15px;
+}
+footer {
+    font-size: 90%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+a {
+    color: #ee4000;
+}
+/*
 div#bd {
 }
 div#bd img#splash {
@@ -40,11 +58,4 @@ div#bd div.content {
     padding: 20px;
     text-align: left;
 }
-div#ft {
-    font-size: 90%;
-    margin-bottom: 10px;
-    margin-top: 20px;
-}
-a {
-    color: #ee4000;
-}
+*/
