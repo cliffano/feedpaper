@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "request": "2.0.1",
-    "ute": "0.0.2"
+    "ute": "0.0.3"
   },
   "devDependencies": {
     "sandboxed-module": "0.1.3",
