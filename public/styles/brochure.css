@@ -16,6 +16,7 @@ div#header {
     text-align: center;
 }
 div#body {
+    text-align: center;
 }
 div#body div#pitch {
     -moz-border-radius: 12px;
@@ -23,6 +24,7 @@ div#body div#pitch {
     background-color: #efefef;
     border: 1px solid #cccccc;
     padding: 15px;
+    text-align: left;
 }
 footer {
     font-size: 90%;
@@ -33,29 +35,3 @@ footer {
 a {
     color: #ee4000;
 }
-/*
-div#bd {
-}
-div#bd img#splash {
-    margin-bottom: 10px;
-}
-div#bd div#pitch {
-    -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    background-color: #efefef;
-    border: 1px solid #cccccc;
-    text-align: center;
-}
-div#bd div#pitch div.main {
-    width: 480px;
-}
-div#bd div#pitch div.side {
-    border-left: 1px dotted #aaaaaa;
-    width: 280px;
-}
-div#bd div.content {
-    float: left;
-    padding: 20px;
-    text-align: left;
-}
-*/
