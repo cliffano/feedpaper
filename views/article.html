@@ -1,13 +1,15 @@
 <div id="article">
   <div id="header" data-role="header" data-theme="b">
     <a class="back" data-role="button" data-icon="arrow-l" data-rel="back">&nbsp;</a>
-    <h1 id="title"><%= title %></h1>
+    <h1 id="title"><%- title %></h1>
   </div>
   <div data-role="content" data-theme="c">
     <div id="content">
       <p>
-        <strong><%= title %></strong><br/>
-        <a href="<%= url %>"><%= url %></a>
+        <strong><%- title %></strong><br/>
+        <a href="<%= url %>">Source</a>
+        |
+        <a href="twitter://post?message=<%= title %> - <%= url %>">Tweet</a>
       </p>
       <%- content %>
     </div>	
