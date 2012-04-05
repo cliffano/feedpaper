@@ -116,7 +116,7 @@ vows.describe('handlers').addBatch({
       assert.equal(checks.data, '[{"title":null,"url":"http://host/feed"}]');
       assert.equal(checks.code, 200);
     },
-    'should enable layout, pass url and title to locals when article request has param': function (topic) {
+    'should enable layout, pass url, title, and content to locals when article request has param': function (topic) {
       var checks = {},
         req = {
           params: ['wired.com'],
@@ -132,14 +132,30 @@ vows.describe('handlers').addBatch({
         locals = {
           foo: 'bar'
         };
-      topic({}).article(req, res, next, locals);
+      topic({
+        './feedtouch': {
+          FeedTouch: function () {
+            return {
+              article: function (url, cb) {
+                assert.equal(url, 'wired.com');
+                cb(null, {
+                  url: url,
+                  title: 'Hello World',
+                  content: '<h1>Foo bar</h1>'
+                });
+              }
+            };
+          }
+        }
+      }).article(req, res, next, locals);
       assert.equal(checks.page, 'article.html');
       assert.isTrue(checks.params.layout);
       assert.equal(checks.params.locals.url, 'wired.com');
       assert.equal(checks.params.locals.title, 'Hello World');
+      assert.equal(checks.params.locals.content, '<h1>Foo bar</h1>');
       assert.equal(checks.params.locals.foo, 'bar');
     },
-    'should enable layout, pass url and default title to locals when article request has no title query string': function (topic) {
+    'should enable layout, pass url, content, and default title to locals when article request has no title query string': function (topic) {
       var checks = {},
         req = {
           params: ['wired.com'],
@@ -155,12 +171,58 @@ vows.describe('handlers').addBatch({
         locals = {
           foo: 'bar'
         };
-      topic({}).article(req, res, next, locals);
+      topic({
+        './feedtouch': {
+          FeedTouch: function () {
+            return {
+              article: function (url, cb) {
+                assert.equal(url, 'wired.com');
+                cb(null, {
+                  url: url,
+                  content: '<h1>Foo bar</h1>'
+                });
+              }
+            };
+          }
+        }
+      }).article(req, res, next, locals);
       assert.equal(checks.page, 'article.html');
       assert.isTrue(checks.params.layout);
       assert.equal(checks.params.locals.url, 'wired.com');
       assert.equal(checks.params.locals.title, 'Untitled');
+      assert.equal(checks.params.locals.content, '<h1>Foo bar</h1>');
       assert.equal(checks.params.locals.foo, 'bar');
+    },
+    'should respond with 404 code when an error occurs during article retrieval and processing': function (topic) {
+      var checks = {},
+        req = {
+          params: ['wired.com'],
+          query: {}
+        },
+        res = {
+          send: function (error, code) {
+            checks.error = error;
+            checks.code = code;
+          }
+        },
+        next,
+        locals = {
+          foo: 'bar'
+        };
+      topic({
+        './feedtouch': {
+          FeedTouch: function () {
+            return {
+              article: function (url, cb) {
+                assert.equal(url, 'wired.com');
+                cb(new Error('Article cannot be retrieved'));
+              }
+            };
+          }
+        }
+      }).article(req, res, next, locals);
+      assert.equal(checks.error, '{"err":"Article cannot be retrieved"}');
+      assert.equal(checks.code, 404);
     },
     'should set brochure layout and keep locals when brochure request is sent': function (topic) {
       var checks = {},
