@@ -10,6 +10,9 @@ div#container {
 div#social {
     text-align: right;
 }
+div#header img, div#splash img {
+    max-width: 100%;
+}
 div#header {
     margin-bottom: 80px;
     margin-top: 30px;
