@@ -4,7 +4,7 @@ body {
 div#container {
     font-family: helvetica, arial, sans-serif;
     line-height: 170%;
-    margin: auto;
+    margin: 0 auto 50px auto;
     max-width: 860px;
 }
 div#social {
