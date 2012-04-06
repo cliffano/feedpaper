@@ -11,7 +11,9 @@ div#social {
     text-align: right;
 }
 div#header img, div#splash img {
+    height: auto;
     max-width: 100%;
+    width: auto;
 }
 div#header {
     margin-bottom: 80px;
