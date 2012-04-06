@@ -4,7 +4,7 @@ body {
 div#container {
     font-family: helvetica, arial, sans-serif;
     line-height: 170%;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 30px auto;
     max-width: 860px;
 }
 div#social {
@@ -26,7 +26,9 @@ div#body div#pitch {
     -webkit-border-radius: 12px;
     background-color: #efefef;
     border: 1px solid #cccccc;
-    padding: 15px;
+    padding: 15px 25px;
+}
+div#body div#pitch div {;
     text-align: left;
 }
 footer {
