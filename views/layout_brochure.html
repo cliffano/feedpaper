@@ -12,13 +12,17 @@
   <link rel="stylesheet" type="text/css" href="/styles/brochure/global.css"/>
 </head>
 <body>
-  <div id="container" class="container">
-    <div id="social" class="row">
-      <a href="http://github.com/cliffano/feedtouch"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets2.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_orange_ff7600.png&path=" alt="Fork me on GitHub"></a>
-      <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fft.t00.me&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
+  <div id="container" class="container-fluid">
+    <div id="social" class="row-fluid">
+      <div class="span12">
+        <a href="http://github.com/cliffano/feedtouch"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets2.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_orange_ff7600.png&path=" alt="Fork me on GitHub"></a>
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fft.t00.me&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:21px;" allowTransparency="true"></iframe>
+      </div>
     </div>
-    <div id="header" class="row">
-      <img src="/images/logo.jpg" height="60" width="290" alt="FeedTouch Logo"/>
+    <div id="header" class="row-fluid">
+      <div class="span12">
+        <img src="/images/logo.jpg" height="60" width="290" alt="FeedTouch Logo"/>
+      </div>
     </div>
     <%- body %>
     <footer>
