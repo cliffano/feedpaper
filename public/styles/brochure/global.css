@@ -4,11 +4,8 @@ body {
 div#container {
     font-family: helvetica, arial, sans-serif;
     line-height: 170%;
-    margin: 0 auto 30px auto;
+    margin: 30px auto;
     max-width: 860px;
-}
-div#social {
-    text-align: right;
 }
 div#header img, div#splash img {
     height: auto;
