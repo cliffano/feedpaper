@@ -1,12 +1,21 @@
 {
+  "build": "clean lint complexity test coverage test-integration doc",
   "lint": {
-    "files": "lib/ test/ feedtouch.js"
+    "type": "jshint"
   },
-  "deploy": {
-    "user": "ec2-user",
-    "key": "~/.ssh/identity",
-    "host": "teuchi",
-    "port": 22,
-    "dir": "/app/${name}"
+  "complexity": {
+    "type": "plato"
+  },
+  "test": {
+    "type": "buster"
+  },
+  "coverage": {
+    "type": "buster-istanbul"
+  },
+  "test-integration": {
+    "type": "cmdt"
+  },
+  "doc": {
+    "type": "dox-foundation"
   }
 }
