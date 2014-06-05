@@ -1,0 +1,5 @@
+[
+  { "method": "GET", "path": "/", "handler": "feedTouchPage" },
+  { "method": "GET", "path": "/data/feed/:feedId/articles", "handler": "feedData" },
+  { "method": "GET", "path": "/data/article/*", "handler": "articleData" }
+]

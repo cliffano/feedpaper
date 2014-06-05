@@ -2,19 +2,19 @@
 <html>
 <head>
   <title>FeedTouch</title>
-  <meta name="viewport" content="width=default-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="apple-touch-icon" href="/images/icon.png"/>
   <link rel="apple-touch-icon-precomposed" href="/images/icon.png"/>
-  <link rel="shortcut icon" href="/images/favicon.png"/>
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css"/>
-  <link rel="stylesheet" href="/styles/feedtouch.css?<%= runId %>"/>
-  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="/scripts/feedtouch.js?<%= runId %>"></script>
-  <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-</head> 
+  <link rel="shortcut icon" href="/images/icon.png"/>
+  <link rel="stylesheet" href="//cdn.kik.com/app/2.0.1/app.min.css"/>
+  <link rel="stylesheet" href="/styles/global.css"/>
+  <script type="text/javascript" src="//zeptojs.com/zepto.min.js"></script>
+</head>
 <body>
   <%- body %>
-  <% if (env.NODE_ENV === 'production') { %>
+  <script type="text/javascript" src="//cdn.kik.com/app/2.0.1/app.min.js"></script>
+  <script type="text/javascript" src="/scripts/global.js"></script>
+  <% if ('env.NODE_ENV' === 'production') { %>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-247374-12']);

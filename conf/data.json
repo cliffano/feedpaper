@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Sports: Basketball",
+    "feeds": [
+      {
+        "title": "Bleacher Report",
+        "url": "http://bleacherreport.com/articles/feed?tag_id=19"
+      },
+      {
+        "title": "Grantland",
+        "url": "http://grantland.com/tags/nba/feed/"
+      }
+    ]
+  },
+  {
+    "title": "Technology",
+    "feeds": [
+      {
+        "title": "The Verge",
+        "url": "http://www.theverge.com/rss/frontpage"
+      },
+      {
+        "title": "Tech Crunch",
+        "url": "http://feeds.feedburner.com/TechCrunch/"
+      }
+    ]
+  }
+]

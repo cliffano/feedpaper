@@ -1,3 +1,61 @@
+App.populator('feed', function (page, data) {
+  $(page).find('.app-title').text(data.title);
+  $.getJSON('/data/feed/' + data.id + '/articles', function (articles) {
+    articles.forEach(function (article) {
+      var li = $('<li class="app-button">' + article.title + '</li>');
+      li.on('click', function () {
+        App.load('article', article);
+      });
+      $(page).find('.app-list').append(li);
+    });
+  });
+});
+
+App.populator('article', function (page, data) {
+  $(page).find('.app-title').text(data.title);
+  $.getJSON('/data/article/' + data.url, function (article) {
+    $(page).find('.app-content').html(article.content);
+  });
+});
+
+// App.populator('feedtouch', function (page) {
+//   $.getJSON('/data/categories', function (data) {
+//     Object.keys(data).forEach(function (id) {
+//       console.log(data);
+//       $(page).find('#categories').append(
+//         '<li class="app-button" data-target="category">' + data[id] + '</li>'
+//       );
+//     });
+//   })
+// });
+
+// function FeedTouchController(page) {
+//   this.load(page);
+// }
+// FeedTouchController.prototype.load = function (page) {
+//   $.getJSON('/data/categories', function (data) {
+//     Object.keys(data).forEach(function (id) {
+//       $(page).find('#categories').append(
+//         '<li class="app-button" data-target="category" data-clickable-class="active">' + data[id] + '</li>'
+//       );
+//     });
+//   })
+// };
+
+// function CategoryController(page) {
+//   this.load(page);
+// }
+// CategoryController.prototype.load = function (page) {
+//   $.getJSON('/data/technology/feeds', function (data) {
+//     Object.keys(data).forEach(function (id) {
+//       $(page).find('#feeds').append(
+//         '<li class="app-button" data-target="feed" data-target-args="{}">' + data[id] + '</li>'
+//       );
+//     });
+//   })
+// };
+
+/*
 function FeedTouch() {
 
   // encode URI component with special characters handling
@@ -102,7 +160,7 @@ function FeedTouch() {
       if (data.content) {
     
         document.title = title + ' - FeedTouch';
-        data.content = data.content.replace(/^\s*/, '').replace(/\s*$/, '');
+        data.content = data.content.replace(/^\s* /, '').replace(/\s*$/, '');
         $('div#content').html(heading + data.content);
       
       } else {
@@ -119,3 +177,5 @@ function FeedTouch() {
     article: article
   };
 }
+
+*/

@@ -1,0 +1,57 @@
+<div class="app-page" data-page="feedtouch">
+  <div class="app-topbar orange">
+    <div class="app-title">FeedTouch</div>
+  </div>
+  <div class="app-content">
+    <ul class="app-list">
+      <% for (var i = 0, ln = categories.length; i < ln; i += 1) { %>
+        <li class="app-button" data-target="category-<%= categories[i].id %>"><%= categories[i].title %></li>
+      <% } %>
+    </ul>
+  </div>
+</div>
+
+<% for (var i = 0, ln = categories.length; i < ln; i += 1) { %>
+  <div class="app-page" data-page="category-<%= categories[i].id %>">
+    <div class="app-topbar orange">
+      <div class="app-button left" data-back></div>
+      <div class="app-title"><%= categories[i].title %></div>
+    </div>
+    <div class="app-content">
+      <ul class="app-list">
+        <% for (var j = 0, ln = categories[i].feeds.length; j < ln; j += 1) { %>
+          <li class="app-button" data-target="feed" data-target-args='{ "id": "<%= categories[i].feeds[j].id %>", "title": "<%= categories[i].feeds[j].title %>" }'><%= categories[i].feeds[j].title %></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+<% } %>
+
+<div class="app-page" data-page="feed">
+  <div class="app-topbar orange">
+    <div class="app-button left" data-back></div>
+    <div class="app-title"></div>
+  </div>
+  <div class="app-content">
+    <ul class="app-list">
+    </ul>
+  </div>
+</div>
+
+<div class="app-page" data-page="article">
+  <div class="app-topbar orange">
+    <div class="app-button left" data-back></div>
+    <div class="app-title"></div>
+  </div>
+  <div id="article" class="app-content">
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {{
+  // App.controller('feedtouch', FeedTouchController);
+  App.load('feedtouch', function () {{
+    console.log('FeedTouch client loaded');
+  }});
+}});
+</script>

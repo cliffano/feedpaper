@@ -1,15 +1,8 @@
-body {
-	text-align: left;
+div#article {
+  background-color: #ffffff;
+  line-height: 130%;
+  padding: 20px;
 }
-div#credit {
-    font-size: 80%;
-    padding: 7px 20px 7px 20px;
-    text-align: right;
-}
-div#home div#footer {
-    padding: 5px 10px 5px 10px;
-}
-div#footer a {
-	color: #ffffff;
-	text-decoration: none;
+div#article p {
+  margin: 20px 0;
 }
