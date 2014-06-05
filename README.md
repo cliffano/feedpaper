@@ -1,22 +1,9 @@
-FeedTouch [![http://travis-ci.org/cliffano/feedtouch](https://secure.travis-ci.org/cliffano/feedtouch.png?branch=master)](http://travis-ci.org/cliffano/feedtouch)
+FeedPocket [![http://travis-ci.org/cliffano/feedpocket](https://secure.travis-ci.org/cliffano/feedpocket.png?branch=master)](http://travis-ci.org/cliffano/feedpocket)
 ---------
 
-Feed reader + readability mashup for mobile devices.
+Curated feed reader + readability mashup for mobile devices.
     
 Usage
 -----
 
-Simply add `ft.t00.me` in front of a website URL
-
-For example
-
-    ft.t00.me/wired.com
-    
-Or in front of an Atom/RSS feed URL
-
-    ft.t00.me/feeds.wired.com/wired/index
-
-Colophon
---------
-
-Follow [@cliffano](http://twitter.com/cliffano) on Twitter.
+Visit http://bit.ly/feedpocket

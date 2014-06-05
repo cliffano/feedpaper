@@ -1,5 +1,5 @@
 {
-  "name": "feedtouch",
+  "name": "feedpocket",
   "description": "Feed reader + readability mashup for reading on handheld devices",
   "keywords": [
     "feed",
@@ -8,17 +8,17 @@
   ],
   "version": "0.0.2",
   "private": true,
-  "homepage": "http://github.com/cliffano/feedtouch",
+  "homepage": "http://github.com/cliffano/feedpocket",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
   "bin": {
-    "feedtouch": "./bin/feedtouch"
+    "feedpocket": "./bin/feedpocket"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/cliffano/feedtouch.git"
+    "url": "http://github.com/cliffano/feedpocket.git"
   },
   "bugs": {
-    "url": "http://github.com/cliffano/feedtouch/issues"
+    "url": "http://github.com/cliffano/feedpocket/issues"
   },
   "directories": {
     "bin": "./bin",
@@ -44,7 +44,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/cliffano/feedtouch/raw/master/LICENSE"
+      "url": "http://github.com/cliffano/feedpocket/raw/master/LICENSE"
     }
   ]
 }

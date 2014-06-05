@@ -1,7 +1,7 @@
 {
   "commands": {
     "start": {
-      "desc": "Start FeedTouch"
+      "desc": "Start FeedPocket application"
     }
   }
 }
