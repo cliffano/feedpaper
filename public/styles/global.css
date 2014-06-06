@@ -1,5 +1,14 @@
+div.app-title {
+  font-family: 'helvetica neue', arial, sans-serif;
+}
+ul.app-list li.app-button {
+  font-family: georgia, serif;
+  color: #333333;
+}
 div#article {
   background-color: #ffffff;
+  font-family: georgia, serif;
+  font-size: 16px;
   line-height: 130%;
   padding: 20px;
 }
