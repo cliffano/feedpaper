@@ -32,7 +32,7 @@
     "feed-read": "~0.0.1",
     "node-cache": "~1.0.0",
     "readabilitySAX": "~1.6.1",
-    "ute": "~0.1.0"
+    "ute": "~0.1.1"
   },
   "devDependencies": {
     "buster-node": "~0.7.0",
