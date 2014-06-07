@@ -1,5 +1,57 @@
 [
   {
+    "title": "Business",
+    "feeds": [
+      {
+        "title": "Fast Company",
+        "url": "http://www.fastcompany.com/rss.xml"
+      },
+      {
+        "title": "Fortune",
+        "url": "http://fortune.com/feed/"
+      },
+      {
+        "title": "Inc.",
+        "url": "http://feeds.inc.com/home/updates"
+      }
+    ]
+  },
+  {
+    "title": "Gaming",
+    "feeds": [
+      {
+        "title": "Kotaku Australia",
+        "url": "http://feeds.kotaku.com.au/kotakuaustralia"
+      },
+      {
+        "title": "Grantland",
+        "url": "http://grantland.com/tags/nba/feed/"
+      }
+    ]
+  },
+  {
+    "title": "News - World",
+    "feeds": [
+      {
+        "title": "BBC",
+        "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
+      },
+      {
+        "title": "Huffington Post",
+        "url": "http://feeds.huffingtonpost.com/HP/MostPopular"
+      }
+    ]
+  },
+  {
+    "title": "News - Australia",
+    "feeds": [
+      {
+        "title": "The Age",
+        "url": "http://www.theage.com.au/rssheadlines"
+      }
+    ]
+  },
+  {
     "title": "Sports: Basketball",
     "feeds": [
       {
