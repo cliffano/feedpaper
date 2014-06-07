@@ -13,6 +13,10 @@
       {
         "title": "Inc.",
         "url": "http://feeds.inc.com/home/updates"
+      },
+      {
+        "title": "The Economist",
+        "url": "http://www.economist.com/feeds/print-sections/77/business.xml"
       }
     ]
   },
@@ -22,6 +26,24 @@
       {
         "title": "Kotaku Australia",
         "url": "http://feeds.kotaku.com.au/kotakuaustralia"
+      }
+    ]
+  },
+  {
+    "title": "News: Australia",
+    "feeds": [
+      {
+        "title": "The Age",
+        "url": "http://feeds.theage.com.au/rssheadlines/top.xml"
+      }
+    ]
+  },
+  {
+    "title": "News: Indonesia",
+    "feeds": [
+      {
+        "title": "Detik",
+        "url": "http://rss.detik.com/index.php/detikcom_nasional"
       }
     ]
   },
@@ -44,6 +66,10 @@
       {
         "title": "Grantland",
         "url": "http://grantland.com/tags/nba/feed/"
+      },
+      {
+        "title": "NBA.com",
+        "url": "http://www.nba.com/rss/nba_rss.xml"
       }
     ]
   },
@@ -51,12 +77,12 @@
     "title": "Technology",
     "feeds": [
       {
-        "title": "The Verge",
-        "url": "http://www.theverge.com/rss/frontpage"
-      },
-      {
         "title": "Tech Crunch",
         "url": "http://feeds.feedburner.com/TechCrunch/"
+      },
+      {
+        "title": "The Verge",
+        "url": "http://www.theverge.com/rss/frontpage"
       }
     ]
   }
