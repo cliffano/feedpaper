@@ -4,28 +4,28 @@
   </div>
   <div class="app-content">
     <ul class="app-list">
-      <% for (var i = 0, ln = categories.length; i < ln; i += 1) { %>
-        <li class="app-button" data-target="category-<%= categories[i].id %>"><%= categories[i].title %></li>
-      <% } %>
+      <% categories.forEach(function (category) { %>
+        <li class="app-button" data-target="category-<%= category.id %>"><%= category.title %></li>
+      <% }) %>
     </ul>
   </div>
 </div>
 
-<% for (var i = 0, ln = categories.length; i < ln; i += 1) { %>
-  <div class="app-page" data-page="category-<%= categories[i].id %>">
+<% categories.forEach(function (category) { %>
+  <div class="app-page" data-page="category-<%= category.id %>">
     <div class="app-topbar orange">
       <div class="app-button left" data-back></div>
-      <div class="app-title"><%= categories[i].title %></div>
+      <div class="app-title"><%= category.title %></div>
     </div>
     <div class="app-content">
       <ul class="app-list">
-        <% for (var j = 0, ln = categories[i].feeds.length; j < ln; j += 1) { %>
-          <li class="app-button" data-target="feed" data-target-args='{ "id": "<%= categories[i].feeds[j].id %>", "title": "<%= categories[i].feeds[j].title %>" }'><%= categories[i].feeds[j].title %></li>
-        <% } %>
+        <% category.feeds.forEach(function (feed) { %>
+          <li class="app-button" data-target="feed" data-target-args='{ "id": "<%= feed.id %>", "title": "<%= feed.title %>" }'><%= feed.title %></li>
+        <% }) %>
       </ul>
     </div>
   </div>
-<% } %>
+<% }) %>
 
 <div class="app-page" data-page="feed">
   <div class="app-topbar orange">
