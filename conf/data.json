@@ -22,10 +22,6 @@
       {
         "title": "Kotaku Australia",
         "url": "http://feeds.kotaku.com.au/kotakuaustralia"
-      },
-      {
-        "title": "Grantland",
-        "url": "http://grantland.com/tags/nba/feed/"
       }
     ]
   },
@@ -35,19 +31,6 @@
       {
         "title": "BBC",
         "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
-      },
-      {
-        "title": "Huffington Post",
-        "url": "http://feeds.huffingtonpost.com/HP/MostPopular"
-      }
-    ]
-  },
-  {
-    "title": "News - Australia",
-    "feeds": [
-      {
-        "title": "The Age",
-        "url": "http://www.theage.com.au/rssheadlines"
       }
     ]
   },
