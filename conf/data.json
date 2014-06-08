@@ -21,25 +21,54 @@
     ]
   },
   {
+    "title": "Entertainment",
+    "feeds": [
+      {
+        "title": "Making Game of Thrones",
+        "url": "http://www.makinggameofthrones.com/production-diary?format=rss"
+      },
+      {
+        "title": "Winter Is Coming",
+        "url": "http://feeds.feedburner.com/winter-is-coming"
+      }
+    ]
+  },
+  {
     "title": "Gaming",
     "feeds": [
       {
-        "title": "Kotaku Australia",
+        "title": "Gamespot",
+        "url": "http://www.gamespot.com/feeds/news/"
+      },
+      {
+        "title": "IGN",
+        "url": "http://feeds.ign.com/ign/news"
+      },
+      {
+        "title": "Kotaku",
         "url": "http://feeds.kotaku.com.au/kotakuaustralia"
       }
     ]
   },
   {
-    "title": "News: Australia",
+    "title": "News / Australia",
     "feeds": [
+      {
+        "title": "ABC",
+        "url": "http://www.abc.net.au/news/feed/46182/rss.xml"
+      },
       {
         "title": "The Age",
         "url": "http://feeds.theage.com.au/rssheadlines/top.xml"
+      },
+      {
+        "title": "SBS",
+        "url": "http://sbs.feedsportal.com/c/34692/f/637303/index.rss"
       }
     ]
   },
   {
-    "title": "News: Indonesia",
+    "title": "News / Indonesia",
     "feeds": [
       {
         "title": "Detik",
@@ -48,20 +77,28 @@
     ]
   },
   {
-    "title": "News: World",
+    "title": "News / World",
     "feeds": [
       {
         "title": "BBC",
         "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
+      },
+      {
+        "title": "Wall Street Journal",
+        "url": "http://online.wsj.com/xml/rss/3_7085.xml"
       }
     ]
   },
   {
-    "title": "Sports: Basketball",
+    "title": "Sports / Basketball",
     "feeds": [
       {
         "title": "Bleacher Report",
         "url": "http://bleacherreport.com/articles/feed?tag_id=19"
+      },
+      {
+        "title": "ESPN",
+        "url": "http://sports.espn.go.com/espn/rss/nba/news"
       },
       {
         "title": "Grantland",
@@ -74,8 +111,33 @@
     ]
   },
   {
+    "title": "Sports / Football",
+    "feeds": [
+      {
+        "title": "The World Game",
+        "url": "http://theworldgame.sbs.com.au/rss"
+      }
+    ]
+  },
+  {
     "title": "Technology",
     "feeds": [
+      {
+        "title": "CNET",
+        "url": "http://www.cnet.com/rss/news/"
+      },
+      {
+        "title": "Engadget",
+        "url": "http://www.engadget.com/rss.xml"
+      },
+      {
+        "title": "Gizmodo",
+        "url": "http://feeds.gizmodo.com.au/gizmodoaustralia"
+      },
+      {
+        "title": "Hacker News",
+        "url": "https://news.ycombinator.com/rss"
+      },
       {
         "title": "Tech Crunch",
         "url": "http://feeds.feedburner.com/TechCrunch/"
@@ -83,6 +145,10 @@
       {
         "title": "The Verge",
         "url": "http://www.theverge.com/rss/frontpage"
+      },
+      {
+        "title": "Wired",
+        "url": "http://feeds.wired.com/wired/index"
       }
     ]
   }
