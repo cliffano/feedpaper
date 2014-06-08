@@ -14,6 +14,10 @@ App.populator('feed', function (page, data) {
 App.populator('article', function (page, data) {
   $(page).find('.app-title').text(data.title);
   $.getJSON('/data/article/' + data.url, function (article) {
-    $(page).find('.app-content').html(article.content);
+    var content =
+    '<p><strong>' + article.title + '</strong><br/>' +
+    '<a href="' + article.url + '">' + article.url + '</a></p>' +
+    article.content;
+    $(page).find('.app-content').html(content);
   });
 });
