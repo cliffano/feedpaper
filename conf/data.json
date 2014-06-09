@@ -70,19 +70,6 @@
     ]
   },
   {
-    "title": "Entertainment",
-    "feeds": [
-      {
-        "title": "Making Game of Thrones",
-        "url": "http://www.makinggameofthrones.com/production-diary?format=rss"
-      },
-      {
-        "title": "Winter Is Coming",
-        "url": "http://feeds.feedburner.com/winter-is-coming"
-      }
-    ]
-  },
-  {
     "title": "Gaming",
     "feeds": [
       {
@@ -175,11 +162,15 @@
     ]
   },
   {
-    "title": "News / Indonesia",
+    "title": "News / Asia",
     "feeds": [
       {
         "title": "Detik",
         "url": "http://rss.detik.com/index.php/detikcom_nasional"
+      },
+      {
+        "title": "News On Japan",
+        "url": "http://newsonjapan.com/rss/top.xml"
       },
       {
         "title": "Tempo",
@@ -199,6 +190,10 @@
     "title": "Sports / Basketball",
     "feeds": [
       {
+        "title": "Ball Don't Lie",
+        "url": "http://sports.yahoo.com/nba/blog/ball_dont_lie/rss.xml"
+      },
+      {
         "title": "Bleacher Report",
         "url": "http://bleacherreport.com/articles/feed?tag_id=19"
       },
@@ -209,6 +204,10 @@
       {
         "title": "Grantland",
         "url": "http://grantland.com/tags/nba/feed/"
+      },
+      {
+        "title": "Hang Time Blog",
+        "url": "http://hangtime.blogs.nba.com/feed/"
       },
       {
         "title": "NBA.com",
@@ -226,6 +225,10 @@
       {
         "title": "The World Game",
         "url": "http://theworldgame.sbs.com.au/rss"
+      },
+      {
+        "title": "World Soccer",
+        "url": "http://sports.yahoo.com/soccer/rss.xml?ysp_bucket=1"
       }
     ]
   },
@@ -259,6 +262,23 @@
       {
         "title": "Wired",
         "url": "http://feeds.wired.com/wired/index"
+      }
+    ]
+  },
+  {
+    "title": "TV & Film",
+    "feeds": [
+      {
+        "title": "Making Game of Thrones",
+        "url": "http://www.makinggameofthrones.com/production-diary?format=rss"
+      },
+      {
+        "title": "Roger Ebert",
+        "url": "http://www.rogerebert.com/feed"
+      },
+      {
+        "title": "Winter Is Coming",
+        "url": "http://feeds.feedburner.com/winter-is-coming"
       }
     ]
   }
