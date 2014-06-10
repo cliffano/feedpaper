@@ -70,6 +70,19 @@
     ]
   },
   {
+    "title": "Design",
+    "feeds": [
+      {
+        "title": "Architectural Digest",
+        "url": "http://www.architecturaldigest.com/feed/rss/archdigest.rss.xml"
+      },
+      {
+        "title": "Dezeen",
+        "url": "http://feeds.feedburner.com/dezeen"
+      }
+    ]
+  },
+  {
     "title": "Gaming",
     "feeds": [
       {
