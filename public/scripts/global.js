@@ -12,7 +12,7 @@ App.populator('feed', function (page, data) {
 });
 
 App.populator('article', function (page, data) {
-  $(page).find('.app-title').text(data.title.substring(0, 20));
+  $(page).find('.app-title').text(data.title.substring(0, 30));
   $.getJSON('/data/article/' + data.url, function (article) {
     var content =
     '<p><strong>' + article.title + '</strong><br/>' +
