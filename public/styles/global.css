@@ -3,7 +3,7 @@ div.app-title {
 }
 ul.app-list li.app-button {
   font-family: georgia, serif;
-  color: #333333;
+  color: #000000;
 }
 div#article {
   background-color: #ffffff;
@@ -11,6 +11,16 @@ div#article {
   font-size: 16px;
   line-height: 130%;
   padding: 20px;
+}
+div#article a {
+  background-color: #ffffff;
+  color: #333333;
+  text-decoration: underline;
+}
+div#article a:hover {
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
 }
 div#article p {
   margin: 20px 0;
