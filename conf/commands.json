@@ -1,7 +1,7 @@
 {
   "commands": {
     "start": {
-      "desc": "Start FeedPocket application"
+      "desc": "Start FeedPaper application"
     }
   }
 }
