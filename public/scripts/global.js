@@ -16,7 +16,7 @@ App.populator('article', function (page, data) {
   $.getJSON('/data/article/' + data.url, function (article) {
     var content =
     '<p><strong>' + article.title + '</strong><br/>' +
-    '<a href="' + article.url + '">' + article.url + '</a></p>' +
+    '<a href="' + article.url + '">' + article.source + '</a></p>' +
     article.content;
     $(page).find('#article').html(content);
   });
