@@ -1,9 +1,10 @@
 div.app-title {
-  font-family: 'helvetica neue', arial, sans-serif;
+  font-family: georgia, serif;
+  font-weight: bold;
 }
 ul.app-list li.app-button {
-  font-family: georgia, serif;
   color: #000000;
+  font-family: georgia, serif;
 }
 div#article {
   background-color: #ffffff;
@@ -24,4 +25,11 @@ div#article a:hover {
 }
 div#article p {
   margin: 20px 0;
+}
+footer {
+  color: #000000;
+  font-family: georgia, serif;
+  font-size: 85%;
+  padding: 20px;
+  text-align: right;
 }

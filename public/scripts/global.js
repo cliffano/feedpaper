@@ -18,6 +18,6 @@ App.populator('article', function (page, data) {
     '<p><strong>' + article.title + '</strong><br/>' +
     '<a href="' + article.url + '">' + article.url + '</a></p>' +
     article.content;
-    $(page).find('.app-content').html(content);
+    $(page).find('#article').html(content);
   });
 });
