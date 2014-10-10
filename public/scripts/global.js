@@ -1,6 +1,7 @@
 App.populator('feed', function (page, data) {
   $(page).find('.app-title').text(data.title);
   $.getJSON('/data/feed/' + data.id + '/articles', function (articles) {
+    $(page).find('.app-list').children().remove();
     articles.forEach(function (article) {
       var li = $('<li class="app-button">' + article.title + '</li>');
       li.on('click', function () {
