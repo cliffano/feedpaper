@@ -1,0 +1,7 @@
+- params:
+    feedpaper: ../../../../../bin/feedpaper
+
+- description: Inexisting command should display error message
+  command: '{feedpaper} someinexistingcommand'
+  exitcode: 1
+  output: 'Unknown command: someinexistingcommand, use --help for more info'
