@@ -1,24 +1,55 @@
 App.populator('feed', function (page, data) {
-  $(page).find('.app-title').text(data.title);
-  $.getJSON('/data/feed/' + data.id + '/articles', function (articles) {
+
+  function successCb(data, status, xhr) {
     $(page).find('.app-list').children().remove();
-    articles.forEach(function (article) {
+    data.forEach(function (article) {
       var li = $('<li class="app-button">' + article.title + '</li>');
       li.on('click', function () {
         App.load('article', article);
       });
       $(page).find('.app-list').append(li);
     });
+  }
+
+  function errorCb(xhr, errType, err) {
+    $(page).find('.app-list').children().remove();
+    var li = $('<li class="app-button">' + err + ' - ' + xhr.responseText + '</li>');
+    $(page).find('.app-list').append(li);
+  }
+
+  $(page).find('.app-title').text(data.title);
+
+  $.ajax({
+    type    : 'GET',
+    url     : '/data/feed/' + data.id + '/articles',
+    dataType: 'json',
+    success : successCb,
+    error   : errorCb
   });
+
 });
 
 App.populator('article', function (page, data) {
-  $(page).find('.app-title').text(data.title.substring(0, 30));
-  $.getJSON('/data/article/' + data.url, function (article) {
+
+  function successCb(data, status, xhr) {
     var content =
-    '<p><strong>' + article.title + '</strong><br/>' +
-    '<a href="' + article.url + '">' + article.source + '</a></p>' +
-    article.content;
+      '<p><strong>' + data.title + '</strong><br/>' +
+      '<a href="' + data.url + '">' + data.source + '</a></p>' +
+      data.content;
     $(page).find('#article').html(content);
+  }
+
+  function errorCb(xhr, errType, err) {
+    $(page).find('#article').html(err + ' - ' + xhr.responseText);
+  }
+
+  $(page).find('.app-title').text(data.title);
+
+  $.ajax({
+    type    : 'GET',
+    url     : '/data/article/' + data.url,
+    dataType: 'json',
+    success : successCb,
+    error   : errorCb
   });
 });
