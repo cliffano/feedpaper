@@ -1,6 +1,7 @@
 div.app-title {
   font-family: georgia, serif;
   font-weight: bold;
+  text-align: center;
 }
 ul.app-list li.app-button {
   color: #000000;
@@ -31,5 +32,5 @@ footer {
   font-family: georgia, serif;
   font-size: 85%;
   padding: 20px;
-  text-align: right;
+  text-align: center;
 }
