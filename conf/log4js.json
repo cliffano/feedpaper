@@ -5,7 +5,9 @@
     },
     {
       "type": "file",
-      "filename": "feedpaper.log"
+      "filename": "feedpaper.log",
+      "maxLogSize": 20480,
+      "backups": 10
     }
   ],
   "replaceConsole": true
