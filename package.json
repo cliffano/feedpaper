@@ -30,6 +30,7 @@
     "bagofcli": "~0.2.0",
     "cron": "~1.0.5",
     "feed-read": "~0.0.1",
+    "log4js": "~0.6.21",
     "node-cache": "~1.0.2",
     "readabilitySAX": "~1.6.1",
     "ute": "~0.1.3"

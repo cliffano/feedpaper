@@ -1,4 +1,5 @@
 .bob
 .DS_Store
+feedpaper.log
 node_modules
 npm-debug.log
