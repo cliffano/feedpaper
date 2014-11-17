@@ -6,7 +6,7 @@
     {
       "type": "file",
       "filename": "feedpaper.log",
-      "maxLogSize": 20480,
+      "maxLogSize": 10240000,
       "backups": 10
     }
   ],
