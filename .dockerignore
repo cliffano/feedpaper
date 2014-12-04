@@ -6,7 +6,6 @@
 .jshintrc
 .npmignore
 .travis.yml
-Dockerfile
 feedpaper.log
 node_modules
 npm-debug.log
