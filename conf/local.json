@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "FeedPaper",
+    "name": "FeedPaper Local",
     "port": 9000
   }
 }
