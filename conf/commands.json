@@ -1,7 +1,14 @@
 {
   "commands": {
     "start": {
-      "desc": "Start FeedPaper application"
+      "desc": "Start FeedPaper application",
+      "options": [
+        { "arg": "-f, --feeds-file <feedsFile>", "desc": "Feeds configuration file | default: conf/feeds.json" }
+      ],
+      "examples": [
+        "feedpaper start",
+        "feedpaper start --feeds-file /path/to/somefeedfile.json"
+      ]
     }
   }
 }
