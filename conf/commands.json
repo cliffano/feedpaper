@@ -3,11 +3,13 @@
     "start": {
       "desc": "Start FeedPaper application",
       "options": [
-        { "arg": "-f, --feeds-file <feedsFile>", "desc": "Feeds configuration file | default: conf/feeds.json" }
+        { "arg": "-f, --feeds-file <feedsFile>", "desc": "Feeds configuration file | default: conf/feeds.json" },
+        { "arg": "-c, --conf-dir <confDir>", "desc": "Applications configuration directory | default: conf" }
       ],
       "examples": [
         "feedpaper start",
-        "feedpaper start --feeds-file /path/to/somefeedfile.json"
+        "feedpaper start --feeds-file /path/to/somefeedfile.json",
+        "feedpaper start --conf-dir /path/to/someconfdir"
       ]
     }
   }

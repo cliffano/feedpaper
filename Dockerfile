@@ -11,4 +11,4 @@ ADD . /app/feedpaper
 WORKDIR /app/feedpaper
 
 RUN npm link
-CMD /usr/local/bin/feedpaper start
+CMD /usr/local/bin/feedpaper start --feeds-file /app/data/feeds.json --conf-dir /app/conf/
