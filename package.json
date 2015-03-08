@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "async": "~0.9.0",
-    "bagofcli": "~0.2.0",
-    "cron": "~1.0.5",
+    "bagofcli": "~0.2.1",
+    "cron": "~1.0.9",
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
-    "node-cache": "~1.0.2",
+    "node-cache": "~1.1.0",
     "readabilitySAX": "~1.6.1",
     "ute": "~0.1.5"
   },
