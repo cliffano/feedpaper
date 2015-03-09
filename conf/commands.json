@@ -4,7 +4,8 @@
       "desc": "Start FeedPaper application",
       "options": [
         { "arg": "-f, --feeds-file <feedsFile>", "desc": "Feeds setting file | default: conf/feeds.json" },
-        { "arg": "-c, --conf-dir <confDir>", "desc": "Applications configuration directory | default: conf" }
+        { "arg": "-c, --conf-dir <confDir>", "desc": "Applications configuration directory | default: conf" },
+        { "arg": "-d, --cache-db-dir <cacheDbDir>", "desc": "Cache database directory | default: /tmp/feedpaper.db" }
       ],
       "examples": [
         "feedpaper start",
