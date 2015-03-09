@@ -30,7 +30,8 @@
     "bagofcli": "~0.2.1",
     "cron": "~1.0.9",
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
-    "node-cache": "~1.1.0",
+    "level": "~0.18.0",
+    "level-ttl": "~3.0.3",
     "readabilitySAX": "~1.6.1",
     "ute": "~0.1.5"
   },
