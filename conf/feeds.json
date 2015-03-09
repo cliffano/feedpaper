@@ -21,55 +21,6 @@
     ]
   },
   {
-    "title": "Cooking",
-    "feeds": [
-      {
-        "title": "Chasing Delicious",
-        "url": "http://chasingdelicious.com/feed/"
-      },
-      {
-        "title": "Dinner A Love Story",
-        "url": "http://feeds.feedburner.com/DinnerALoveStory"
-      },
-      {
-        "title": "Green Kitchen Stories",
-        "url": "http://www.greenkitchenstories.com/feed/"
-      },
-      {
-        "title": "I Am A Food Blog",
-        "url": "http://iamafoodblog.com/feed/"
-      },
-      {
-        "title": "Local Milk",
-        "url": "http://localmilkblog.com/feed"
-      },
-      {
-        "title": "Love And Lemons",
-        "url": "http://www.loveandlemons.com/feed/"
-      },
-      {
-        "title": "Not Without Salt",
-        "url": "http://notwithoutsalt.com/feed/"
-      },
-      {
-        "title": "Princess Tofu",
-        "url": "http://feeds.feedburner.com/PrincessTofu"
-      },
-      {
-        "title": "The Roaming Kitchen",
-        "url": "http://theroamingkitchen.net/feed/"
-      },
-      {
-        "title": "The Vanilla Bean Blog",
-        "url": "http://feeds.feedburner.com/TheVanillaBeanBlog"
-      },
-      {
-        "title": "Top With Cinnamon",
-        "url": "http://www.topwithcinnamon.com/feed"
-      }
-    ]
-  },
-  {
     "title": "Design",
     "feeds": [
       {
@@ -100,43 +51,6 @@
     ]
   },
   {
-    "title": "Gardening",
-    "feeds": [
-      {
-        "title": "Aussie Organic Gardening",
-        "url": "http://aussieorganicgardening.com/feed/"
-      },
-      {
-        "title": "Garden World",
-        "url": "http://gardenworld.com.au/feed/"
-      },
-      {
-        "title": "Homelife Gardening",
-        "url": "http://blogs.homelife.com.au/gardening/rss/"
-      },
-      {
-        "title": "Our Australian Gardens",
-        "url": "http://ouraustraliangardens.tumblr.com/rss"
-      },
-      {
-        "title": "Suburban Tomato",
-        "url": "http://suburbantomato.com/feed/"
-      },
-      {
-        "title": "The Garden Planner",
-        "url": "http://www.thegardenplanner.net.au/feed/"
-      },
-      {
-        "title": "Your Small Kitchen Garden",
-        "url": "http://feeds.feedburner.com/SmallKitchenGarden"
-      },
-      {
-        "title": "Yummy Gardens",
-        "url": "http://www.yummygardensmelbourne.com/organic-vegetable-gardens.xml"
-      }
-    ]
-  },
-  {
     "title": "News / World",
     "feeds": [
       {
@@ -154,94 +68,6 @@
       {
         "title": "Wall Street Journal",
         "url": "http://online.wsj.com/xml/rss/3_7085.xml"
-      }
-    ]
-  },
-  {
-    "title": "News / Australia",
-    "feeds": [
-      {
-        "title": "ABC",
-        "url": "http://www.abc.net.au/news/feed/46182/rss.xml"
-      },
-      {
-        "title": "The Age",
-        "url": "http://feeds.theage.com.au/rssheadlines/top.xml"
-      },
-      {
-        "title": "SBS",
-        "url": "http://sbs.feedsportal.com/c/34692/f/637303/index.rss"
-      }
-    ]
-  },
-  {
-    "title": "News / Asia",
-    "feeds": [
-      {
-        "title": "Detik",
-        "url": "http://rss.detik.com/index.php/detikcom_nasional"
-      },
-      {
-        "title": "News On Japan",
-        "url": "http://newsonjapan.com/rss/top.xml"
-      },
-      {
-        "title": "Tempo",
-        "url": "http://www.tempo.co/rss/terkini"
-      },
-      {
-        "title": "The Jakarta Globe",
-        "url": "http://www.thejakartaglobe.com/feed/"
-      },
-      {
-        "title": "The Jakarta Post",
-        "url": "http://www.thejakartapost.com/breaking/feed"
-      }
-    ]
-  },
-  {
-    "title": "Sports / Basketball",
-    "feeds": [
-      {
-        "title": "Ball Don't Lie",
-        "url": "http://sports.yahoo.com/nba/blog/ball_dont_lie/rss.xml"
-      },
-      {
-        "title": "Bleacher Report",
-        "url": "http://bleacherreport.com/articles/feed?tag_id=19"
-      },
-      {
-        "title": "ESPN",
-        "url": "http://sports.espn.go.com/espn/rss/nba/news"
-      },
-      {
-        "title": "Grantland",
-        "url": "http://grantland.com/tags/nba/feed/"
-      },
-      {
-        "title": "Hang Time Blog",
-        "url": "http://hangtime.blogs.nba.com/feed/"
-      },
-      {
-        "title": "NBA.com",
-        "url": "http://www.nba.com/rss/nba_rss.xml"
-      }
-    ]
-  },
-  {
-    "title": "Sports / Football",
-    "feeds": [
-      {
-        "title": "Tempo Bola",
-        "url": "http://www.tempo.co/rss/olahraga_sepakbola"
-      },
-      {
-        "title": "The World Game",
-        "url": "http://theworldgame.sbs.com.au/rss"
-      },
-      {
-        "title": "World Soccer",
-        "url": "http://sports.yahoo.com/soccer/rss.xml?ysp_bucket=1"
       }
     ]
   },
@@ -275,23 +101,6 @@
       {
         "title": "Wired",
         "url": "http://feeds.wired.com/wired/index"
-      }
-    ]
-  },
-  {
-    "title": "TV & Film",
-    "feeds": [
-      {
-        "title": "Making Game of Thrones",
-        "url": "http://www.makinggameofthrones.com/production-diary?format=rss"
-      },
-      {
-        "title": "Roger Ebert",
-        "url": "http://www.rogerebert.com/feed"
-      },
-      {
-        "title": "Winter Is Coming",
-        "url": "http://feeds.feedburner.com/winter-is-coming"
       }
     ]
   }
