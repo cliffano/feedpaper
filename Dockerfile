@@ -11,6 +11,4 @@ ADD . /app/stage
 WORKDIR /app/stage
 
 RUN npm install .
-RUN npm install -g forever forever-monitor
-#CMD /usr/local/bin/forever start /app/stage/bin/feedpaper start --feeds-file /app/data/feeds.json --conf-dir /app/conf/
-CMD /app/stage/bin/feedpaper start --feeds-file /app/data/feeds.json --conf-dir /app/conf/
+CMD /app/stage/bin/feedpaper start --feeds-file /app/data/feeds.json --conf-dir /app/conf/ --cache-db-dir /app/data/feedpaper.db
