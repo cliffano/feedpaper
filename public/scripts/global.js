@@ -3,7 +3,7 @@ App.populator('feed', function (page, data) {
   function successCb(data, status, xhr) {
     $(page).find('.app-list').children().remove();
     data.forEach(function (article) {
-      var li = $('<li class="app-button">' + article.title + '</li>');
+      var li = $('<li class="app-button" data-back="true" data-autotitle>' + article.title + '</li>');
       li.on('click', function () {
         App.load('article', article);
       });
@@ -13,7 +13,7 @@ App.populator('feed', function (page, data) {
 
   function errorCb(xhr, errType, err) {
     $(page).find('.app-list').children().remove();
-    var li = $('<li class="app-button">' + err + ' - ' + xhr.responseText + '</li>');
+    var li = $('<li class="app-button" data-back="true" data-autotitle>' + err + ' - ' + xhr.responseText + '</li>');
     $(page).find('.app-list').append(li);
   }
 

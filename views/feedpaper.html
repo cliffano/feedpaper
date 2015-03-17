@@ -65,8 +65,13 @@
 
 <script type="text/javascript">
 $(document).ready(function () {{
-  App.load('feedpaper', function () {{
-    console.log('FeedPaper application loaded');
-  }});
+  try {
+    App.restore();
+    console.log('FeedPaper application restored');
+  } catch (err) {
+    App.load('feedpaper', function () {{
+      console.log('FeedPaper application loaded');
+    }});
+  }
 }});
 </script>
