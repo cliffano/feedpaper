@@ -34,7 +34,8 @@ function _populateArticle(page, data) {
   function successCb(data, status, xhr) {
     var content =
       '<p><strong>' + data.title + '</strong><br/>' +
-      '<a href="' + data.url + '">' + data.source + '</a></p>' +
+      '<a href="' + data.url + '">source</a> | ' +
+      '<a href="/a/' + data.url + '">permalink</a></p>' +
       data.content;
     $(page).find('.app-title').text(data.title);
     $(page).find('#article').html(content);
