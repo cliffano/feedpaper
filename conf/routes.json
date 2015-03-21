@@ -1,5 +1,6 @@
 [
   { "method": "GET", "path": "/", "handler": "feedPaperPage" },
+  { "method": "GET", "path": "/a/*", "handler": "articlePage" },
   { "method": "GET", "path": "/data/feed/:feedId/articles", "handler": "feedData" },
   { "method": "GET", "path": "/data/article/*", "handler": "articleData" }
 ]

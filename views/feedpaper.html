@@ -14,6 +14,21 @@
   </div>
 </div>
 
+<div class="app-page" data-page="feedpaper-article">
+  <div class="app-topbar black">
+    <div class="app-button left hack-data-back" data-target="feedpaper"></div>
+    <div class="app-title"></div>
+  </div>
+  <div class="app-content">
+    <div id="article">
+      Loading article...
+    </div>
+    <footer>
+      <%= footer %>
+    </footer>
+  </div>
+</div>
+
 <% categories.forEach(function (category) { %>
   <div class="app-page" data-page="category-<%= category.id %>">
     <div class="app-topbar black">
@@ -65,13 +80,19 @@
 
 <script type="text/javascript">
 $(document).ready(function () {{
-  try {
-    App.restore();
-    console.log('FeedPaper application restored');
-  } catch (err) {
-    App.load('feedpaper', function () {{
-      console.log('FeedPaper application loaded');
+  <% if (article) { %>
+    App.load('feedpaper-article', { url: '<%= article.url %>' }, function () {{
+      console.log('FeedPaper application loaded on article page');
     }});
-  }
+  <% } else { %>
+    try {
+      App.restore();
+      console.log('FeedPaper application restored');
+    } catch (err) {
+      App.load('feedpaper', function () {{
+        console.log('FeedPaper application loaded on home page');
+      }});
+    }
+  <% } %>
 }});
 </script>

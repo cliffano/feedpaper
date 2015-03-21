@@ -34,3 +34,15 @@ footer {
   padding: 20px;
   text-align: center;
 }
+/* this hack is needed because app.js doesn't set background-image correctly
+   on left button without data-back */
+.hack-data-back {
+  padding: 15px 0 15px 27px;
+  height: 14px;
+  background-image: url('../images/data-back.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: 12px 20px;
+  background-size: 12px 20px;
+  background-position: 8px center;
+  line-height: 14px;
+}
