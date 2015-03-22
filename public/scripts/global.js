@@ -37,11 +37,13 @@ function _populateArticle(page, data) {
       '<p class="features"><a href="' + data.url + '">source</a> | ' +
       '<a href="/a/' + data.url + '">permalink</a></p>' +
       data.content;
+    document.title = data.title;
     $(page).find('.app-title-hook').text(data.title);
     $(page).find('#article').html(content);
   }
 
   function errorCb(xhr, errType, err) {
+    document.title = 'Error';
     $(page).find('.app-title-hook').text('Error');
     $(page).find('#article').html(err + ' - ' + xhr.responseText);
   }
