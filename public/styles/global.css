@@ -1,15 +1,17 @@
-div.app-title {
-  font-family: georgia, serif;
-  font-weight: bold;
+h1.app-title {
+  font-family: museo-slab, serif;
   text-align: center;
 }
 ul.app-list li.app-button {
   color: #000000;
-  font-family: georgia, serif;
+  font-family: adelle, georgia, serif;
+}
+h2 {
+  font-family: museo-slab, georgia, serif;
 }
 div#article {
   background-color: #ffffff;
-  font-family: georgia, serif;
+  font-family: adelle, georgia, serif;
   font-size: 17px;
   line-height: 160%;
   padding: 20px;
@@ -24,25 +26,27 @@ div#article a:hover {
   color: #ffffff;
   text-decoration: none;
 }
+div#article p.features {
+  font-family: helvetica, sans-serif;
+}
 div#article p {
   margin: 20px 0;
 }
 footer {
-  color: #000000;
-  font-family: georgia, serif;
-  font-size: 85%;
+  color: #666666;
+  font-family: helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
   padding: 20px;
   text-align: center;
+  text-transform: uppercase;
 }
 /* this hack is needed because app.js doesn't set background-image correctly
    on left button without data-back */
 .hack-data-back {
-  padding: 15px 0 15px 27px;
-  height: 14px;
   background-image: url('../images/data-back.png');
   background-repeat: no-repeat;
-  -webkit-background-size: 12px 20px;
-  background-size: 12px 20px;
-  background-position: 8px center;
-  line-height: 14px;
+  -webkit-background-size: 40%;
+  background-size: 40%;
+  background-position: center;
 }

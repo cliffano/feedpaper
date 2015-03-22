@@ -17,7 +17,7 @@ App.populator('feed', function (page, data) {
     $(page).find('.app-list').append(li);
   }
 
-  $(page).find('.app-title').text(data.title);
+  $(page).find('.app-title-hook').text(data.title);
 
   $.ajax({
     type    : 'GET',
@@ -33,16 +33,16 @@ function _populateArticle(page, data) {
 
   function successCb(data, status, xhr) {
     var content =
-      '<p><strong>' + data.title + '</strong><br/>' +
-      '<a href="' + data.url + '">source</a> | ' +
+      '<h2>' + data.title + '</h2>' +
+      '<p class="features"><a href="' + data.url + '">source</a> | ' +
       '<a href="/a/' + data.url + '">permalink</a></p>' +
       data.content;
-    $(page).find('.app-title').text(data.title);
+    $(page).find('.app-title-hook').text(data.title);
     $(page).find('#article').html(content);
   }
 
   function errorCb(xhr, errType, err) {
-    $(page).find('.app-title').text('Error');
+    $(page).find('.app-title-hook').text('Error');
     $(page).find('#article').html(err + ' - ' + xhr.responseText);
   }
 
