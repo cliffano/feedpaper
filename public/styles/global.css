@@ -1,13 +1,14 @@
 h1.app-title {
-  font-family: museo-slab, serif;
+  font-family: nimbus-sans-condensed, serif;
   text-align: center;
+  text-transform: uppercase;
 }
 ul.app-list li.app-button {
   color: #000000;
   font-family: adelle, georgia, serif;
 }
 h2 {
-  font-family: museo-slab, georgia, serif;
+  font-family: vollkorn, serif;
 }
 div#article {
   background-color: #ffffff;
