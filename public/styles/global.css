@@ -1,5 +1,6 @@
 h1.app-title {
   font-family: nimbus-sans-condensed, serif;
+  margin: auto;
   text-align: center;
   text-transform: uppercase;
 }
@@ -8,7 +9,7 @@ ul.app-list li.app-button {
   font-family: adelle, georgia, serif;
 }
 h2 {
-  font-family: vollkorn, serif;
+  font-family: 'times new roman', serif;
 }
 div#article {
   background-color: #ffffff;
