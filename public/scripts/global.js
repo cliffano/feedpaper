@@ -17,6 +17,7 @@ App.populator('feed', function (page, data) {
     $(page).find('.app-list').append(li);
   }
 
+  document.title = data.title + ' | Feedpaper';
   $(page).find('.app-title-hook').text(data.title);
 
   $.ajax({
@@ -37,13 +38,13 @@ function _populateArticle(page, data) {
       '<p class="features"><a href="' + data.url + '">source</a> | ' +
       '<a href="/a/' + data.url + '">permalink</a></p>' +
       data.content;
-    document.title = data.title;
+    document.title = data.title + ' | Feedpaper';
     $(page).find('.app-title-hook').text(data.title);
     $(page).find('#article').html(content);
   }
 
   function errorCb(xhr, errType, err) {
-    document.title = 'Error';
+    document.title = 'Error | Feedpaper';
     $(page).find('.app-title-hook').text('Error');
     $(page).find('#article').html(err + ' - ' + xhr.responseText);
   }
