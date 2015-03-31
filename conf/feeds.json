@@ -3,8 +3,104 @@
     "title": "Business",
     "feeds": [
       {
+        "title": "Fast Company",
+        "url": "http://www.fastcompany.com/rss.xml"
+      },
+      {
+        "title": "Fortune",
+        "url": "http://fortune.com/feed/"
+      },
+      {
+        "title": "Inc.",
+        "url": "http://feeds.inc.com/home/updates"
+      },
+      {
         "title": "The Economist",
         "url": "http://www.economist.com/feeds/print-sections/77/business.xml"
+      }
+    ]
+  },
+  {
+    "title": "Design",
+    "feeds": [
+      {
+        "title": "Architectural Digest",
+        "url": "http://www.architecturaldigest.com/feed/rss/archdigest.rss.xml"
+      },
+      {
+        "title": "Dezeen",
+        "url": "http://feeds.feedburner.com/dezeen"
+      }
+    ]
+  },
+  {
+    "title": "Gaming",
+    "feeds": [
+      {
+        "title": "Gamespot",
+        "url": "http://www.gamespot.com/feeds/news/"
+      },
+      {
+        "title": "IGN",
+        "url": "http://feeds.ign.com/ign/news"
+      },
+      {
+        "title": "Kotaku",
+        "url": "http://feeds.kotaku.com.au/kotakuaustralia"
+      }
+    ]
+  },
+  {
+    "title": "News / World",
+    "feeds": [
+      {
+        "title": "BBC",
+        "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
+      },
+      {
+        "title": "The Guardian",
+        "url": "http://feeds.theguardian.com/theguardian/world/rss"
+      },
+      {
+        "title": "The New York Times",
+        "url": "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+      },
+      {
+        "title": "Wall Street Journal",
+        "url": "http://online.wsj.com/xml/rss/3_7085.xml"
+      }
+    ]
+  },
+  {
+    "title": "Technology",
+    "feeds": [
+      {
+        "title": "CNET",
+        "url": "http://www.cnet.com/rss/news/"
+      },
+      {
+        "title": "Engadget",
+        "url": "http://www.engadget.com/rss.xml"
+      },
+      {
+        "title": "Gizmodo",
+        "url": "http://feeds.gizmodo.com.au/gizmodoaustralia"
+      },
+      {
+        "title": "Hacker News",
+        "url": "https://news.ycombinator.com/rss"
+      },
+      {
+        "title": "Tech Crunch",
+        "url": "http://feeds.feedburner.com/TechCrunch/"
+      },
+      {
+        "title": "The Verge",
+        "url": "http://www.theverge.com/rss/frontpage"
+      },
+      {
+        "title": "Wired",
+        "url": "http://feeds.wired.com/wired/index"
       }
     ]
   }
