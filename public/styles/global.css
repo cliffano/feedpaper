@@ -28,11 +28,17 @@ div#article a:hover {
   color: #ffffff;
   text-decoration: none;
 }
+div#article img {
+  clear: both;
+}
 div#article p.features {
   font-family: helvetica, sans-serif;
 }
 div#article p {
   margin: 20px 0;
+}
+div#article ul {
+  list-style-type: none;
 }
 footer {
   color: #666666;
