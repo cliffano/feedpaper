@@ -39,7 +39,7 @@ function _populateArticle(page, data) {
       '<a href="/a/' + data.url + '">permalink</a></p>' +
       data.content;
     document.title = data.title + ' | Feedpaper';
-    $(page).find('.app-title-hook').text(data.title);
+    $(page).find('.app-title-hook').html(data.title);
     $(page).find('#article').html(content);
   }
 
