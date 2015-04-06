@@ -11,4 +11,4 @@ ADD . /app/stage
 WORKDIR /app/stage
 
 RUN npm install .
-CMD /app/stage/bin/feedpaper start --feeds-file /app/data/feeds.json --conf-dir /app/conf/ --cache-db-dir /app/data/feedpaper.db
+CMD NODE_ENV=production /app/stage/bin/feedpaper start --feeds-file /app/data/feeds.json --conf-dir /app/conf/ --cache-db-dir /app/data/feedpaper.db
