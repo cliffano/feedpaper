@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+if (process.env.NODE_ENV === 'production') {
+  require('newrelic');
+}
+
 var cli = require('../lib/cli');
 cli.exec();
  
