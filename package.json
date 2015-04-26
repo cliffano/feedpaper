@@ -32,7 +32,7 @@
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
     "level": "~0.18.0",
     "level-ttl": "~3.0.3",
-    "newrelic": "~1.18.1",
+    "newrelic": "~1.18.3",
     "readabilitySAX": "~1.6.1",
     "ute": "~0.1.6"
   },
