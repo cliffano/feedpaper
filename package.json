@@ -26,19 +26,19 @@
     "test": "./test"
   },
   "dependencies": {
-    "async": "~0.9.0",
-    "bagofcli": "~0.2.1",
-    "cron": "~1.0.9",
+    "async": "^0.9.0",
+    "bagofcli": "^0.2.1",
+    "cron": "^1.0.9",
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
-    "level": "~0.18.0",
-    "level-ttl": "~3.0.3",
-    "newrelic": "~1.18.3",
-    "readabilitySAX": "~1.6.1",
-    "ute": "~0.1.6"
+    "level": "^0.18.0",
+    "level-ttl": "^3.0.3",
+    "newrelic": "^1.18.3",
+    "readabilitySAX": "^1.6.1",
+    "ute": "^0.1.6"
   },
   "devDependencies": {
-    "buster-node": "~0.7.1",
-    "referee": "~1.1.1"
+    "buster-node": "^0.7.1",
+    "referee": "^1.1.1"
   },
   "scripts": {},
   "engines": {
