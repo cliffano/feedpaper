@@ -28,6 +28,10 @@ App.populator('feed', function (page, data) {
     error   : errorCb
   });
 
+  if (typeof ga !== 'undefined') {
+    ga('send', 'pageview', '/data/feed/' + data.id + '/articles');
+  }
+
 });
 
 function _populateArticle(page, data) {
@@ -55,7 +59,11 @@ function _populateArticle(page, data) {
     dataType: 'json',
     success : successCb,
     error   : errorCb
-  });  
+  });
+
+  if (typeof ga !== 'undefined') {
+    ga('send', 'pageview', '/data/article/' + data.url);
+  }
 }
 
 App.populator('article', function (page, data) {
