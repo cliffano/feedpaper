@@ -33,7 +33,7 @@
     "level": "^0.18.0",
     "level-ttl": "^3.0.3",
     "newrelic": "^1.18.3",
-    "readabilitySAX": "^1.6.1",
+    "node-read": "^0.1.6",
     "ute": "^0.1.6"
   },
   "devDependencies": {
