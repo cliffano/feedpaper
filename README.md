@@ -1,4 +1,4 @@
-FeedPaper [![http://travis-ci.org/cliffano/feedpaper](https://secure.travis-ci.org/cliffano/feedpaper.png?branch=master)](http://travis-ci.org/cliffano/feedpaper)
+FeedPaper [![http://travis-ci.org/cliffano/feedpaper](https://img.shields.io/travis/cliffano/feedpaper.svg)](http://travis-ci.org/cliffano/feedpaper)
 ---------
 
 FeedPaper is a feed reader + readability mashup for reading on handheld devices.
