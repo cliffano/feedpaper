@@ -3,104 +3,58 @@
     "title": "Business",
     "feeds": [
       {
-        "title": "Fast Company",
-        "url": "http://www.fastcompany.com/rss.xml"
+        "title": "Mashable",
+        "url": "http://feeds.mashable.com/mashable/business"
       },
       {
-        "title": "Fortune",
-        "url": "http://fortune.com/feed/"
+        "title": "Re/code",
+        "url": "http://recode.net/category/commerce/feed/"
       },
       {
-        "title": "Inc.",
-        "url": "http://feeds.inc.com/home/updates"
-      },
-      {
-        "title": "The Economist",
-        "url": "http://www.economist.com/feeds/print-sections/77/business.xml"
+        "title": "The Atlantic's Business Channel",
+        "url": "http://feeds.feedburner.com/AtlanticBusinessChannel"
       }
     ]
   },
   {
-    "title": "Design",
+    "title": "News",
     "feeds": [
       {
-        "title": "Architectural Digest",
-        "url": "http://www.architecturaldigest.com/feed/rss/archdigest.rss.xml"
-      },
-      {
-        "title": "Dezeen",
-        "url": "http://feeds.feedburner.com/dezeen"
-      }
-    ]
-  },
-  {
-    "title": "Gaming",
-    "feeds": [
-      {
-        "title": "Gamespot",
-        "url": "http://www.gamespot.com/feeds/news/"
-      },
-      {
-        "title": "IGN",
-        "url": "http://feeds.ign.com/ign/news"
-      },
-      {
-        "title": "Kotaku",
-        "url": "http://feeds.kotaku.com.au/kotakuaustralia"
-      }
-    ]
-  },
-  {
-    "title": "News / World",
-    "feeds": [
-      {
-        "title": "BBC",
-        "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
+        "title": "New York Times",
+        "url": "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
       },
       {
         "title": "The Guardian",
-        "url": "http://feeds.theguardian.com/theguardian/world/rss"
+        "url": "http://www.theguardian.com/au/rss"
       },
       {
-        "title": "The New York Times",
-        "url": "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+        "title": "VICE News",
+        "url": "https://news.vice.com/rss"
       },
       {
-        "title": "Wall Street Journal",
-        "url": "http://online.wsj.com/xml/rss/3_7085.xml"
+        "title": "TheWeek.com",
+        "url": "http://www.theweek.com/rss.xml"
+      },
+      {
+        "title": "Quartz",
+        "url": "http://qz.com/feed/"
       }
     ]
   },
   {
-    "title": "Technology",
+    "title": "Sports",
     "feeds": [
       {
-        "title": "CNET",
-        "url": "http://www.cnet.com/rss/news/"
+        "title": "VICE Sports",
+        "url": "https://sports.vice.com/en_us/rss"
       },
       {
-        "title": "Engadget",
-        "url": "http://www.engadget.com/rss.xml"
+        "title": "ESPN.com",
+        "url": "http://sports.espn.go.com/espn/rss/news"
       },
       {
-        "title": "Gizmodo",
-        "url": "http://feeds.gizmodo.com.au/gizmodoaustralia"
-      },
-      {
-        "title": "Hacker News",
-        "url": "https://news.ycombinator.com/rss"
-      },
-      {
-        "title": "Tech Crunch",
-        "url": "http://feeds.feedburner.com/TechCrunch/"
-      },
-      {
-        "title": "The Verge",
-        "url": "http://www.theverge.com/rss/frontpage"
-      },
-      {
-        "title": "Wired",
-        "url": "http://feeds.wired.com/wired/index"
+        "title": "BleacherReport.com",
+        "url": "http://bleacherreport.com/articles/feed"
       }
     ]
   }
