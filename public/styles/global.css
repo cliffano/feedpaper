@@ -9,7 +9,8 @@ ul.app-list li.app-button {
   font-family: adelle, georgia, serif;
 }
 h2 {
-  font-family: 'times new roman', serif;
+  font-family: nimbus-sans-condensed, serif;
+  text-transform: uppercase;
 }
 div#article {
   background-color: #ffffff;
