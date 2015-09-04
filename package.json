@@ -26,13 +26,13 @@
     "test": "./test"
   },
   "dependencies": {
-    "async": "^1.2.1",
-    "bagofcli": "^0.2.2",
+    "async": "^1.4.2",
+    "bagofcli": "^0.2.3",
     "cron": "^1.0.9",
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
-    "level": "^1.1.0",
+    "level": "^1.3.0",
     "level-ttl": "^3.1.0",
-    "newrelic": "^1.20.1",
+    "newrelic": "^1.22.0",
     "node-read": "^0.1.6",
     "ute": "^0.1.6"
   },
