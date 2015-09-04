@@ -18,6 +18,7 @@ App.populator('feed', function (page, data) {
   }
 
   document.title = data.title + ' | Feedpaper';
+  localStorage.breadCrumb = JSON.stringify({ category: data.categoryTitle, feed: data.title });
   $(page).find('.app-title-hook').text(data.title);
 
   $.ajax({
@@ -43,7 +44,14 @@ function _populateArticle(page, data) {
       '<a href="/a/' + data.url + '">permalink</a></p>' +
       data.content;
     document.title = data.title + ' | Feedpaper';
-    $(page).find('.app-title-hook').html(data.title);
+
+    if (localStorage.breadCrumb) {
+      var breadCrumb = JSON.parse(localStorage.breadCrumb);
+      $(page).find('.app-title-hook').html(breadCrumb.category + ' | ' + breadCrumb.feed);
+    } else {
+      $(page).find('.app-title-hook').html('Feedpaper');
+    }
+
     $(page).find('#article').html(content);
   }
 
@@ -70,5 +78,6 @@ App.populator('article', function (page, data) {
   _populateArticle(page, data);
 });
 App.populator('feedpaper-article', function (page, data) {
+  delete localStorage.breadCrumb;
   _populateArticle(page, data);
 });

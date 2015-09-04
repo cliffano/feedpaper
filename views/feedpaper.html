@@ -5,7 +5,7 @@
   <div class="app-content">
     <ul class="app-list">
       <% categories.forEach(function (category) { %>
-        <li class="app-button" data-target="category-<%= category.id %>"><%= category.title %></li>
+        <li class="app-button" data-target="category-<%= category.id %>" data-target-args='{ "id": "<%= category.id %>", "title": "<%= category.title %>" }'><%= category.title %></li>
       <% }) %>
     </ul>
     <footer>
@@ -38,7 +38,7 @@
     <div class="app-content">
       <ul class="app-list">
         <% category.feeds.forEach(function (feed) { %>
-          <li class="app-button" data-target="feed" data-target-args='{ "id": "<%= feed.id %>", "title": "<%= feed.title %>" }'><%= feed.title %></li>
+          <li class="app-button" data-target="feed" data-target-args='{ "id": "<%= feed.id %>", "title": "<%= feed.title %>", "categoryId": "<%= category.id %>", "categoryTitle": "<%= category.title %>" }'><%= feed.title %></li>
         <% }) %>
       </ul>
       <footer>
