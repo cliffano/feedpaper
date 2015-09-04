@@ -1,16 +1,10 @@
 {
-  "build": "clean lint complexity test coverage test-integration doc",
+  "build": "clean lint complexity test-integration doc",
   "lint": {
     "type": "jshint"
   },
   "complexity": {
     "type": "plato"
-  },
-  "test": {
-    "type": "buster"
-  },
-  "coverage": {
-    "type": "buster-istanbul"
   },
   "test-integration": {
     "type": "cmdt"
