@@ -1,4 +1,4 @@
-FROM node:0.12.0
+FROM node:0.12.7
 
 MAINTAINER Cliffano Subagio (blah@cliffano.com)
 
