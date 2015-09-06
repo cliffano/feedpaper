@@ -1,10 +1,7 @@
 {
-  "build": "clean lint complexity test-integration doc",
+  "build": "clean lint test-integration doc",
   "lint": {
     "type": "jshint"
-  },
-  "complexity": {
-    "type": "plato"
   },
   "test-integration": {
     "type": "cmdt"
