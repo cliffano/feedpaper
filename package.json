@@ -6,13 +6,10 @@
     "reader",
     "readability"
   ],
-  "version": "0.0.2",
+  "version": "0.1.0",
   "private": true,
   "homepage": "http://github.com/cliffano/feedpaper",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
-  "bin": {
-    "feedpaper": "./bin/feedpaper"
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/cliffano/feedpaper.git"
@@ -26,16 +23,10 @@
     "test": "./test"
   },
   "dependencies": {
-    "async": "^1.4.2",
-    "bagofcli": "^0.2.3",
-    "cron": "^1.0.9",
+    "aws-sdk": "^2.2.4",
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
-    "level": "^1.3.0",
-    "level-ttl": "^3.1.0",
-    "newrelic": "^1.22.0",
     "node-read": "^0.1.6",
-    "slug": "^0.9.1",
-    "ute": "^0.1.6"
+    "slug": "^0.9.1"
   },
   "devDependencies": {
     "buster-node": "^0.7.1",

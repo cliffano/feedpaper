@@ -1,12 +1,10 @@
 {
-  "build": "clean lint test-integration doc",
-  "lint": {
-    "type": "jshint"
+  "build": "clean site",
+  "deploy": "clean site send",
+  "site": {
+    "type": "ae86"
   },
-  "test-integration": {
-    "type": "cmdt"
-  },
-  "doc": {
-    "type": "dox-foundation"
+  "send": {
+    "type": "sendman"
   }
 }

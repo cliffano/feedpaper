@@ -4,13 +4,11 @@
   </div>
   <div class="app-content">
     <ul class="app-list">
-      <% categories.forEach(function (category) { %>
-        <li class="app-button" data-target="category-<%= category.id %>" data-target-args='{ "id": "<%= category.id %>", "title": "<%= category.title %>" }'><%= category.title %></li>
-      <% }) %>
+      {foreach category in categories}
+        <li class="app-button" data-target="category-{slug(category.title)}" data-target-args='{{ "id": "{slug(category.title)}", "title": "{category.title}" }}'>{category.title}</li>
+      {end}
     </ul>
-    <footer>
-      <%= footer %>
-    </footer>
+    {include('footer.html')}
   </div>
 </div>
 
@@ -23,30 +21,26 @@
     <div id="article">
       Loading article...
     </div>
-    <footer>
-      <%= footer %>
-    </footer>
+    {include('footer.html')}
   </div>
 </div>
 
-<% categories.forEach(function (category) { %>
-  <div class="app-page" data-page="category-<%= category.id %>">
+{foreach category in categories}
+  <div class="app-page" data-page="category-{slug(category.title)}">
     <div class="app-topbar black">
       <div class="app-button left" data-back></div>
-      <h1 class="app-title"><strong><%= category.title %></strong></h1>
+      <h1 class="app-title"><strong>{category.title}</strong></h1>
     </div>
     <div class="app-content">
       <ul class="app-list">
-        <% category.feeds.forEach(function (feed) { %>
-          <li class="app-button" data-target="feed" data-target-args='{ "id": "<%= feed.id %>", "title": "<%= feed.title %>", "categoryId": "<%= category.id %>", "categoryTitle": "<%= category.title %>" }'><%= feed.title %></li>
-        <% }) %>
+        {foreach feed in category.feeds}
+          <li class="app-button" data-target="feed" data-target-args='{{ "id": "{slug(feed.title)}", "title": "{feed.title}", "categoryId": "{slug(category.title)}", "categoryTitle": "{category.title}" }}'>{feed.title}</li>
+        {end}
       </ul>
-      <footer>
-        <%= footer %>
-      </footer>
+      {include('footer.html')}
     </div>
   </div>
-<% }) %>
+{end}
 
 <div class="app-page" data-page="feed">
   <div class="app-topbar black">
@@ -57,9 +51,7 @@
     <ul class="app-list">
       <li class="app-button">Loading feed...</li>
     </ul>
-    <footer>
-      <%= footer %>
-    </footer>
+    {include('footer.html')}
   </div>
 </div>
 
@@ -72,27 +64,22 @@
     <div id="article">
       Loading article...
     </div>
-    <footer>
-      <%= footer %>
-    </footer>
+    {include('footer.html')}
   </div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function () {{
-  <% if (article) { %>
-    App.load('feedpaper-article', { url: '<%= article.url %>' }, function () {{
-      console.log('FeedPaper application loaded on article page');
+  // App.load('feedpaper-article', {{ url: '{{article.url}}' }}, function () {{
+  //   console.log('FeedPaper application loaded on article page');
+  // }});
+  try {{
+    App.restore();
+    console.log('FeedPaper application restored');
+  }} catch (err) {{
+    App.load('feedpaper', function () {{
+      console.log('FeedPaper application loaded on home page');
     }});
-  <% } else { %>
-    try {
-      App.restore();
-      console.log('FeedPaper application restored');
-    } catch (err) {
-      App.load('feedpaper', function () {{
-        console.log('FeedPaper application loaded on home page');
-      }});
-    }
-  <% } %>
+  }}
 }});
 </script>

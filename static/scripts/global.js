@@ -1,3 +1,5 @@
+var apiBase = 'https://feedpaper.execute-api.us-west-1.amazonaws.com';
+
 App.populator('feed', function (page, data) {
 
   function successCb(data, status, xhr) {
@@ -23,7 +25,7 @@ App.populator('feed', function (page, data) {
 
   $.ajax({
     type    : 'GET',
-    url     : '/data/feed/' + data.id + '/articles',
+    url     : apiBase + '/data/feed/' + data.id + '/articles',
     dataType: 'json',
     success : successCb,
     error   : errorCb
@@ -63,7 +65,7 @@ function _populateArticle(page, data) {
 
   $.ajax({
     type    : 'GET',
-    url     : '/data/article/' + data.url,
+    url     : apiBase + '/data/article/' + data.url,
     dataType: 'json',
     success : successCb,
     error   : errorCb
