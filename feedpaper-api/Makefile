@@ -1,16 +1,10 @@
-clean:
+ENV=stg
+
+api-clean:
 	bob clean
 
-init:
+api-init:
 	mkdir -p .bob/lambdas/
-
-site: init
-	FEEDPAPER_ENV=stg bob site
-
-site-deploy: site
-	bob send
-
-lambdas: init
 	cp lib/*.js .bob/lambdas/
 	rm -f .bob/lambdas/node_modules
 	ln -s ../../node_modules/ .bob/lambdas/node_modules
@@ -27,7 +21,7 @@ lambdas: init
 		get-article.js
 
 infra-clean:
-	cd conf/ && ~/dev/terraform_0.6.3_darwin_amd64/terraform destroy -var-file ../../dotfiles/studio/feedpaper/stg/terraform.tfvars -state=../.bob/terraform.tstate
+	~/dev/terraform_0.6.3_darwin_amd64/terraform destroy -var-file ../../dotfiles/studio/feedpaper/$(ENV)/terraform.tfvars -state=../.bob/terraform.tstate
 
 infra-init:
-	cd conf/ && ~/dev/terraform_0.6.3_darwin_amd64/terraform apply -var-file ../../dotfiles/studio/feedpaper/stg/terraform.tfvars -state=../.bob/terraform.tstate
+	~/dev/terraform_0.6.3_darwin_amd64/terraform apply -var-file ../../dotfiles/studio/feedpaper/$(ENV)/terraform.tfvars -state=../.bob/terraform.tstate

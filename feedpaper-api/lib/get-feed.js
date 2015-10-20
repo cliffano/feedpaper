@@ -1,5 +1,6 @@
 var aws      = require('aws-sdk');
 var feedRead = require('feed-read');
+var qs       = require('querystring');
 var slug     = require('slug');
 var _url     = require('url');
 var util     = require('util');
@@ -42,7 +43,7 @@ function getFeed(event, context) {
 
   var category = event.category;
   var id       = event.id;
-  var url      = event.url;
+  var url      = qs.unescape(event.url);
 
   var bucket   = 'feedpaper-data-stg';
   var endpoint = 's3-ap-southeast-2.amazonaws.com';

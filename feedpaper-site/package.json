@@ -1,5 +1,5 @@
 {
-  "name": "feedpaper",
+  "name": "feedpaper-site",
   "description": "Feed reader + readability mashup for reading on handheld devices",
   "keywords": [
     "feed",
@@ -23,8 +23,6 @@
     "test": "./test"
   },
   "dependencies": {
-    "aws-sdk": "^2.2.4",
-    "feed-read": "git://github.com/sentientwaffle/feed-read.git",
     "node-read": "^0.1.6",
     "slug": "^0.9.1"
   },

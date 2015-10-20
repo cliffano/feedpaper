@@ -1,7 +1,5 @@
 .bob
 .DS_Store
-feedpaper.log
-newrelic.js
 node_modules
 npm-debug.log
 *tfstate*
