@@ -25,14 +25,14 @@ App.populator('feed', function (page, data) {
 
   $.ajax({
     type    : 'GET',
-    url     : apiBase + '/data/feed/' + data.id + '/articles',
+    url     : apiBase + '/data/feed/' + data.categoryId + '/' + data.id,
     dataType: 'json',
     success : successCb,
     error   : errorCb
   });
 
   if (typeof ga !== 'undefined') {
-    ga('send', 'pageview', '/data/feed/' + data.id + '/articles');
+    ga('send', 'pageview', '/data/feed/' + data.categoryId + '/' + data.id);
   }
 
 });
