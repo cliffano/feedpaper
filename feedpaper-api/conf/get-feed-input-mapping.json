@@ -1,0 +1,5 @@
+#set($inputRoot = $input.path('$'))
+{
+  "categoryId" : "$input.params('categoryId')",
+  "feedId" : "$input.params('feedId')"
+}

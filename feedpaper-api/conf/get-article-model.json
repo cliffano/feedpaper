@@ -1,0 +1,8 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "GetArticle Model Schema",
+  "type" : "object",
+  "properties" : {
+    "url" : { "type" : "string" }
+  }
+}

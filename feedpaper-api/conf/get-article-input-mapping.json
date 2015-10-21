@@ -1,0 +1,4 @@
+#set($inputRoot = $input.path('$'))
+{
+  "url" : "$input.params('url')"
+}

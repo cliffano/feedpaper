@@ -1,0 +1,9 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "GetFeed Model Schema",
+  "type" : "object",
+  "properties" : {
+    "categoryId" : { "type" : "string" },
+    "feedId" : { "type" : "string" }
+  }
+}
