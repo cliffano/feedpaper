@@ -13,7 +13,8 @@ api-init:
 		node_modules/aws-sdk/\
 		node_modules/feed-read/\
 		node_modules/slug/\
-		get-feed.js &&\
+		get-feed.js\
+		../conf/$(ENV)/feeds.json &&\
 	zip get-article.zip --recurse-paths\
 		node_modules/aws-sdk/\
 		node_modules/node-read/\

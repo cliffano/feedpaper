@@ -26,8 +26,8 @@ function fetchArticle(url, cb) {
 
 function getArticle(event, context) {
 
-  var category = event.category;
-  var feed     = event.feed;
+  var category = "dummy";
+  var feed     = "dummy";
   var url      = qs.unescape(event.url);
 
   var bucket   = 'feedpaper-data-stg';

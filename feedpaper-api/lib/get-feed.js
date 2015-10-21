@@ -1,11 +1,23 @@
 var aws      = require('aws-sdk');
 var feedRead = require('feed-read');
-var qs       = require('querystring');
+var fs       = require('fs');
 var slug     = require('slug');
 var _url     = require('url');
 var util     = require('util');
 
 slug.defaults.mode ='rfc3986';
+
+// build feed index for fast lookup
+var index = {};
+var conf = JSON.parse(fs.readFileSync('feeds.json'));
+conf.forEach(function (category) {
+  var categoryId = slug(category.title);
+  index[categoryId] = {};
+  category.feeds.forEach(function (feed) {
+    var feedId = slug(feed.title);
+    index[categoryId][feedId] = feed.url;
+  });
+});
 
 function fetchFeed(url, cb) {
   console.log('Fetching feed: ' + url);
@@ -41,10 +53,7 @@ function fetchFeed(url, cb) {
 
 function getFeed(event, context) {
 
-  var category = event.category;
-  var id       = event.id;
-  var url      = qs.unescape(event.url);
-
+  var url      = index[event.categoryId][event.feedId];
   var bucket   = 'feedpaper-data-stg';
   var endpoint = 's3-ap-southeast-2.amazonaws.com';
   var key      = util.format('%s/%s/%s', category, id, slug(url));
