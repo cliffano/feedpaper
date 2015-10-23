@@ -56,7 +56,7 @@ function getFeed(event, context) {
   var url      = index[event.categoryId][event.feedId];
   var bucket   = 'feedpaper-data-stg';
   var endpoint = 's3-ap-southeast-2.amazonaws.com';
-  var key      = util.format('%s/%s/%s', category, id, slug(url));
+  var key      = util.format('%s/%s/%s', event.categoryId, event.feedId, slug(url));
 
   var s3 = new aws.S3({ endpoint: new aws.Endpoint(endpoint) });
 
