@@ -1,9 +1,10 @@
-var apiBase = 'https://feedpaper.execute-api.us-west-1.amazonaws.com';
+var apiBase = 'https://kel0uwm8p0.execute-api.us-west-2.amazonaws.com/v0/feedpaper-stg';
 
 App.populator('feed', function (page, data) {
 
   function successCb(data, status, xhr) {
     $(page).find('.app-list').children().remove();
+    data = JSON.parse(data);
     data.forEach(function (article) {
       var li = $('<li class="app-button" data-back="true" data-autotitle>' + article.title + '</li>');
       li.on('click', function () {
@@ -40,6 +41,7 @@ App.populator('feed', function (page, data) {
 function _populateArticle(page, data) {
 
   function successCb(data, status, xhr) {
+    data = JSON.parse(data);
     var content =
       '<h2>' + data.title + '</h2>' +
       '<p class="features"><a href="' + data.url + '">source</a> | ' +
@@ -65,14 +67,14 @@ function _populateArticle(page, data) {
 
   $.ajax({
     type    : 'GET',
-    url     : apiBase + '/data/article/' + data.url,
+    url     : apiBase + '/data/article/' + encodeURIComponent(data.url),
     dataType: 'json',
     success : successCb,
     error   : errorCb
   });
 
   if (typeof ga !== 'undefined') {
-    ga('send', 'pageview', '/data/article/' + data.url);
+    ga('send', 'pageview', '/data/article/' + encodeURIComponent(data.url));
   }
 }
 
