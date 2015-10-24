@@ -56,7 +56,7 @@ resource "aws_lambda_function" "get-feed" {
     function_name = "feedpaper-get-feed"
     role = "${var.lambda_role}"
     handler = "get-feed.handler"
-    timeout = 5
+    timeout = 10
 }
 
 resource "aws_lambda_function" "get-article" {
