@@ -1,9 +1,9 @@
 ENV=stg
 
-site-clean:
+web-clean:
 	bob clean
 
-site-init:
+web-init:
 	FEEDPAPER_ENV=$(ENV) bob deploy
 
 infra-clean:
