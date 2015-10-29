@@ -1,6 +1,5 @@
 variable "env" {}
 variable "bucket_data" {}
-variable "db_data" {}
 variable "lambda_role" {}
 
 provider "aws" {
@@ -36,18 +35,6 @@ EOF
         project = "feedpaper"
     }
     force_destroy = true
-}
-
-resource "aws_dynamodb_table" "data" {
-    provider = "aws.us"
-    name = "${var.db_data}"
-    read_capacity = 20
-    write_capacity = 20
-    hash_key = "url"
-    attribute {
-      name = "url"
-      type = "S"
-    }
 }
 
 resource "aws_lambda_function" "get-feed" {
