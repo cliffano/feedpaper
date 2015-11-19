@@ -1,0 +1,45 @@
+{
+  "name": "feedpaper-data",
+  "description": "Feed reader + readability mashup for reading on handheld devices",
+  "keywords": [
+    "feed",
+    "reader",
+    "readability"
+  ],
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://github.com/cliffano/feedpaper",
+  "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/cliffano/feedpaper.git"
+  },
+  "bugs": {
+    "url": "http://github.com/cliffano/feedpaper/issues"
+  },
+  "directories": {
+    "bin": "./bin",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.2.4",
+    "feed-read": "git://github.com/sentientwaffle/feed-read.git",
+    "node-read": "^0.1.6",
+    "slug": "^0.9.1"
+  },
+  "devDependencies": {
+    "buster-node": "^0.7.1",
+    "referee": "^1.1.1"
+  },
+  "scripts": {},
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/cliffano/feedpaper/raw/master/LICENSE"
+    }
+  ]
+}
