@@ -53,44 +53,48 @@ function fetchFeed(url, cb) {
 
 function getFeed(event, context) {
 
-  var url      = index[event.categoryId][event.feedId];
-  var bucket   = 'feedpaper-data-stg';
-  var endpoint = 's3-ap-southeast-2.amazonaws.com';
-  var key      = util.format('%s/%s/%s', event.categoryId, event.feedId, slug(url));
+  var url   = index[event.categoryId][event.feedId];
+  var table = 'feedpaper-stg';
 
-  var s3 = new aws.S3({ endpoint: new aws.Endpoint(endpoint) });
+  var dynamoDb = new aws.DynamoDB();
 
   function fetchFeedCb(err, articlesList) {
     if (err) {
       context.fail(err);
     } else {
       var params = {
-        Bucket: bucket,
-        Key: key,
-        Body: JSON.stringify(articlesList)
+        TableName: table,
+        Item: {
+          id: { 'S': slug(url) },
+          type: { 'S': 'feed' },
+          articles: { 'S': JSON.stringify(articlesList) }
+        }
       };
-      console.log('Saving feed: ' + url);
-      s3.putObject(params, function (err, data) {
+      dynamoDb.putItem(params, function (err, data) {
         if (err) {
           console.error('Unable to save feed: ' + url, err);
           context.fail(err);
         } else {
-          context.succeed(params.Body);
+          context.succeed(params.Item.articles.S);
         }
       });
     }
   }
 
   var params = {
-    Bucket: bucket,
-    Key: key
+    TableName: table,
+    Key : {
+      id : {
+        "S" : slug(url)
+      }
+    }
   };
-  s3.getObject(params, function (err, data) {
-    if (err) {
+  dynamoDb.getItem(params, function (err, data) {
+    if (err || !data.Item) {
       fetchFeed(url, fetchFeedCb);
     } else {
       console.log('Found feed: ' + url);
-      context.succeed(data.Body.toString('utf-8'));
+      context.succeed(data.Item.articles.S);
     }
   });
 }
