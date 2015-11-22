@@ -16,7 +16,7 @@ var apiBase = url.format({
   hostname: conf.api.host,
   pathname: util.format('v%d/%s', conf.api.version, conf.api.path)
 });
-var globalJs = fs.readFileSync(p.join('static', 'scripts', 'global.js'));
+var globalJs = fs.readFileSync(p.join('static', 'scripts', 'global.js'), 'utf-8');
 globalJs = globalJs.replace(/var apiBase = '.*';/, util.format('var apiBase = \'%s\';', apiBase));
 
 exports.params = {
