@@ -1,17 +1,19 @@
 FEEDPAPER_ENV=stg
+TF_VARS=../../dotfiles/studio/feedpaper/$(FEEDPAPER_ENV)/terraform.tfvars
+TF_STATE=.bob/terraform.tstate
 
-all: infra-clean web-clean web-init infra-init
+all: infra-del app-del app-set infra-set
 
-web-clean:
+app-del:
 	bob clean
 
-web-init:
+app-set:
 	bob deploy
 
-infra-clean:
-	~/dev/terraform_0.6.3_darwin_amd64/terraform destroy -var-file ../../dotfiles/studio/feedpaper/$(FEEDPAPER_ENV)/terraform.tfvars -state=.bob/terraform.tstate
+infra-del:
+	terraform destroy -var-file $(TF_VARS) -state=$(TF_STATE)
 
-infra-init:
-	~/dev/terraform_0.6.3_darwin_amd64/terraform apply -var-file ../../dotfiles/studio/feedpaper/$(FEEDPAPER_ENV)/terraform.tfvars -state=.bob/terraform.tstate
+infra-set:
+	terraform apply -var-file $(TF_VARS) -state=$(TF_STATE)
 
-.PHONY: all web-clean web-init infra-clean infra-init
+.PHONY: all app-del app-set infra-del infra-set

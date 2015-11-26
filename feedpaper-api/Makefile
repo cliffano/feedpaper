@@ -1,12 +1,16 @@
-ENV=stg
+FEEDPAPER_ENV=stg
+TF_VARS=../../dotfiles/studio/feedpaper/$(FEEDPAPER_ENV)/terraform.tfvars
+TF_STATE=.bob/terraform.tstate
 
-api-clean:
+all: infra-del app-del app-set infra-set
+
+app-del:
 	bob clean
 
-api-init:
+app-set:
 	mkdir -p .bob/lambdas/
 	cp lib/*.js .bob/lambdas/
-	cp ../conf/$(ENV)/feeds.json .bob/lambdas/feeds.json
+	cp ../conf/$(FEEDPAPER_ENV)/feeds.json .bob/lambdas/feeds.json
 	rm -f .bob/lambdas/node_modules
 	ln -s ../../node_modules/ .bob/lambdas/node_modules
 	cd .bob/lambdas/ &&\
@@ -22,8 +26,10 @@ api-init:
 		node_modules/slug/\
 		get-article.js
 
-infra-clean:
-	~/dev/terraform_0.6.3_darwin_amd64/terraform destroy -var-file ../../dotfiles/studio/feedpaper/$(ENV)/terraform.tfvars -state=.bob/terraform.tstate
+infra-del:
+	terraform destroy -var-file $(TF_VARS) -state=$(TF_STATE)
 
-infra-init:
-	~/dev/terraform_0.6.3_darwin_amd64/terraform apply -var-file ../../dotfiles/studio/feedpaper/$(ENV)/terraform.tfvars -state=.bob/terraform.tstate
+infra-set:
+	terraform apply -var-file $(TF_VARS) -state=$(TF_STATE)
+
+.PHONY: all app-del app-set infra-del infra-set
