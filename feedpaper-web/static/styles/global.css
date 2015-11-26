@@ -50,6 +50,14 @@ footer {
   text-align: center;
   text-transform: uppercase;
 }
+footer a {
+  color: #666666;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #666666;
+  text-decoration: none;
+}
 /* this hack is needed because app.js doesn't set background-image correctly
    on left button without data-back */
 .hack-data-back {
