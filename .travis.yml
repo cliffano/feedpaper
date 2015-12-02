@@ -9,6 +9,6 @@ before_install:
   - unzip terraform_0.6.7_linux_amd64.zip -d ~/opt/terraform/
 script:
   - export PATH=~/opt/terraform/:$PATH
-  - cd feedpaper-api && make build
-  - cd feedpaper-data && make build
-  - cd feedpaper-web && make build
+  - cd feedpaper-api && make build && cd ..
+  - cd feedpaper-data && make build && cd ..
+  - cd feedpaper-web && make build && cd ..
