@@ -1,5 +1,6 @@
 .bob
 .DS_Store
+.terraform
 node_modules
 npm-debug.log
 *tfstate*
