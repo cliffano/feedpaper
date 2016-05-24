@@ -1,8 +1,11 @@
 ifndef FEEDPAPER_ENV
     $(error Please specify FEEDPAPER_ENV)
 endif
+ifndef FEEDPAPER_CFG
+    $(error Please specify FEEDPAPER_CFG)
+endif
 
-TF_VARS=../../dotfiles/studio/feedpaper/$(FEEDPAPER_ENV)/terraform.tfvars
+TF_VARS=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform.tfvars
 TF_CFG_BUCKET=ryokan-tf-states
 TF_CFG_KEY=feedpaper/$(FEEDPAPER_ENV)/feedpaper-web.tfstate
 TF_CFG_REGION=ap-southeast-2
