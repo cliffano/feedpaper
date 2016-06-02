@@ -4,9 +4,6 @@ variable "route53_domain_name" {}
 variable "route53_domain_zoneid" {}
 variable "route53_domain_alias_name" {}
 variable "route53_domain_alias_zoneid" {}
-variable "route53_short_domain_name" {}
-variable "route53_short_domain_zoneid" {}
-variable "route53_short_domain_records" {}
 
 provider "aws" {
     region = "${var.region}"
@@ -56,12 +53,4 @@ resource "aws_route53_record" "domain" {
      zone_id = "${var.route53_domain_alias_zoneid}"
      evaluate_target_health = true
    }
-}
-
-resource "aws_route53_record" "short_domain" {
-   name = "${var.route53_short_domain_name}"
-   zone_id = "${var.route53_short_domain_zoneid}"
-   type = "CNAME"
-   ttl = "300"
-   records = ["${var.route53_short_domain_records}"]
 }
