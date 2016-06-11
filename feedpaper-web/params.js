@@ -16,8 +16,9 @@ var apiBase = url.format({
   hostname: conf.api.host,
   pathname: util.format('v%d/%s', conf.api.version, conf.api.path)
 });
-var globalJs = fs.readFileSync(p.join('static', 'scripts', 'global.js'), 'utf-8');
-globalJs = globalJs.replace(/var apiBase = '.*';/, util.format('var apiBase = \'%s\';', apiBase));
+var globalJs = fs.readFileSync(p.join('static', 'scripts', 'global.js.tpl'), 'utf-8');
+globalJs = globalJs.replace(/var apiBase = 'PLACEHOLDER';/, util.format('var apiBase = \'%s\';', apiBase));
+fs.writeFileSync(p.join('static', 'scripts', 'global.js'), globalJs)
 
 exports.params = {
   slug: function(title, cb) {
