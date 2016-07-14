@@ -4,4 +4,4 @@
 node_modules
 npm-debug.log
 *tfstate*
-static/scripts/global.js
+feedpaper-web/static/scripts/global.js
