@@ -3,6 +3,8 @@ variable "lambda_function_get_feed" {}
 variable "lambda_function_get_article" {}
 variable "api_name" {}
 variable "api_version" {}
+variable "route53_domain_name_api" {}
+variable "route53_domain_zoneid" {}
 
 provider "aws" {
     region = "ap-southeast-2"
@@ -12,6 +14,11 @@ provider "aws" {
     alias = "us"
     region = "us-west-2"
 }
+
+#resource "aws_api_gateway_account" "apigateway" {
+#  provider = "aws.us"
+#  cloudwatch_role_arn = "${aws_iam_role.iam_role_apigateway.arn}"
+#}
 
 resource "aws_iam_role" "iam_role_lambda" {
     name = "${var.iam_role_name}-lambda"
@@ -71,7 +78,7 @@ resource "aws_lambda_function" "get-article" {
     function_name = "${var.lambda_function_get_article}"
     role = "${aws_iam_role.iam_role_lambda.arn}"
     handler = "get-article.handler"
-    timeout = 10
+    timeout = 20
 }
 
 resource "aws_iam_role" "iam_role_apigateway" {
@@ -100,8 +107,8 @@ resource "aws_iam_policy" "iam_policy_apigateway" {
   "Statement": [
     {
       "Action": [
-        "lambda:InvokeFunction",
-        "iam:PassRole"
+        "iam:PassRole",
+        "lambda:InvokeFunction"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -121,6 +128,14 @@ resource "aws_api_gateway_rest_api" "api" {
     provider = "aws.us"
     name = "${var.api_name}"
     description = "${var.api_name}"
+}
+
+resource "aws_route53_record" "domain" {
+  name = "${var.route53_domain_name_api}"
+  zone_id = "${var.route53_domain_zoneid}"
+  type = "CNAME"
+  ttl = "60"
+  records = ["${aws_api_gateway_rest_api.api.id}.execute-api.us-west-2.amazonaws.com"]
 }
 
 resource "aws_api_gateway_resource" "api_resource" {
