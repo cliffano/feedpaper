@@ -1,8 +1,0 @@
-{
-  "api": {
-    "protocol": "https",
-    "host": "1rm74ie7q2.execute-api.us-west-2.amazonaws.com",
-    "version": "0",
-    "path": "feedpaper-stg0"
-  }
-}
