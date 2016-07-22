@@ -235,6 +235,7 @@ resource "aws_api_gateway_integration_response" "api_integration_response_data_f
        "method.response.header.Access-Control-Allow-Origin": "'*'"
     }
     PARAMS
+    depends_on = ["aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid"]
 }
 
 resource "aws_api_gateway_resource" "api_resource_data_article" {
@@ -312,6 +313,7 @@ resource "aws_api_gateway_integration_response" "api_integration_response_data_a
        "method.response.header.Access-Control-Allow-Origin": "'*'"
     }
     PARAMS
+    depends_on = ["aws_api_gateway_integration.api_integration_data_article_url"]
 }
 
 resource "aws_api_gateway_model" "api_model_get-feed" {
@@ -355,4 +357,10 @@ resource "aws_api_gateway_deployment" "api_deployment" {
   provider = "aws.us"
   stage_name = "v${var.api_version}"
   rest_api_id = "${aws_api_gateway_rest_api.api.id}"
+  depends_on = [
+    "aws_api_gateway_method.api_method_data_feed_categoryid_feedid",
+    "aws_api_gateway_method.api_method_data_article_url",
+    "aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid",
+    "aws_api_gateway_integration.api_integration_data_article_url"
+  ]
 }
