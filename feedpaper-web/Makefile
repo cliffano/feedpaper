@@ -12,7 +12,11 @@ TF_CFG_REGION=ap-southeast-2
 
 all: infra-del app-del infra-set build app-set
 
-init:
+clean:
+	bob clean
+	rm -rf .terraform/
+
+init: clean
 	bob dep
 	terraform remote config \
 		-backend=s3 \
