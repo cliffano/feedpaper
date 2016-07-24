@@ -32,6 +32,8 @@ app-del:
 	bob clean
 
 app-set:
+	rm -f .sendman.json
+	ln -s .sendman-$(FEEDPAPER_ENV).json .sendman.json
 	bob deploy
 
 infra-del:
