@@ -10,6 +10,7 @@ before_install:
 script:
   - export PATH=~/opt/terraform/:$PATH
   - export FEEDPAPER_ENV=stg
+  - export FEEDPAPER_CFG=/tmp/
   # - cd feedpaper-api && make build && cd ..
   # - cd feedpaper-data && make build && cd ..
   - cd feedpaper-web && make build && cd ..
