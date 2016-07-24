@@ -4,11 +4,12 @@ node_js:
 before_install:
   - npm update -g npm
   - npm install -g bob coveralls --loglevel error
-  - wget https://releases.hashicorp.com/terraform/0.6.7/terraform_0.6.7_linux_amd64.zip
+  - wget https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip
   - mkdir -p ~/opt/terraform/
-  - unzip terraform_0.6.7_linux_amd64.zip -d ~/opt/terraform/
+  - unzip terraform_0.6.16_linux_amd64.zip -d ~/opt/terraform/
 script:
   - export PATH=~/opt/terraform/:$PATH
+  - export FEEDPAPER_ENV=stg
   # - cd feedpaper-api && make build && cd ..
   # - cd feedpaper-data && make build && cd ..
   - cd feedpaper-web && make build && cd ..
