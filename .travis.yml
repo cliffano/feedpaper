@@ -13,4 +13,4 @@ script:
   - export FEEDPAPER_CFG=/tmp/
   # - cd feedpaper-api && make build && cd ..
   # - cd feedpaper-data && make build && cd ..
-  - cd feedpaper-web && make build && cd ..
+  - cd feedpaper-web && bob dep && make build && cd ..
