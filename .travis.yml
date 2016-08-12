@@ -4,7 +4,7 @@ node_js:
 before_install:
   - npm update -g npm
   - npm install -g bob coveralls --loglevel error
-  - wget https://releases.hashicorp.com/terraform/0.6.16/terraform_0.7.0_linux_amd64.zip
+  - wget https://releases.hashicorp.com/terraform/0.7.0/terraform_0.7.0_linux_amd64.zip
   - mkdir -p ~/opt/terraform/
   - unzip terraform_0.7.0_linux_amd64.zip -d ~/opt/terraform/
 script:
