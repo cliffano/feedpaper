@@ -1,0 +1,159 @@
+[
+  {
+    "title": "Australia",
+    "feeds": [
+      {
+        "title": "ABC News",
+        "url": "http://www.abc.net.au/news/feed/45910/rss.xml"
+      },
+      {
+        "title": "Herald Sun",
+        "url": "http://feeds.news.com.au/heraldsun/rss/heraldsun_news_topstories_2803.xml"
+      },
+      {
+        "title": "News.com.au",
+        "url": "http://feeds.news.com.au/public/rss/2.0/news_national_3354.xml"
+      },
+      {
+        "title": "SBS",
+        "url": "http://sbs.feedsportal.com/c/34692/f/637303/index.rss"
+      },
+      {
+        "title": "The Age",
+        "url": "http://www.theage.com.au/rssheadlines/national/article/rss.xml"
+      },
+      {
+        "title": "The Australian",
+        "url": "http://feeds.feedburner.com/TheAustralianNewsNDM"
+      },
+      {
+        "title": "The Daily Telegraph",
+        "url": "http://feeds.feedburner.com/dailytelegraphnationalnewsndm"
+      }
+    ]
+  },
+  {
+    "title": "Business",
+    "feeds": [
+      {
+        "title": "CNN Money",
+        "url": "http://rss.cnn.com/rss/money_latest.rss"
+      },
+      {
+        "title": "Fast Company",
+        "url": "http://www.fastcompany.com/rss.xml"
+      },
+      {
+        "title": "Forbes",
+        "url": "http://www.forbes.com/business/feed/"
+      },
+      {
+        "title": "Fortune",
+        "url": "http://fortune.com/feed/"
+      },
+      {
+        "title": "Inc.",
+        "url": "http://feeds.inc.com/home/updates"
+      },
+      {
+        "title": "TIME",
+        "url": "http://feeds2.feedburner.com/time/business"
+      }
+    ]
+  },
+  {
+    "title": "Entertainment",
+    "feeds": [
+      {
+        "title": "Empire Online",
+        "url": "http://www.empireonline.com/rss/rss.asp"
+      },
+      {
+        "title": "Film Ink",
+        "url": "http://filmink.com.au/feed/news/"
+      },
+      {
+        "title": "Gamespot",
+        "url": "http://www.gamespot.com/feeds/news/"
+      },
+      {
+        "title": "Games Radar",
+        "url": "http://www.gamesradar.com/all-platforms/news/rss/"
+      },
+      {
+        "title": "Kotaku",
+        "url": "http://feeds.kotaku.com.au/kotakuaustralia"
+      },
+      {
+        "title": "Polygon",
+        "url": "http://www.polygon.com/rss/index.xml"
+      },
+      {
+        "title": "Roger Ebert",
+        "url": "http://www.rogerebert.com/feed"
+      }
+    ]
+  },
+  {
+    "title": "News",
+    "feeds": [
+      {
+        "title": "BBC",
+        "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
+      },
+      {
+        "title": "Channel News Asia",
+        "url": "http://www.channelnewsasia.com/starterkit/servlet/cna/rss/home.xml"
+      },
+      {
+        "title": "Reuters",
+        "url": "http://feeds.reuters.com/reuters/topNews"
+      },
+      {
+        "title": "The Atlantic",
+        "url": "http://feeds.feedburner.com/AtlanticInternational"
+      },
+      {
+        "title": "The Guardian",
+        "url": "http://feeds.theguardian.com/theguardian/world/rss"
+      },
+      {
+        "title": "The New York Times",
+        "url": "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+      },
+      {
+        "title": "Wall Street Journal",
+        "url": "http://online.wsj.com/xml/rss/3_7085.xml"
+      }
+    ]
+  },
+  {
+    "title": "Technology",
+    "feeds": [
+      {
+        "title": "Re/code",
+        "url": "http://recode.net/feed/"
+      },
+      {
+        "title": "Tech Crunch",
+        "url": "http://feeds.feedburner.com/TechCrunch/"
+      },
+      {
+        "title": "The Register",
+        "url": "http://www.theregister.co.uk/headlines.atom"
+      },
+      {
+        "title": "The Verge",
+        "url": "http://www.theverge.com/rss/frontpage"
+      },
+      {
+        "title": "Wired",
+        "url": "http://feeds.wired.com/wired/index"
+      },
+      {
+        "title": "ZDNet",
+        "url": "http://www.zdnet.com/news/rss.xml"
+      }
+    ]
+  }
+]

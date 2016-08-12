@@ -7,8 +7,9 @@ var util = require('util');
 slug.defaults.mode ='rfc3986';
 
 var env = process.env['FEEDPAPER_ENV'];
-var feedsCategories = JSON.parse(fs.readFileSync(p.join('../conf', env, 'feeds.json')));
-var conf = JSON.parse(fs.readFileSync(p.join('../../config/studio/feedpaper', env, 'feedpaper.json')));
+var conf_dir = process.env['FEEDPAPER_CFG'];
+var feedsCategories = JSON.parse(fs.readFileSync(p.join(conf_dir, env, 'feeds.json')));
+var conf = JSON.parse(fs.readFileSync(p.join(conf_dir, env, 'feedpaper.json')));
 
 // in lieu of AE86 pre-hook
 var apiBase = url.format({
