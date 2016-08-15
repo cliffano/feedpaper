@@ -10,7 +10,7 @@ TF_CFG_BUCKET=ryokan-tf-states
 TF_CFG_KEY=feedpaper/$(FEEDPAPER_ENV)/feedpaper-api.tfstate
 TF_CFG_REGION=ap-southeast-2
 
-all: infra-del app-del build app-set infra-set
+all: init infra-clean build deploy infra
 
 clean:
 	bob clean
@@ -27,11 +27,6 @@ init: clean
 build:
 	bob build
 	terraform graph
-
-app-del:
-	bob clean
-
-app-set:
 	mkdir -p .bob/lambdas/
 	cp lib/*.js .bob/lambdas/
 	cp ../conf/$(FEEDPAPER_ENV)/feeds.json .bob/lambdas/feeds.json
@@ -50,14 +45,17 @@ app-set:
 		node_modules/slug/\
 		get-article.js
 
-infra-del:
+deploy:
+	echo "TODO - extract lambda deployment from default infrastructure.tf"
+
+infra-clean:
 	terraform remote pull
 	terraform destroy -var-file $(TF_VARS)
 	terraform remote push
 
-infra-set:
+infra:
 	terraform remote pull
-	~/dev/terraform_0.6.16_darwin_amd64/terraform apply -var-file $(TF_VARS)
+	terraform apply -var-file $(TF_VARS)
 	terraform remote push
 
 .PHONY: all build app-del app-set infra-del infra-set init

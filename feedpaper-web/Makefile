@@ -10,7 +10,7 @@ TF_CFG_BUCKET=ryokan-tf-states
 TF_CFG_KEY=feedpaper/$(FEEDPAPER_ENV)/feedpaper-web.tfstate
 TF_CFG_REGION=ap-southeast-2
 
-all: infra-del app-del infra-set build app-set
+all: init infra-clean infra build deploy
 
 clean:
 	bob clean
@@ -28,20 +28,17 @@ build:
 	bob build
 	terraform graph
 
-app-del:
-	bob clean
-
-app-set:
+deploy:
 	rm -f .sendman.json
 	ln -s .sendman-$(FEEDPAPER_ENV).json .sendman.json
 	bob deploy
 
-infra-del:
+infra-clean:
 	terraform remote pull
 	terraform destroy -var-file $(TF_VARS)
 	terraform remote push
 
-infra-set:
+infra:
 	terraform remote pull
 	terraform apply -var-file $(TF_VARS)
 	terraform remote push
