@@ -29,7 +29,7 @@ build:
 	terraform graph
 	mkdir -p .bob/lambdas/
 	cp lib/*.js .bob/lambdas/
-	cp ../conf/$(FEEDPAPER_ENV)/feeds.json .bob/lambdas/feeds.json
+	cp $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/feeds.json .bob/lambdas/feeds.json
 	rm -f .bob/lambdas/node_modules
 	ln -s ../../node_modules/ .bob/lambdas/node_modules
 	cd .bob/lambdas/ &&\
