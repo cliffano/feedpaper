@@ -15,13 +15,13 @@ This is an experimental project using serverless architecture with App.js, Terra
 Architecture
 ------------
 
+[![Architecture Diagram](https://raw.github.com/cliffano/feedpaper/master/architecture.jpg)](https://raw.github.com/cliffano/feedpaper/master/architecture.jpg)
+
 | Component      | Description                                                                        |
 |----------------|------------------------------------------------------------------------------------|
 | feedpaper-web  | Single page App.js web app served as AWS S3 static website                         |
 | feedpaper-api  | Content API using AWS API Gateway, and content fetcher using AWS Lambda            |
 | feedpaper-data | Content storage using AWS DynamoDB with scheduled content expirer using AWS Lambda |
-
-[![Architecture Diagram](https://raw.github.com/cliffano/feedpaper/master/architecture.jpg)](https://raw.github.com/cliffano/feedpaper/master/architecture.jpg)
 
 Installation
 ------------
