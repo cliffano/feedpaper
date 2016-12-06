@@ -21,7 +21,7 @@ provider "aws" {
 #}
 
 resource "aws_iam_role" "iam_role_lambda" {
-    name = "${var.iam_role_name}-lambda"
+    name = "${var.iam_role_name}-lambda-api"
     assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -39,7 +39,7 @@ EOF
 }
 
 resource "aws_iam_policy" "iam_policy_lambda" {
-    name = "${var.iam_role_name}-lambda-policy"
+    name = "${var.iam_role_name}-lambda-policy-api"
     policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -58,7 +58,7 @@ EOF
 }
 
 resource "aws_iam_policy_attachment" "iam_policy_attachment_lambda" {
-    name = "${var.iam_role_name}-lambda-policy-attachment"
+    name = "${var.iam_role_name}-lambda-policy-attachment-api"
     roles = ["${aws_iam_role.iam_role_lambda.name}"]
     policy_arn = "${aws_iam_policy.iam_policy_lambda.arn}"
 }
