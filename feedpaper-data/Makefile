@@ -27,9 +27,17 @@ init: clean
 build:
 	bob build
 	terraform graph
+	mkdir -p .bob/lambdas/
+	cp lib/*.js .bob/lambdas/
+	rm -f .bob/lambdas/node_modules
+	ln -s ../../node_modules/ .bob/lambdas/node_modules
+	cd .bob/lambdas/ &&\
+	zip clean-data.zip --recurse-paths\
+	  node_modules/aws-sdk/\
+		clean-data.js
 
 deploy:
-	echo "TODO"
+	echo "TODO - extract lambda deployment from default infrastructure.tf"
 
 infra-clean:
 	terraform remote pull
