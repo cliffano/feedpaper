@@ -10,7 +10,7 @@ TF_CFG_BUCKET=ryokan-tf-states
 TF_CFG_KEY=feedpaper/$(FEEDPAPER_ENV)/feedpaper-data.tfstate
 TF_CFG_REGION=ap-southeast-2
 
-all: init infra-clean infra build deploy
+all: init infra-clean infra
 
 clean:
 	bob clean
@@ -27,17 +27,6 @@ init: clean
 build:
 	bob build
 	terraform graph
-	mkdir -p .bob/lambdas/
-	cp lib/*.js .bob/lambdas/
-	rm -f .bob/lambdas/node_modules
-	ln -s ../../node_modules/ .bob/lambdas/node_modules
-	cd .bob/lambdas/ &&\
-	zip clean-data.zip --recurse-paths\
-	  node_modules/aws-sdk/\
-		clean-data.js
-
-deploy:
-	echo "TODO - extract lambda deployment from default infrastructure.tf"
 
 infra-clean:
 	terraform remote pull
