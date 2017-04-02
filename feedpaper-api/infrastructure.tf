@@ -70,6 +70,7 @@ resource "aws_lambda_function" "get-feed" {
     role = "${aws_iam_role.iam_role_lambda.arn}"
     handler = "get-feed.handler"
     timeout = 10
+    runtime = "nodejs6.10"
 }
 
 resource "aws_lambda_function" "get-article" {
@@ -79,6 +80,7 @@ resource "aws_lambda_function" "get-article" {
     role = "${aws_iam_role.iam_role_lambda.arn}"
     handler = "get-article.handler"
     timeout = 20
+    runtime = "nodejs6.10"
 }
 
 resource "aws_iam_role" "iam_role_apigateway" {
