@@ -1,4 +1,5 @@
 var aws  = require('aws-sdk');
+var fs   = require('fs');
 var read = require('node-read');
 var qs   = require('querystring');
 var slug = require('slug');
@@ -26,8 +27,9 @@ function fetchArticle(url, cb) {
 
 function getArticle(event, context) {
 
-  var url   = qs.unescape(event.url);
-  var table = 'feedpaper-stg';
+  var feedpaperConf = JSON.parse(fs.readFileSync('feedpaper.json'));
+  var url           = qs.unescape(event.url);
+  var table         = conf.database.table;
 
   var dynamoDb = new aws.DynamoDB();
 

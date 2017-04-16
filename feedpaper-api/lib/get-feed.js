@@ -9,8 +9,8 @@ slug.defaults.mode ='rfc3986';
 
 // build feed index for fast lookup
 var index = {};
-var conf = JSON.parse(fs.readFileSync('feeds.json'));
-conf.forEach(function (category) {
+var feedsConf = JSON.parse(fs.readFileSync('feeds.json'));
+feedsConf.forEach(function (category) {
   var categoryId = slug(category.title);
   index[categoryId] = {};
   category.feeds.forEach(function (feed) {
@@ -53,8 +53,9 @@ function fetchFeed(url, cb) {
 
 function getFeed(event, context) {
 
-  var url   = index[event.categoryId][event.feedId];
-  var table = 'feedpaper-stg';
+  var feedpaperConf = JSON.parse(fs.readFileSync('feedpaper.json'));
+  var url           = index[event.categoryId][event.feedId];
+  var table         = conf.database.table;
 
   var dynamoDb = new aws.DynamoDB();
 
