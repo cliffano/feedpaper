@@ -192,13 +192,11 @@ resource "aws_api_gateway_method_response" "api_method_response_data_feed_catego
     response_models = {
       "application/json" = "Empty"
     }
-    response_parameters_in_json = <<PARAMS
-    {
-       "method.response.header.Access-Control-Allow-Headers": true,
-       "method.response.header.Access-Control-Allow-Methods": true,
-       "method.response.header.Access-Control-Allow-Origin": true
+    response_parameters = {
+       "method.response.header.Access-Control-Allow-Headers" = true
+       "method.response.header.Access-Control-Allow-Methods" = true
+       "method.response.header.Access-Control-Allow-Origin" = true
     }
-    PARAMS
 }
 
 resource "aws_api_gateway_integration" "api_integration_data_feed_categoryid_feedid" {
@@ -230,13 +228,11 @@ resource "aws_api_gateway_integration_response" "api_integration_response_data_f
     response_templates = {
       "application/json" = ""
     }
-    response_parameters_in_json = <<PARAMS
-    {
-       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization'",
-       "method.response.header.Access-Control-Allow-Methods": "'GET'",
-       "method.response.header.Access-Control-Allow-Origin": "'*'"
+    response_parameters = {
+       "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization'"
+       "method.response.header.Access-Control-Allow-Methods" = "'GET'"
+       "method.response.header.Access-Control-Allow-Origin" = "'*'"
     }
-    PARAMS
     depends_on = ["aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid"]
 }
 
@@ -271,13 +267,11 @@ resource "aws_api_gateway_method_response" "api_method_response_data_article_url
     response_models = {
       "application/json" = "Empty"
     }
-    response_parameters_in_json = <<PARAMS
-    {
-       "method.response.header.Access-Control-Allow-Headers": true,
-       "method.response.header.Access-Control-Allow-Methods": true,
-       "method.response.header.Access-Control-Allow-Origin": true
+    response_parameters = {
+       "method.response.header.Access-Control-Allow-Headers" = true
+       "method.response.header.Access-Control-Allow-Methods" = true
+       "method.response.header.Access-Control-Allow-Origin" = true
     }
-    PARAMS
 }
 
 resource "aws_api_gateway_integration" "api_integration_data_article_url" {
@@ -308,13 +302,11 @@ resource "aws_api_gateway_integration_response" "api_integration_response_data_a
     response_templates = {
       "application/json" = ""
     }
-    response_parameters_in_json = <<PARAMS
-    {
-       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization'",
-       "method.response.header.Access-Control-Allow-Methods": "'GET'",
-       "method.response.header.Access-Control-Allow-Origin": "'*'"
+    response_parameters = {
+       "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization'"
+       "method.response.header.Access-Control-Allow-Methods" = "'GET'"
+       "method.response.header.Access-Control-Allow-Origin" = "'*'"
     }
-    PARAMS
     depends_on = ["aws_api_gateway_integration.api_integration_data_article_url"]
 }
 
