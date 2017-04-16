@@ -10,6 +10,10 @@ infra-clean-stg: init-stg
 	cd feedpaper-api && make infra-clean && cd .. && \
 	cd feedpaper-data && make infra-clean && cd ..
 
+all-data-stg: init-stg
+	export FEEDPAPER_ENV=stg && \
+	cd feedpaper-data && make all && cd ..
+
 all-pre-stg: init-stg
 	export FEEDPAPER_ENV=stg && \
 	cd feedpaper-data && make all && cd .. && \
@@ -30,6 +34,10 @@ infra-clean-prd: init-prd
 	cd feedpaper-web && make infra-clean && cd .. && \
 	cd feedpaper-api && make infra-clean && cd .. && \
 	cd feedpaper-data && make infra-clean && cd ..
+
+all-data-prd: init-prd
+	export FEEDPAPER_ENV=prd && \
+	cd feedpaper-data && make all && cd ..
 
 all-pre-prd: init-prd
 	export FEEDPAPER_ENV=prd && \
