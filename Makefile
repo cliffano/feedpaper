@@ -10,10 +10,14 @@ infra-clean-stg: init-stg
 	cd feedpaper-api && make infra-clean && cd .. && \
 	cd feedpaper-data && make infra-clean && cd ..
 
-all-stg: init-stg
-	export FEEDPAPER_ENV=prd && \
+all-pre-stg: init-stg
+	export FEEDPAPER_ENV=stg && \
 	cd feedpaper-data && make all && cd .. && \
 	cd feedpaper-api && make all && cd ..
+
+all-post-stg: init-stg
+	export FEEDPAPER_ENV=stg && \
+	cd feedpaper-web && make all && cd ..
 
 init-prd:
 	export FEEDPAPER_ENV=prd && \
@@ -27,10 +31,14 @@ infra-clean-prd: init-prd
 	cd feedpaper-api && make infra-clean && cd .. && \
 	cd feedpaper-data && make infra-clean && cd ..
 
-all-prd: init-prd
+all-pre-prd: init-prd
 	export FEEDPAPER_ENV=prd && \
 	cd feedpaper-data && make all && cd .. && \
 	cd feedpaper-api && make all && cd ..
+
+all-post-prd: init-prd
+	export FEEDPAPER_ENV=prd && \
+	cd feedpaper-web && make all && cd ..
 
 tmux:
 	tmuxinator start feedpaper
