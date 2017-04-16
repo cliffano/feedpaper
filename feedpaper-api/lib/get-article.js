@@ -29,7 +29,7 @@ function getArticle(event, context) {
 
   var feedpaperConf = JSON.parse(fs.readFileSync('feedpaper.json'));
   var url           = qs.unescape(event.url);
-  var table         = conf.database.table;
+  var table         = feedpaperConf.database.table;
 
   var dynamoDb = new aws.DynamoDB();
 

@@ -39,12 +39,14 @@ build:
 		node_modules/feed-read/\
 		node_modules/slug/\
 		get-feed.js\
+		feedpaper.json\
 		feeds.json &&\
 	zip get-article.zip --recurse-paths\
 		node_modules/aws-sdk/\
 		node_modules/node-read/\
 		node_modules/slug/\
-		get-article.js
+		get-article.js\
+		feedpaper.json
 
 deploy:
 	echo "TODO - extract lambda deployment from default infrastructure.tf"

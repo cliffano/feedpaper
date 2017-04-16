@@ -55,7 +55,7 @@ function getFeed(event, context) {
 
   var feedpaperConf = JSON.parse(fs.readFileSync('feedpaper.json'));
   var url           = index[event.categoryId][event.feedId];
-  var table         = conf.database.table;
+  var table         = feedpaperConf.database.table;
 
   var dynamoDb = new aws.DynamoDB();
 
