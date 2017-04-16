@@ -30,7 +30,7 @@ build:
 
 infra-clean:
 	terraform remote pull
-	terraform destroy -var-file $(TF_VARS)
+	terraform destroy -var-file $(TF_VARS) -force
 	terraform remote push
 
 infra:
