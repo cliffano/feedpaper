@@ -66,6 +66,9 @@ Set up content API:
 
     cd feedpaper-api && make all
 
+This sometimes fails because Terraform doesn't allow configurable time out for waiting for Lambda functions to be ready.
+This will also cause Terraform to fail to remove Lambda functions when destroying the infrastructure.
+
 Get the REST API ID from content API output:
 
     aws_api_gateway_deployment.api_deployment: Creating...
@@ -79,6 +82,9 @@ Set this REST API ID in feedpaper.json's api.host property:
         "host": "<some_rest_api_id>.execute-api.<aws_region>.amazonaws.com",
         "version": "0",
         "path": "feedpaper-<env>"
+      },
+      "database": {
+        "table": "feedpaper-<env>"
       }
     }
 
