@@ -45,8 +45,8 @@ function _populateArticle(page, data) {
     data = JSON.parse(data);
     var content =
       '<h2>' + data.title + '</h2>' +
-      '<p class="features"><a href="' + data.url + '">source</a> | ' +
-      '<a href="/a/' + data.url + '">permalink</a></p>' +
+      '<p class="features"><a href="' + data.url + '">source</a> <!--| ' +
+      '<a href="/a/' + data.url + '">permalink</a>--></p>' +
       data.content;
     document.title = data.title + ' | Feedpaper';
 
