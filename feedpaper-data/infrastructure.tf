@@ -21,4 +21,8 @@ resource "aws_dynamodb_table" "data" {
       name = "id"
       type = "S"
     }
+    ttl {
+      attribute_name = "TimeToExist"
+      enabled = true
+    }
 }
