@@ -1,12 +1,21 @@
+sudo: false
 language: node_js
 node_js:
-  - "6.3"
+  - "6"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 before_install:
   - npm update -g npm
   - npm install -g bob coveralls --loglevel error
-  - wget https://releases.hashicorp.com/terraform/0.7.0/terraform_0.7.0_linux_amd64.zip
+  - wget https://releases.hashicorp.com/terraform/0.9.5/terraform_0.9.5_linux_amd64.zip
   - mkdir -p ~/opt/terraform/
-  - unzip terraform_0.7.0_linux_amd64.zip -d ~/opt/terraform/
+  - unzip terraform_0.9.5_linux_amd64.zip -d ~/opt/terraform/
 script:
   - export PATH=~/opt/terraform/:$PATH
   - export FEEDPAPER_ENV=ci
