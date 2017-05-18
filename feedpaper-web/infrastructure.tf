@@ -1,9 +1,21 @@
-variable "bucket_site" {}
 variable "region" {}
+variable "remote_state_bucket" {}
+variable "remote_state_key" {}
+variable "remote_state_region" {}
+variable "bucket_site" {}
 variable "route53_domain_name" {}
 variable "route53_domain_zoneid" {}
 variable "route53_domain_alias_name" {}
 variable "route53_domain_alias_zoneid" {}
+
+data "terraform_remote_state" "remote_state" {
+  backend = "s3"
+  config {
+    bucket = "${var.remote_state_bucket}"
+    key    = "${var.remote_state_key}"
+    region = "${var.remote_state_region}"
+  }
+}
 
 provider "aws" {
     region = "${var.region}"
