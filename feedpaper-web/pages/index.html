@@ -1,5 +1,5 @@
 <div class="app-page" data-page="feedpaper">
-  <div class="app-topbar black">
+  <div class="app-topbar {app_topbar_colour()}">
     <h1 class="app-title"><strong>Feedpaper</strong></h1>
   </div>
   <div class="app-content">
@@ -13,7 +13,7 @@
 </div>
 
 <div class="app-page" data-page="feedpaper-article">
-  <div class="app-topbar black">
+  <div class="app-topbar {app_topbar_colour()}">
     <div class="app-button left hack-data-back" data-target="feedpaper"></div>
     <h1 class="app-title"><strong class="app-title-hook"></strong></h1>
   </div>
@@ -27,7 +27,7 @@
 
 {foreach category in categories}
   <div class="app-page" data-page="category-{slug(category.title)}">
-    <div class="app-topbar black">
+    <div class="app-topbar {app_topbar_colour()}">
       <div class="app-button left" data-back></div>
       <h1 class="app-title"><strong>{category.title}</strong></h1>
     </div>
@@ -43,7 +43,7 @@
 {end}
 
 <div class="app-page" data-page="feed">
-  <div class="app-topbar black">
+  <div class="app-topbar {app_topbar_colour()}">
     <div class="app-button left" data-back></div>
     <h1 class="app-title"><strong class="app-title-hook"></strong></h1>
   </div>
@@ -56,7 +56,7 @@
 </div>
 
 <div class="app-page" data-page="article">
-  <div class="app-topbar black">
+  <div class="app-topbar {app_topbar_colour()}">
     <div class="app-button left" data-back></div>
     <h1 class="app-title"><strong class="app-title-hook"></strong></h1>
   </div>

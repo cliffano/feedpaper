@@ -21,9 +21,18 @@ var globalJs = fs.readFileSync(p.join('static', 'scripts', 'global.js.tpl'), 'ut
 globalJs = globalJs.replace(/var apiBase = 'PLACEHOLDER';/, util.format('var apiBase = \'%s\';', apiBase));
 fs.writeFileSync(p.join('static', 'scripts', 'global.js'), globalJs)
 
+function randomColour() {
+  // App.js' colour scheme
+  COLOURS = ['teal', 'green', 'yellow', 'orange', 'red', 'dark-blue', 'blue'];
+  return COLOURS[Math.round(Math.random() * 1000) % COLOURS.length];
+}
+
 exports.params = {
   slug: function(title, cb) {
     cb(slug(title));
+  },
+  app_topbar_colour: function(cb) {
+    cb(randomColour());
   },
   sitemap: {
     'index.html': { title: 'Feedpaper' }
