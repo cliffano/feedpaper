@@ -42,7 +42,8 @@ function getArticle(event, context) {
         Item: {
           id: { 'S': slug(url) },
           type: { 'S': 'article' },
-          content: { 'S': JSON.stringify(article) }
+          content: { 'S': JSON.stringify(article) },
+          TimeToExist: { 'N': '43200' }
         }
       };
       dynamoDb.putItem(params, function (err, data) {

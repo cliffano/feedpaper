@@ -1,3 +1,7 @@
+variable "region" {}
+variable "remote_state_bucket" {}
+variable "remote_state_key" {}
+variable "remote_state_region" {}
 variable "iam_role_name" {}
 variable "lambda_function_get_feed" {}
 variable "lambda_function_get_article" {}
@@ -6,8 +10,17 @@ variable "api_version" {}
 variable "route53_domain_name_api" {}
 variable "route53_domain_zoneid" {}
 
+data "terraform_remote_state" "remote_state" {
+  backend = "s3"
+  config {
+    bucket = "${var.remote_state_bucket}"
+    key    = "${var.remote_state_key}"
+    region = "${var.remote_state_region}"
+  }
+}
+
 provider "aws" {
-    region = "ap-southeast-2"
+    region = "${var.region}"
 }
 
 provider "aws" {
