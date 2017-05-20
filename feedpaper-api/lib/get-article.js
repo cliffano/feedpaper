@@ -43,7 +43,7 @@ function getArticle(event, context) {
           id: { 'S': slug(url) },
           type: { 'S': 'article' },
           content: { 'S': JSON.stringify(article) },
-          TimeToExist: { 'N': '43200' }
+          TimeToExist: { 'N': (Math.floor(Date.now() / 1000) + 43200).toString() }
         }
       };
       dynamoDb.putItem(params, function (err, data) {

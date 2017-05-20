@@ -69,7 +69,7 @@ function getFeed(event, context) {
           id: { 'S': slug(url) },
           type: { 'S': 'feed' },
           articles: { 'S': JSON.stringify(articlesList) },
-          TimeToExist: { 'N': '21600' }
+          TimeToExist: { 'N': (Math.floor(Date.now() / 1000) + 21600).toString() }
         }
       };
       dynamoDb.putItem(params, function (err, data) {
