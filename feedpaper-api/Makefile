@@ -15,6 +15,7 @@ clean:
 
 init: clean
 	bob dep
+	terraform init -var-file $(TF_VARS) -backend-config conf/backend.tf -backend=true -force-copy -lock=false
 
 build:
 	bob build

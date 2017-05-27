@@ -15,6 +15,7 @@ clean:
 
 init: clean
 	bob dep
+	terraform init -var-file $(TF_VARS) -backend-config conf/backend.tf -backend=true -force-copy -lock=false
 
 build:
 	bob build
@@ -23,6 +24,8 @@ build:
 deploy:
 	rm -f .sendman.json
 	ln -s .sendman-$(FEEDPAPER_ENV).json .sendman.json
+	bob deploy
+	# deploy twice due to intermittent incomplete S3 upload 
 	bob deploy
 
 infra-clean:
