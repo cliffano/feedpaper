@@ -6,9 +6,7 @@ ifndef FEEDPAPER_CFG
 endif
 
 TF_VARS=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform.tfvars
-TF_CFG_BUCKET=ryokan-tf-states
-TF_CFG_KEY=feedpaper/$(FEEDPAPER_ENV)/feedpaper-data.tfstate
-TF_CFG_REGION=ap-southeast-2
+TF_BACKEND=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/backend-feedpaper-data.tf
 
 all: init infra-clean infra
 
@@ -18,7 +16,7 @@ clean:
 
 init: clean
 	bob dep
-	terraform init -var-file $(TF_VARS) -backend-config conf/backend.tf -backend=true -force-copy -lock=false
+	terraform init -var-file $(TF_VARS) -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
 
 build:
 	bob build

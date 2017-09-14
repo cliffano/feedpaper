@@ -6,6 +6,7 @@ ifndef FEEDPAPER_CFG
 endif
 
 TF_VARS=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform.tfvars
+TF_BACKEND=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/backend-feedpaper-api.tf
 
 all: init infra-clean build deploy infra
 
@@ -15,7 +16,7 @@ clean:
 
 init: clean
 	bob dep
-	terraform init -var-file $(TF_VARS) -backend-config conf/backend.tf -backend=true -force-copy -lock=false
+	terraform init -var-file $(TF_VARS) -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
 
 build:
 	bob build

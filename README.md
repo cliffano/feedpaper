@@ -45,7 +45,7 @@ Download Feedpaper code:
 Configuration
 -------------
 
-Create `feedpaper.json`, `feeds.json`, and `terraform.tfvars` files under a configuration directory.
+Create `feedpaper.json`, `feeds.json`, `terraform.tfvars`, `backend-feedpaper-api.tf`, `backend-feedpaper-data.tf`, and  `backend-feedpaper-web.tf` files under a designated configuration directory (e.g. `/path/to/conf_dir`).
 Have a look at [conf/ci](https://github.com/cliffano/feedpaper/tree/master/conf/ci) for example configuration files.
 
 Set up the following environment variables:

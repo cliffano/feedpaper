@@ -6,6 +6,7 @@ ifndef FEEDPAPER_CFG
 endif
 
 TF_VARS=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform.tfvars
+TF_BACKEND=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/backend-feedpaper-web.tf
 
 all: init infra-clean infra build deploy
 
@@ -15,7 +16,7 @@ clean:
 
 init: clean
 	bob dep
-	terraform init -var-file $(TF_VARS) -backend-config conf/backend.tf -backend=true -force-copy -lock=false
+	terraform init -var-file $(TF_VARS) -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
 
 build:
 	bob build
@@ -25,7 +26,7 @@ deploy:
 	rm -f .sendman.json
 	ln -s .sendman-$(FEEDPAPER_ENV).json .sendman.json
 	bob deploy
-	# deploy twice due to intermittent incomplete S3 upload 
+	# deploy twice due to intermittent incomplete S3 upload
 	bob deploy
 
 infra-clean:
