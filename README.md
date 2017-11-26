@@ -54,6 +54,8 @@ Set up the following environment variables:
     export FEEDPAPER_CFG=/path/to/conf_dir
     export TF_CFG_BUCKET=<aws_s3_bucket_name>
     export TF_CFG_REGION=<aws_region>
+    
+Ensure domain name is configured in [Typekit's kit](https://typekit.com/account/kits) setting.
 
 Usage
 -----
