@@ -10,27 +10,27 @@ variable "api_version" {}
 variable "route53_domain_name_api" {}
 variable "route53_domain_zoneid" {}
 
+terraform {
+  backend "local" {}
+}
+
 data "terraform_remote_state" "remote_state" {
   backend = "s3"
-  config {
-    bucket = "${var.remote_state_bucket}"
-    key    = "${var.remote_state_key}"
-    region = "${var.remote_state_region}"
+  config = {
+    bucket = var.remote_state_bucket
+    key    = var.remote_state_key
+    region = var.remote_state_region
   }
 }
 
 provider "aws" {
-    region = "${var.region}"
-}
-
-provider "aws" {
-    alias = "us"
-    region = "us-west-2"
+    region = var.region
+    version = "2.54.0"
 }
 
 #resource "aws_api_gateway_account" "apigateway" {
-#  provider = "aws.us"
-#  cloudwatch_role_arn = "${aws_iam_role.iam_role_apigateway.arn}"
+#  provider = aws
+#  cloudwatch_role_arn = aws_iam_role.iam_role_apigateway.arn
 #}
 
 resource "aws_iam_role" "iam_role_lambda" {
@@ -72,28 +72,28 @@ EOF
 
 resource "aws_iam_policy_attachment" "iam_policy_attachment_lambda" {
     name = "${var.iam_role_name}-lambda-policy-attachment-api"
-    roles = ["${aws_iam_role.iam_role_lambda.name}"]
-    policy_arn = "${aws_iam_policy.iam_policy_lambda.arn}"
+    roles = [aws_iam_role.iam_role_lambda.name]
+    policy_arn = aws_iam_policy.iam_policy_lambda.arn
 }
 
 resource "aws_lambda_function" "get-feed" {
-    provider = "aws.us"
+    provider = aws
     filename = ".bob/lambdas/get-feed.zip"
-    function_name = "${var.lambda_function_get_feed}"
-    role = "${aws_iam_role.iam_role_lambda.arn}"
+    function_name = var.lambda_function_get_feed
+    role = aws_iam_role.iam_role_lambda.arn
     handler = "get-feed.handler"
     timeout = 10
-    runtime = "nodejs6.10"
+    runtime = "nodejs12.x"
 }
 
 resource "aws_lambda_function" "get-article" {
-    provider = "aws.us"
+    provider = aws
     filename = ".bob/lambdas/get-article.zip"
-    function_name = "${var.lambda_function_get_article}"
-    role = "${aws_iam_role.iam_role_lambda.arn}"
+    function_name = var.lambda_function_get_article
+    role = aws_iam_role.iam_role_lambda.arn
     handler = "get-article.handler"
     timeout = 20
-    runtime = "nodejs6.10"
+    runtime = "nodejs12.x"
 }
 
 resource "aws_iam_role" "iam_role_apigateway" {
@@ -135,72 +135,73 @@ EOF
 
 resource "aws_iam_policy_attachment" "iam_policy_attachment_apigateway" {
     name = "${var.iam_role_name}-apigateway-policy-attachment"
-    roles = ["${aws_iam_role.iam_role_apigateway.name}"]
-    policy_arn = "${aws_iam_policy.iam_policy_apigateway.arn}"
+    roles = [aws_iam_role.iam_role_apigateway.name]
+    policy_arn = aws_iam_policy.iam_policy_apigateway.arn
 }
 
 resource "aws_api_gateway_rest_api" "api" {
-    provider = "aws.us"
-    name = "${var.api_name}"
-    description = "${var.api_name}"
+    provider = aws
+    name = var.api_name
+    description = var.api_name
 }
 
 resource "aws_route53_record" "domain" {
-  name = "${var.route53_domain_name_api}"
-  zone_id = "${var.route53_domain_zoneid}"
+  name = var.route53_domain_name_api
+  zone_id = var.route53_domain_zoneid
   type = "CNAME"
   ttl = "60"
-  records = ["${aws_api_gateway_rest_api.api.id}.execute-api.us-west-2.amazonaws.com"]
+  records = ["${aws_api_gateway_rest_api.api.id}.execute-api.ap-southeast-2.amazonaws.com"]
 }
 
 resource "aws_api_gateway_resource" "api_resource" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_rest_api.api.root_resource_id}"
-    path_part = "${var.api_name}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_rest_api.api.root_resource_id
+    path_part = var.api_name
 }
 
 resource "aws_api_gateway_resource" "api_resource_data" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_resource.api_resource.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_resource.api_resource.id
     path_part = "data"
 }
 
 resource "aws_api_gateway_resource" "api_resource_data_feed" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_resource.api_resource_data.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_resource.api_resource_data.id
     path_part = "feed"
 }
 
 resource "aws_api_gateway_resource" "api_resource_data_feed_categoryid" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_resource.api_resource_data_feed.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_resource.api_resource_data_feed.id
     path_part = "{categoryId}"
 }
 
 resource "aws_api_gateway_resource" "api_resource_data_feed_categoryid_feedid" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_resource.api_resource_data_feed_categoryid.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_resource.api_resource_data_feed_categoryid.id
     path_part = "{feedId}"
 }
 
 resource "aws_api_gateway_method" "api_method_data_feed_categoryid_feedid" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id
     http_method = "GET"
     authorization = "NONE"
+    api_key_required = false
 }
 
 resource "aws_api_gateway_method_response" "api_method_response_data_feed_categoryid_feedid" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id}"
-    http_method = "${aws_api_gateway_method.api_method_data_feed_categoryid_feedid.http_method}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id
+    http_method = aws_api_gateway_method.api_method_data_feed_categoryid_feedid.http_method
     status_code = "200"
     response_models = {
       "application/json" = "Empty"
@@ -213,14 +214,14 @@ resource "aws_api_gateway_method_response" "api_method_response_data_feed_catego
 }
 
 resource "aws_api_gateway_integration" "api_integration_data_feed_categoryid_feedid" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id
     http_method = "GET"
     type = "AWS"
     integration_http_method = "POST"
-    uri = "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${aws_lambda_function.get-feed.arn}/invocations"
-    credentials = "${aws_iam_role.iam_role_apigateway.arn}"
+    uri = "arn:aws:apigateway:ap-southeast-2:lambda:path/2015-03-31/functions/${aws_lambda_function.get-feed.arn}/invocations"
+    credentials = aws_iam_role.iam_role_apigateway.arn
     request_templates = {
       "application/json" = <<EOF
 #set($inputRoot = $input.path('$'))
@@ -233,11 +234,11 @@ EOF
 }
 
 resource "aws_api_gateway_integration_response" "api_integration_response_data_feed_categoryid_feedid" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_feed_categoryid_feedid.id
     http_method = "GET"
-    status_code = "${aws_api_gateway_method_response.api_method_response_data_feed_categoryid_feedid.status_code}"
+    status_code = aws_api_gateway_method_response.api_method_response_data_feed_categoryid_feedid.status_code
     response_templates = {
       "application/json" = ""
     }
@@ -246,36 +247,37 @@ resource "aws_api_gateway_integration_response" "api_integration_response_data_f
        "method.response.header.Access-Control-Allow-Methods" = "'GET'"
        "method.response.header.Access-Control-Allow-Origin" = "'*'"
     }
-    depends_on = ["aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid"]
+    depends_on = [aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid]
 }
 
 resource "aws_api_gateway_resource" "api_resource_data_article" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_resource.api_resource_data.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_resource.api_resource_data.id
     path_part = "article"
 }
 
 resource "aws_api_gateway_resource" "api_resource_data_article_url" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    parent_id = "${aws_api_gateway_resource.api_resource_data_article.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    parent_id = aws_api_gateway_resource.api_resource_data_article.id
     path_part = "{url}"
 }
 
 resource "aws_api_gateway_method" "api_method_data_article_url" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_article_url.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_article_url.id
     http_method = "GET"
     authorization = "NONE"
+    api_key_required = false
 }
 
 resource "aws_api_gateway_method_response" "api_method_response_data_article_url" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_article_url.id}"
-    http_method = "${aws_api_gateway_method.api_method_data_article_url.http_method}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_article_url.id
+    http_method = aws_api_gateway_method.api_method_data_article_url.http_method
     status_code = "200"
     response_models = {
       "application/json" = "Empty"
@@ -288,14 +290,14 @@ resource "aws_api_gateway_method_response" "api_method_response_data_article_url
 }
 
 resource "aws_api_gateway_integration" "api_integration_data_article_url" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_article_url.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_article_url.id
     http_method = "GET"
     type = "AWS"
     integration_http_method = "POST"
-    uri = "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/${aws_lambda_function.get-article.arn}/invocations"
-    credentials = "${aws_iam_role.iam_role_apigateway.arn}"
+    uri = "arn:aws:apigateway:ap-southeast-2:lambda:path/2015-03-31/functions/${aws_lambda_function.get-article.arn}/invocations"
+    credentials = aws_iam_role.iam_role_apigateway.arn
     request_templates = {
       "application/json" = <<EOF
 #set($inputRoot = $input.path('$'))
@@ -307,11 +309,11 @@ EOF
 }
 
 resource "aws_api_gateway_integration_response" "api_integration_response_data_article_url" {
-    provider = "aws.us"
-    rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-    resource_id = "${aws_api_gateway_resource.api_resource_data_article_url.id}"
+    provider = aws
+    rest_api_id = aws_api_gateway_rest_api.api.id
+    resource_id = aws_api_gateway_resource.api_resource_data_article_url.id
     http_method = "GET"
-    status_code = "${aws_api_gateway_method_response.api_method_response_data_article_url.status_code}"
+    status_code = aws_api_gateway_method_response.api_method_response_data_article_url.status_code
     response_templates = {
       "application/json" = ""
     }
@@ -320,12 +322,12 @@ resource "aws_api_gateway_integration_response" "api_integration_response_data_a
        "method.response.header.Access-Control-Allow-Methods" = "'GET'"
        "method.response.header.Access-Control-Allow-Origin" = "'*'"
     }
-    depends_on = ["aws_api_gateway_integration.api_integration_data_article_url"]
+    depends_on = [aws_api_gateway_integration.api_integration_data_article_url]
 }
 
 resource "aws_api_gateway_model" "api_model_get-feed" {
-  provider = "aws.us"
-  rest_api_id = "${aws_api_gateway_rest_api.api.id}"
+  provider = aws
+  rest_api_id = aws_api_gateway_rest_api.api.id
   name = "GetFeed"
   description = ""
   content_type = "application/json"
@@ -343,8 +345,8 @@ EOF
 }
 
 resource "aws_api_gateway_model" "api_model_get-article" {
-  provider = "aws.us"
-  rest_api_id = "${aws_api_gateway_rest_api.api.id}"
+  provider = aws
+  rest_api_id = aws_api_gateway_rest_api.api.id
   name = "GetArticle"
   description = ""
   content_type = "application/json"
@@ -361,13 +363,13 @@ EOF
 }
 
 resource "aws_api_gateway_deployment" "api_deployment" {
-  provider = "aws.us"
-  stage_name = "v${var.api_version}"
-  rest_api_id = "${aws_api_gateway_rest_api.api.id}"
+  provider = aws
+  stage_name = var.api_version
+  rest_api_id = aws_api_gateway_rest_api.api.id
   depends_on = [
-    "aws_api_gateway_method.api_method_data_feed_categoryid_feedid",
-    "aws_api_gateway_method.api_method_data_article_url",
-    "aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid",
-    "aws_api_gateway_integration.api_integration_data_article_url"
+    aws_api_gateway_method.api_method_data_feed_categoryid_feedid,
+    aws_api_gateway_method.api_method_data_article_url,
+    aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid,
+    aws_api_gateway_integration.api_integration_data_article_url
   ]
 }

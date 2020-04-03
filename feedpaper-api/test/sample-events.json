@@ -1,9 +1,9 @@
 {
   "get-feed": {
     "categoryId": "business",
-    "feedId": "recode"
+    "feedId": "forbes"
   },
   "get-article": {
-    "url": "http://recode.net/2015/09/11/airbnb-acqhires-flight-search-tool-vamo/"
+    "url": "https://www.forbes.com/sites/sammay/2020/03/30/tottenham-hotspur-striker-harry-kane-puts-juventus-on-red-alert/"
   }
 }

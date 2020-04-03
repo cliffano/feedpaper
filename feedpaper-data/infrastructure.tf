@@ -6,27 +6,27 @@ variable "db_data" {}
 variable "iam_role_name" {}
 variable "lambda_function_clean_data" {}
 
+terraform {
+  backend "local" {}
+}
+
 data "terraform_remote_state" "remote_state" {
   backend = "s3"
-  config {
-    bucket = "${var.remote_state_bucket}"
-    key    = "${var.remote_state_key}"
-    region = "${var.remote_state_region}"
+  config = {
+    bucket = var.remote_state_bucket
+    key    = var.remote_state_key
+    region = var.remote_state_region
   }
 }
 
 provider "aws" {
-    region = "${var.region}"
-}
-
-provider "aws" {
-    alias = "us"
-    region = "us-west-2"
+    region = var.region
+    version = "2.54.0"
 }
 
 resource "aws_dynamodb_table" "data" {
-    provider = "aws.us"
-    name = "${var.db_data}"
+    provider = aws
+    name = var.db_data
     read_capacity = 1
     write_capacity = 1
     hash_key = "id"
