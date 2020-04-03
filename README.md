@@ -73,8 +73,8 @@ This will also cause Terraform to fail to remove Lambda functions when destroyin
 
 Get the REST API ID from content API output:
 
-    aws_api_gateway_deployment.api_deployment: Creating...
-      rest_api_id: "" => "<some_rest_api_id>"
+    aws_api_gateway_rest_api.api: Creating...
+    aws_api_gateway_rest_api.api: Creation complete after 1s [id=<some_rest_api_id>]
 
 Set this REST API ID in feedpaper.json's api.host property:
 
