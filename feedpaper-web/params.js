@@ -15,7 +15,7 @@ var conf = JSON.parse(fs.readFileSync(p.join(conf_dir, env, 'feedpaper.json')));
 var apiBase = url.format({
   protocol: conf.api.protocol,
   hostname: conf.api.host,
-  pathname: util.format('v%d/%s', conf.api.version, conf.api.path)
+  pathname: util.format('%d/%s', conf.api.version, conf.api.path)
 });
 var globalJs = fs.readFileSync(p.join('static', 'scripts', 'global.js.tpl'), 'utf-8');
 globalJs = globalJs.replace(/var apiBase = 'PLACEHOLDER';/, util.format('var apiBase = \'%s\';', apiBase));
