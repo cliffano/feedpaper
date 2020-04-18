@@ -58,7 +58,4 @@ all-post-prd: init-prd
 	export FEEDPAPER_ENV=prd && \
 	cd feedpaper-web && make all && cd ..
 
-tmux:
-	tmuxinator start feedpaper
-
-.PHONY: init-stg init-prd tmux
+.PHONY: init-stg init-prd
