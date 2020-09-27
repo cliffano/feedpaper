@@ -1,8 +1,0 @@
-{
-  "protocol": "s3",
-  "local": ".bob/site/ae86/",
-  "bucket": "feedpaper-prd.gio.zone",
-  "region": "ap-southeast-2",
-  "remote": "",
-  "include": "/Users/cliffano/.ssh/suna.json"
-}
