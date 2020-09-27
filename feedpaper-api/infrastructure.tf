@@ -9,6 +9,7 @@ variable "api_name" {}
 variable "api_version" {}
 variable "route53_domain_name_api" {}
 variable "route53_domain_zoneid" {}
+variable "acm_certificate_arn" {}
 
 terraform {
   backend "local" {}
@@ -372,4 +373,15 @@ resource "aws_api_gateway_deployment" "api_deployment" {
     aws_api_gateway_integration.api_integration_data_feed_categoryid_feedid,
     aws_api_gateway_integration.api_integration_data_article_url
   ]
+}
+
+resource "aws_api_gateway_domain_name" "api_domain" {
+  domain_name  = var.route53_domain_name_api
+  certificate_arn = var.acm_certificate_arn
+}
+
+resource "aws_api_gateway_base_path_mapping" "api_domain_deployment" {
+  api_id      = aws_api_gateway_rest_api.api.id
+  stage_name  = aws_api_gateway_deployment.api_deployment.stage_name
+  domain_name = aws_api_gateway_domain_name.api_domain.domain_name
 }
