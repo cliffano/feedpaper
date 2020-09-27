@@ -1,3 +1,4 @@
+"use strict"
 import fs from 'fs';
 import p from 'path';
 import slug from 'slug';
@@ -36,6 +37,14 @@ const params = {
   },
   sitemap: {
     'index.html': { title: 'Feedpaper' }
+  },
+  asset_link: function (path, cb) {
+    const assetLink = url.format({
+      protocol: conf.web.protocol,
+      hostname: conf.web.host,
+      pathname: path
+    });
+    cb(assetLink);
   },
   categories: feedsCategories
 };
