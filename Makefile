@@ -47,15 +47,16 @@ all-data-prd: init-prd
 	export FEEDPAPER_ENV=prd && \
 	cd feedpaper-data && make all && cd ..
 
-all-pre-prd: init-prd
+all-api-prd: init-prd
 	export FEEDPAPER_CFG=/opt/workspace/config/studio/feedpaper && \
 	export FEEDPAPER_ENV=prd && \
-	cd feedpaper-data && make all && cd .. && \
 	cd feedpaper-api && (make all || make infra || make infra) && cd ..
 
-all-post-prd: init-prd
+all-web-prd: init-prd
 	export FEEDPAPER_CFG=/opt/workspace/config/studio/feedpaper && \
 	export FEEDPAPER_ENV=prd && \
 	cd feedpaper-web && make all && cd ..
+
+all-prd: all-data-prd all-api-prd all-web-prd
 
 .PHONY: init-stg init-prd
