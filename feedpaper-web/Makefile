@@ -18,12 +18,14 @@ init: clean
 	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform init -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
 
 build:
+	rm -f /usr/bin/ae86
 	npm install -g ae86
 	ae86 gen --out-dir `pwd`/.bob/site/ae86/
 	terraform graph
 
 deploy:
-	aws s3 cp `pwd`/.bob/site/ae86/ s3://feedpaper.cliffano.com --recursive
+	# TODO: retrieve bucket name from config
+	aws s3 cp `pwd`/.bob/site/ae86/ s3://feedpaper-prd.cliffano.com --recursive
 
 	# build:
 	# 	bob build
