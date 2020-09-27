@@ -1,5 +1,6 @@
 {
   "name": "feedpaper-web",
+  "type": "module",
   "description": "Feed reader + readability mashup for reading on handheld devices",
   "keywords": [
     "feed",
@@ -26,18 +27,9 @@
     "node-read": "^0.1.6",
     "slug": "^0.9.1"
   },
-  "devDependencies": {
-    "buster-node": "^0.7.1",
-    "referee": "^1.1.1"
-  },
   "scripts": {},
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 13.0.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/cliffano/feedpaper/raw/master/LICENSE"
-    }
-  ]
+  "license": "MIT"
 }
