@@ -60,17 +60,21 @@ Ensure domain name is configured in [Typekit's kit](https://typekit.com/account/
 Usage
 -----
 
-Set up content storage:
+Create content storage:
 
-    cd feedpaper-data && make all
+    make create-data-prd
 
-Set up content API:
+Create content API:
 
-    cd feedpaper-api && make all
+    make create-api-prd
 
-Set up single page web app:
+Create single page web app:
 
-    cd feedpaper-web && make all
+    make create-web-prd
+
+Delete all components:
+
+    make delete-all-prd
 
 Colophon
 --------
