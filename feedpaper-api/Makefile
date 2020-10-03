@@ -15,6 +15,7 @@ clean:
 
 init: clean
 	bob dep
+	node_modules/.bin/jsonlint $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/feedpaper.json $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/feeds.json
 	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh &&  terraform init -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
 
 build:
