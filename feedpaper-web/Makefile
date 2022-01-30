@@ -9,13 +9,15 @@ TF_BACKEND=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/backend-feedpaper-web.tf
 
 all: init infra-clean infra build deploy
 
+all-no-clean: init infra build deploy
+
 clean:
 	bob clean
 	rm -rf .terraform/
 
 init: clean
 	bob dep
-	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform init -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
+	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform init -backend-config $(TF_BACKEND) -backend=true 
 
 build:
 	rm -f /usr/bin/ae86

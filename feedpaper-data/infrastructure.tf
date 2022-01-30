@@ -1,20 +1,20 @@
 variable "region" {}
 variable "remote_state_bucket" {}
-variable "remote_state_key" {}
+variable "remote_state_key_prefix" {}
 variable "remote_state_region" {}
 variable "db_data" {}
 variable "iam_role_name" {}
 variable "lambda_function_clean_data" {}
 
 terraform {
-  backend "local" {}
+  backend "s3" {}
 }
 
 data "terraform_remote_state" "remote_state" {
   backend = "s3"
   config = {
     bucket = var.remote_state_bucket
-    key    = var.remote_state_key
+    key    = "${var.remote_state_key_prefix}/feedpaper-data.tfstate"
     region = var.remote_state_region
   }
 }

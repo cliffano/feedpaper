@@ -9,6 +9,8 @@ TF_BACKEND=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/backend-feedpaper-api.tf
 
 all: init infra-clean build deploy infra
 
+all: init build deploy infra
+
 clean:
 	bob clean
 	rm -rf .terraform/
@@ -16,7 +18,7 @@ clean:
 init: clean
 	bob dep
 	node_modules/.bin/jsonlint $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/feedpaper.json $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/feeds.json
-	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh &&  terraform init -backend-config $(TF_BACKEND) -backend=true -force-copy -lock=false
+	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh &&  terraform init -backend-config $(TF_BACKEND) -backend=true -migrate-state
 
 build:
 	bob build
