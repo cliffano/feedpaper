@@ -27,7 +27,7 @@ build:
 
 deploy:
 	# TODO: retrieve bucket name from config
-	aws s3 cp `pwd`/.bob/site/ae86/ s3://feedpaper-prd.cliffano.com --recursive
+	aws s3 cp `pwd`/.bob/site/ae86/ s3://feedpaper-$(FEEDPAPER_ENV).cliffano.com --recursive
 
 	# build:
 	# 	bob build
@@ -41,7 +41,7 @@ deploy:
 	# 	bob deploy
 
 infra-clean:
-	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform destroy -force
+	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform destroy
 
 infra:
 	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform apply -auto-approve

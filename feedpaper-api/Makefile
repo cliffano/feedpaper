@@ -9,7 +9,7 @@ TF_BACKEND=$(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/backend-feedpaper-api.tf
 
 all: init infra-clean build deploy infra
 
-all: init build deploy infra
+all-no-clean: init build deploy infra
 
 clean:
 	bob clean
@@ -44,7 +44,7 @@ deploy:
 	echo "TODO - extract lambda deployment from default infrastructure.tf"
 
 infra-clean:
-	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform destroy -force
+	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform destroy
 
 infra:
 	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && terraform apply -auto-approve

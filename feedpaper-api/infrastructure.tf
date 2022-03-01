@@ -15,15 +15,6 @@ terraform {
   backend "s3" {}
 }
 
-data "terraform_remote_state" "remote_state" {
-  backend = "s3"
-  config = {
-    bucket = var.remote_state_bucket
-    key    = "${var.remote_state_key_prefix}/feedpaper-api.tfstate"
-    region = var.remote_state_region
-  }
-}
-
 provider "aws" {
     region = var.region
     version = "2.54.0"
