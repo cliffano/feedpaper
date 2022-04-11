@@ -23,7 +23,7 @@
     "test": "./test"
   },
   "dependencies": {
-    "aws-sdk": "^2.2.4"
+    "aws-sdk": "^2.814.0"
   },
   "scripts": {},
   "engines": {
