@@ -1,6 +1,6 @@
 <img align="right" src="https://raw.github.com/cliffano/feedpaper/master/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://img.shields.io/travis/cliffano/feedpaper.svg)](http://travis-ci.org/cliffano/feedpaper)
+[![Build Status](https://github.com/cliffano/feedpaper/workflows/CI/badge.svg)](https://github.com/cliffano/feedpaper/actions?query=workflow%3ACI)
 <br/>
 
 Feedpaper
