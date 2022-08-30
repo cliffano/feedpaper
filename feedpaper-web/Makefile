@@ -26,8 +26,8 @@ build:
 	terraform graph
 
 deploy:
-	# TODO: retrieve bucket name from config
-	aws s3 cp `pwd`/.bob/site/ae86/ s3://feedpaper-$(FEEDPAPER_ENV).cliffano.com --recursive
+	. $(FEEDPAPER_CFG)/$(FEEDPAPER_ENV)/terraform-tfvars.sh && \
+	aws s3 cp `pwd`/.bob/site/ae86/ s3://$${TF_VAR_bucket_site} --recursive
 
 	# build:
 	# 	bob build
