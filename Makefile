@@ -1,3 +1,10 @@
+ifndef AWS_PROFILE
+    $(error Please specify AWS_PROFILE)
+endif
+ifndef AWS_DEFAULT_PROFILE
+    $(error Please specify AWS_DEFAULT_PROFILE)
+endif
+
 init-stg:
 	export FEEDPAPER_CFG=/opt/workspace/workspace-control/config/studio/feedpaper/ && \
 	export FEEDPAPER_ENV=stg && \
