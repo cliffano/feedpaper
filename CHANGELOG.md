@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Use keep-a-changelog for changelog format
 - Replace Travis CI with GH Actions
+- Upgrade Lambda runtime to nodejs16.x
+- Upgrade Terraform AWS provider to 4.38.0
+- Include lock files in clean target
 
 ## 0.0.3
 

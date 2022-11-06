@@ -23,17 +23,17 @@
     "test": "./test"
   },
   "dependencies": {
-    "aws-sdk": "^2.2.4",
+    "aws-sdk": "^2.1248.0",
     "feed-read": "git://github.com/sentientwaffle/feed-read.git",
-    "node-read": "^0.1.6",
-    "slug": "^0.9.1"
+    "node-read": "^0.1.7",
+    "slug": "^8.2.2"
   },
   "devDependencies": {
-    "jsonlint": "^1.0.3"
+    "jsonlint": "^1.6.3"
   },
   "scripts": {},
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 16.0.0"
   },
   "licenses": [
     {

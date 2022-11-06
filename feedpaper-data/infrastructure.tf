@@ -12,7 +12,7 @@ terraform {
 
 provider "aws" {
     region = var.region
-    version = "2.54.0"
+    version = "4.38.0"
 }
 
 resource "aws_dynamodb_table" "data" {

@@ -17,7 +17,7 @@ terraform {
 
 provider "aws" {
     region = var.region
-    version = "2.54.0"
+    version = "4.38.0"
 }
 
 #resource "aws_api_gateway_account" "apigateway" {
@@ -75,7 +75,7 @@ resource "aws_lambda_function" "get-feed" {
     role = aws_iam_role.iam_role_lambda.arn
     handler = "get-feed.handler"
     timeout = 10
-    runtime = "nodejs12.x"
+    runtime = "nodejs16.x"
 }
 
 resource "aws_lambda_function" "get-article" {
@@ -85,7 +85,7 @@ resource "aws_lambda_function" "get-article" {
     role = aws_iam_role.iam_role_lambda.arn
     handler = "get-article.handler"
     timeout = 20
-    runtime = "nodejs12.x"
+    runtime = "nodejs16.x"
 }
 
 resource "aws_iam_role" "iam_role_apigateway" {

@@ -23,11 +23,11 @@
     "test": "./test"
   },
   "dependencies": {
-    "aws-sdk": "^2.2.4"
+    "aws-sdk": "^2.1248.0"
   },
   "scripts": {},
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 16.0.0"
   },
   "licenses": [
     {

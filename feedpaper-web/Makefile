@@ -14,6 +14,8 @@ all-no-clean: init infra build deploy
 clean:
 	bob clean
 	rm -rf .terraform/
+	rm -f package-lock.json
+	rm -f .terraform.lock.hcl
 
 init: clean
 	bob dep
