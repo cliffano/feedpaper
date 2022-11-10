@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade Lambda runtime to nodejs16.x
 - Upgrade Terraform AWS provider to 4.38.0
 - Include lock files in clean target
+- Auto-approve all TF actions
 
 ## 0.0.3
 
