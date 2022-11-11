@@ -84,4 +84,15 @@ delete-all-prd: init-prd
 	cd feedpaper-api && make infra-clean && cd .. && \
 	cd feedpaper-data && make infra-clean && cd ..
 
-.PHONY: init-stg create-data-stg create-api-stg create-web-stg create-all-stg delete-all-stg init-prd create-data-prd create-api-prd create-web-prd create-all-prd delete-all-prd
+release-major:
+	rtk release --release-increment-type major
+
+release-minor:
+	rtk release --release-increment-type minor
+
+release-patch:
+	rtk release --release-increment-type patch
+
+release: release-minor
+
+.PHONY: init-stg create-data-stg create-api-stg create-web-stg create-all-stg delete-all-stg init-prd create-data-prd create-api-prd create-web-prd create-all-prd delete-all-prd release-major release-minor release-patch release

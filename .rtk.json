@@ -1,0 +1,29 @@
+{
+  "resources": [
+    {
+      "path": "feedpaper-api/package.json",
+      "type": "json",
+      "params": {
+        "property": "version"
+      }
+    },
+    {
+      "path": "feedpaper-data/package.json",
+      "type": "json",
+      "params": {
+        "property": "version"
+      }
+    },
+    {
+      "path": "feedpaper-web/package.json",
+      "type": "json",
+      "params": {
+        "property": "version"
+      }
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "keep-a-changelog"
+    }
+  ]
+}
