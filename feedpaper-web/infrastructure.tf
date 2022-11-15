@@ -1,12 +1,9 @@
 variable "region" {}
-variable "remote_state_bucket" {}
-variable "remote_state_key_prefix" {}
-variable "remote_state_region" {}
 variable "bucket_site" {}
 variable "route53_domain_name" {}
 variable "route53_domain_zoneid" {}
-variable "route53_domain_alias_name" {}
-variable "route53_domain_alias_zoneid" {}
+variable "acm_certificate_arn" {}
+variable "s3_bucket_cdn_log" {}
 
 terraform {
   backend "s3" {}
@@ -14,46 +11,21 @@ terraform {
 
 provider "aws" {
     region = var.region
-    version = "4.38.0"
+    version = "4.39.0"
 }
 
-resource "aws_s3_bucket" "site" {
-    bucket = var.bucket_site
-    acl = "public-read"
-    policy = <<EOF
-{
-  "Id": "bucket_policy_site",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "bucket_policy_site_1",
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${var.bucket_site}/*",
-      "Principal": "*"
-    }
-  ]
-}
-EOF
-    website {
-        index_document = "index.html"
-        error_document = "error.html"
-    }
-    tags = {
-        project = "feedpaper"
-    }
-    force_destroy = true
-}
-
-resource "aws_route53_record" "domain" {
-   name = var.route53_domain_name
-   zone_id = var.route53_domain_zoneid
-   type = "A"
-   alias {
-     name = var.route53_domain_alias_name
-     zone_id = var.route53_domain_alias_zoneid
-     evaluate_target_health = true
-   }
+module "kon_tiki" {
+  source                       = "git::https://github.com/cliffano/terraform-kon-tiki.git?ref=main"
+  acm_certificate_arn          = var.acm_certificate_arn
+  route53_domain               = var.route53_domain_name
+  route53_zone_id              = var.route53_domain_zoneid
+  s3_bucket_cdn_log            = var.s3_bucket_cdn_log
+  s3_bucket_site               = var.bucket_site
+  enable_s3_bucket_extras      = false
+  enable_lambda_viewer_request = false
+  enable_lambda_origin_request = false
+  region                       = var.region
+  tags = {
+    project = "feedpaper"
+  }
 }

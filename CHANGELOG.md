@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade Terraform AWS provider to 4.38.0
 - Include lock files in clean target
 - Auto-approve all TF actions
+- Switch feedpaper-web provisioning to use Terraform Kon-Tiki
 
 ## 0.0.3
 
