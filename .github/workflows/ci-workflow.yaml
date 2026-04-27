@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v1
     - uses: ./.github/actions/ci-action
