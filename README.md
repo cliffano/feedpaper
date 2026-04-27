@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.github.com/cliffano/feedpaper/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/cliffano/feedpaper/main/avatar.jpg" alt="Avatar"/>
 
 [![Build Status](https://github.com/cliffano/feedpaper/workflows/CI/badge.svg)](https://github.com/cliffano/feedpaper/actions?query=workflow%3ACI)
 <br/>
